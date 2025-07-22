@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -48,11 +47,17 @@ const PersonalPageEditor = () => {
       if (error) throw error;
       
       setProfile(data);
-      // Safely access the content property
-      const content = data?.page_content && typeof data.page_content === 'object' && 'content' in data.page_content 
-        ? data.page_content.content 
-        : '';
-      setPageContent(content || '');
+      // Safely access the content property with proper type checking
+      let content = '';
+      if (data?.page_content) {
+        if (typeof data.page_content === 'string') {
+          content = data.page_content;
+        } else if (typeof data.page_content === 'object' && data.page_content !== null && 'content' in data.page_content) {
+          const pageContentObj = data.page_content as { content?: string };
+          content = pageContentObj.content || '';
+        }
+      }
+      setPageContent(content);
     } catch (error) {
       console.error('Error fetching profile:', error);
       toast({
