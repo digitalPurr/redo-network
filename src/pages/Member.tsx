@@ -3,7 +3,8 @@ import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Github, Twitter, Globe, Loader2 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Github, Twitter, Globe, Loader2, ExternalLink, Youtube, Instagram, Music } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
@@ -19,6 +20,11 @@ interface Profile {
   github_url: string | null;
   twitter_url: string | null;
   portfolio_url: string | null;
+  page_slug: string | null;
+  page_published: boolean | null;
+  youtube_url: string | null;
+  instagram_url: string | null;
+  soundcloud_url: string | null;
 }
 
 const Member = () => {
@@ -104,7 +110,7 @@ const Member = () => {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {profiles.map((profile) => (
-                <Card key={profile.id} className="bg-card/50 backdrop-blur-sm border-border/20 hover:bg-card/70 transition-all duration-300">
+                <Card key={profile.id} className="bg-card/50 backdrop-blur-sm border-border/20 hover:bg-card/70 transition-all duration-300 group">
                   <CardContent className="p-6">
                     <div className="flex flex-col items-center text-center">
                       <Avatar className="h-24 w-24 mb-4">
@@ -125,35 +131,54 @@ const Member = () => {
                       )}
                       
                       {profile.bio && (
-                        <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                        <p className="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3">
                           {profile.bio}
                         </p>
                       )}
                       
                       {profile.skills && profile.skills.length > 0 && (
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {profile.skills.slice(0, 4).map((skill, index) => (
+                        <div className="flex flex-wrap gap-2 mb-4 justify-center">
+                          {profile.skills.slice(0, 3).map((skill, index) => (
                             <Badge key={index} variant="secondary" className="text-xs">
                               {skill}
                             </Badge>
                           ))}
-                          {profile.skills.length > 4 && (
+                          {profile.skills.length > 3 && (
                             <Badge variant="outline" className="text-xs">
-                              +{profile.skills.length - 4} more
+                              +{profile.skills.length - 3}
                             </Badge>
                           )}
                         </div>
                       )}
                       
-                      <div className="flex space-x-3">
+                      {/* Personal Page Link */}
+                      {profile.page_published && (profile.page_slug || profile.username) && (
+                        <div className="mb-4 w-full">
+                          <Button 
+                            asChild 
+                            variant="outline" 
+                            size="sm" 
+                            className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                          >
+                            <a href={`/team/${profile.page_slug || profile.username}`}>
+                              <ExternalLink size={14} className="mr-2" />
+                              View Profile
+                            </a>
+                          </Button>
+                        </div>
+                      )}
+                      
+                      {/* Social Links */}
+                      <div className="flex flex-wrap gap-3 justify-center">
                         {profile.github_url && (
                           <a
                             href={profile.github_url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-muted-foreground hover:text-foreground transition-colors"
+                            className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-accent rounded-md"
+                            title="GitHub"
                           >
-                            <Github size={20} />
+                            <Github size={18} />
                           </a>
                         )}
                         {profile.twitter_url && (
@@ -161,9 +186,10 @@ const Member = () => {
                             href={profile.twitter_url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-muted-foreground hover:text-foreground transition-colors"
+                            className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-accent rounded-md"
+                            title="Twitter"
                           >
-                            <Twitter size={20} />
+                            <Twitter size={18} />
                           </a>
                         )}
                         {profile.portfolio_url && (
@@ -171,9 +197,43 @@ const Member = () => {
                             href={profile.portfolio_url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-muted-foreground hover:text-foreground transition-colors"
+                            className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-accent rounded-md"
+                            title="Portfolio"
                           >
-                            <Globe size={20} />
+                            <Globe size={18} />
+                          </a>
+                        )}
+                        {profile.youtube_url && (
+                          <a
+                            href={profile.youtube_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-accent rounded-md"
+                            title="YouTube"
+                          >
+                            <Youtube size={18} />
+                          </a>
+                        )}
+                        {profile.instagram_url && (
+                          <a
+                            href={profile.instagram_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-accent rounded-md"
+                            title="Instagram"
+                          >
+                            <Instagram size={18} />
+                          </a>
+                        )}
+                        {profile.soundcloud_url && (
+                          <a
+                            href={profile.soundcloud_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-accent rounded-md"
+                            title="SoundCloud"
+                          >
+                            <Music size={18} />
                           </a>
                         )}
                       </div>
