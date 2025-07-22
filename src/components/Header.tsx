@@ -44,7 +44,7 @@ export const Header: React.FC<HeaderProps> = ({
               </div>
               <div>
                 <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                  RE:DO
+                  ⌈RE⁝DO⌋
                 </h1>
                 <p className="text-xs text-muted-foreground -mt-1">NETWORK</p>
               </div>
