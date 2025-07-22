@@ -1,59 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
 import { ProjectCard } from '@/components/ProjectCard';
+import { supabase } from '@/integrations/supabase/client';
 
 const Projects = () => {
-  const allProjects = [
-    {
-      title: "Neural Synthesis",
-      description: "AI-powered generative art system that creates dynamic visual experiences through machine learning algorithms and real-time data processing.",
-      category: "AI • VISUALS",
-      interactive: true,
-      demoUrl: "#",
-      projectUrl: "#"
-    },
-    {
-      title: "Quantum Interface",
-      description: "Revolutionary user interface design exploring quantum computing principles in human-computer interaction and parallel processing visualization.",
-      category: "UI/UX • TECH",
-      interactive: true,
-      demoUrl: "#",
-      projectUrl: "#"
-    },
-    {
-      title: "Biometric Harmony",
-      description: "Real-time biometric data visualization creating immersive audio-visual experiences from human physiology and emotional states.",
-      category: "DATA • AUDIO",
-      interactive: false,
-      demoUrl: "#",
-      projectUrl: "#"
-    },
-    {
-      title: "Spatial Computing",
-      description: "Next-generation spatial computing platform enabling collaborative creation in mixed reality environments with haptic feedback.",
-      category: "AR/VR • COLLAB",
-      interactive: true,
-      demoUrl: "#",
-      projectUrl: "#"
-    },
-    {
-      title: "Morphic Networks",
-      description: "Adaptive network visualization tool that maps complex data relationships in real-time, revealing hidden patterns and connections.",
-      category: "DATA • NETWORKS",
-      interactive: true,
-      demoUrl: "#",
-      projectUrl: "#"
-    },
-    {
-      title: "Echo Chamber",
-      description: "Interactive sound design platform using machine learning to generate and manipulate audio landscapes based on environmental data.",
-      category: "AUDIO • ML",
-      interactive: false,
-      demoUrl: "#",
-      projectUrl: "#"
+  const [projects, setProjects] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        const { data, error } = await supabase
+          .from('projects')
+          .select('*')
+          .order('created_at', { ascending: false })
+
+        if (error) {
+          console.error('Error fetching projects:', error)
+        } else {
+          setProjects(data || [])
+        }
+      } catch (error) {
+        console.error('Error:', error)
+      } finally {
+        setLoading(false)
+      }
     }
-  ];
+
+    fetchProjects()
+  }, [])
 
   return (
     <div className="min-h-screen relative">
@@ -75,13 +51,23 @@ const Projects = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {allProjects.map((project, index) => (
-              <ProjectCard
-                key={index}
-                {...project}
-                className={`animate-in slide-in-from-bottom-8 duration-700 [animation-delay:${index * 100}ms]`}
-              />
-            ))}
+            {loading ? (
+              <div className="col-span-full text-center text-muted-foreground">
+                Loading projects...
+              </div>
+            ) : projects.length > 0 ? (
+              projects.map((project, index) => (
+                <ProjectCard
+                  key={project.id}
+                  {...project}
+                  className={`animate-in slide-in-from-bottom-8 duration-700 [animation-delay:${index * 100}ms]`}
+                />
+              ))
+            ) : (
+              <div className="col-span-full text-center text-muted-foreground">
+                No projects found.
+              </div>
+            )}
           </div>
         </div>
       </main>
