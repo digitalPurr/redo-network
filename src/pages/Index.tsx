@@ -1,9 +1,10 @@
+
 import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Zap, Users, Rocket } from 'lucide-react';
+import { ArrowRight, Heart, Users, Seedling } from 'lucide-react';
 
 const Index = () => {
   // Sample projects data - would come from backend in real implementation
@@ -42,21 +43,21 @@ const Index = () => {
     }
   ];
 
-  const features = [
+  const values = [
     {
-      icon: <Zap className="h-6 w-6" />,
-      title: "Real-time Collaboration",
-      description: "Work together seamlessly with advanced real-time tools and communication systems."
+      icon: <Heart className="h-6 w-6" />,
+      title: "Intentionality",
+      description: "We build slowly, deliberately, and without pressure to perform. Every feature exists on purpose."
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: "Creative Network",
-      description: "Connect with like-minded creators and build meaningful collaborative relationships."
+      title: "Mutuality",
+      description: "This isn't an audience—it's a collaboration. Everyone's voice matters, and no one builds alone here."
     },
     {
-      icon: <Rocket className="h-6 w-6" />,
-      title: "Cutting-edge Tech",
-      description: "Leverage the latest technologies to push the boundaries of creative expression."
+      icon: <Seedling className="h-6 w-6" />,
+      title: "Gentle Accountability",
+      description: "We hold each other with kindness, not pressure. You're allowed to rest. You're allowed to try again."
     }
   ];
 
@@ -79,10 +80,14 @@ const Index = () => {
               <br />
               <span className="text-foreground">NETWORK</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              A collaborative platform for digital creators pushing the boundaries of 
-              technology, art, and human experience.
-            </p>
+            <div className="space-y-2">
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                We are a second chance space.
+              </p>
+              <p className="text-lg text-muted-foreground italic">
+                For projects. For people. For possibilities.
+              </p>
+            </div>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -91,38 +96,38 @@ const Index = () => {
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
             <Button variant="glass" size="hero">
-              Join Network
+              Join Community
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Philosophy Section */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Collaborative Creation
+              Building with Care
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Built for creators who believe in the power of collaboration and shared innovation.
+              We uplift process over perfection. Human-sized spaces and emotional safety come first.
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
+            {values.map((value, index) => (
               <div
                 key={index}
                 className="group p-8 rounded-xl bg-gradient-card border border-border/50 hover:shadow-card transition-all duration-500 hover:scale-105"
               >
                 <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center text-primary-foreground mb-6 group-hover:shadow-glow transition-all duration-300">
-                  {feature.icon}
+                  {value.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {feature.title}
+                  {value.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
+                  {value.description}
                 </p>
               </div>
             ))}
@@ -138,8 +143,7 @@ const Index = () => {
               Featured Projects
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore our latest collaborative creations spanning AI, spatial computing, 
-              and interactive experiences.
+              This is not content. This is connection. We're here to re:connect, re:build, and re:do—together.
             </p>
           </div>
           
@@ -174,14 +178,14 @@ const Index = () => {
             </span>
           </div>
           <p className="text-muted-foreground mb-6">
-            Building the future of collaborative digital creation.
+            Building the internet we actually want—with care.
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-colors duration-300">About</a>
-            <a href="#" className="hover:text-primary transition-colors duration-300">Projects</a>
-            <a href="#" className="hover:text-primary transition-colors duration-300">Team</a>
-            <a href="#" className="hover:text-primary transition-colors duration-300">Contact</a>
-            <a href="#" className="hover:text-primary transition-colors duration-300">Privacy</a>
+            <a href="/about" className="hover:text-primary transition-colors duration-300">About</a>
+            <a href="/projects" className="hover:text-primary transition-colors duration-300">Projects</a>
+            <a href="/community" className="hover:text-primary transition-colors duration-300">Community</a>
+            <a href="/team" className="hover:text-primary transition-colors duration-300">Team</a>
+            <a href="/contact" className="hover:text-primary transition-colors duration-300">Contact</a>
           </div>
         </div>
       </footer>

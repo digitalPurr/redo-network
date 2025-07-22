@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -63,6 +64,12 @@ export const Header: React.FC<HeaderProps> = ({
               className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
             >
               About
+            </Link>
+            <Link 
+              to="/community" 
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
+            >
+              Community
             </Link>
             <Link 
               to="/team" 

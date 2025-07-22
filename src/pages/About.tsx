@@ -1,41 +1,46 @@
+
 import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
 import { Card } from '@/components/ui/card';
-import { Zap, Users, Rocket, Globe, Brain, Heart } from 'lucide-react';
+import { Heart, Users, Eye, Shield, Seedling } from 'lucide-react';
 
 const About = () => {
   const values = [
     {
-      icon: <Brain className="h-6 w-6" />,
-      title: "Innovation First",
-      description: "We push boundaries through experimental approaches and cutting-edge technologies."
+      icon: <Heart className="h-6 w-6" />,
+      title: "Intentionality",
+      description: "We build slowly, deliberately, and without pressure to perform. Every channel, every post, every feature exists on purpose."
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: "Collaborative Spirit",
-      description: "Every project is a collective effort, amplifying individual creativity through teamwork."
+      title: "Mutuality",
+      description: "This isn't an audience—it's a collaboration. Everyone's voice matters, and no one builds alone here."
     },
     {
-      icon: <Globe className="h-6 w-6" />,
-      title: "Global Impact",
-      description: "Creating digital experiences that transcend borders and connect diverse communities."
+      icon: <Eye className="h-6 w-6" />,
+      title: "Transparency",
+      description: "We share how we work. We talk about what's changing. No behind-the-curtain nonsense."
     },
     {
-      icon: <Zap className="h-6 w-6" />,
-      title: "Rapid Iteration",
-      description: "Embracing the RE:DO philosophy of continuous improvement and fearless experimentation."
+      icon: <Shield className="h-6 w-6" />,
+      title: "Non-Extractive Culture",
+      description: "This space isn't for clout-farming or recruiting people into unpaid labor. We connect because we want to, not because we need something."
     },
     {
-      icon: <Rocket className="h-6 w-6" />,
-      title: "Future-Forward",
-      description: "Building for tomorrow while solving today's creative and technological challenges."
-    },
-    {
-      icon: <Heart className="h-6 w-6" />,
-      title: "Human-Centered",
-      description: "Technology serves humanity, enhancing rather than replacing human creativity and connection."
+      icon: <Seedling className="h-6 w-6" />,
+      title: "Gentle Accountability",
+      description: "We hold each other with kindness, not pressure. You're allowed to rest. You're allowed to try again."
     }
+  ];
+
+  const beliefs = [
+    "Everyone deserves another shot.",
+    "We uplift process over perfection.",
+    "Emotional safety and human-sized spaces come first.",
+    "Conflict happens. We hold space for dialogue, not debate.",
+    "Creativity is healing, not a hustle.",
+    "This is not content. This is connection."
   ];
 
   return (
@@ -54,21 +59,27 @@ const About = () => {
               <br />
               <span className="text-foreground">RE:DO NETWORK</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              We are a collective of digital creators, technologists, and visionaries 
-              working at the intersection of art, technology, and human experience.
-            </p>
+            <div className="space-y-4">
+              <p className="text-xl text-muted-foreground leading-relaxed font-medium">
+                We are a second chance space.
+              </p>
+              <p className="text-lg text-muted-foreground italic">
+                For projects. For people. For possibilities.
+              </p>
+            </div>
           </div>
 
           {/* Mission Statement */}
           <div className="mb-20">
             <Card className="p-8 bg-gradient-card border-border/50 hover:shadow-card transition-all duration-500">
               <h2 className="text-2xl font-semibold text-foreground mb-4">Our Mission</h2>
+              <p className="text-muted-foreground leading-relaxed text-lg mb-4">
+                We are building the internet we actually want—inspired by the web of yesterday, 
+                forged by us today. A living code rooted in reflection and reborn through action.
+              </p>
               <p className="text-muted-foreground leading-relaxed text-lg">
-                「RE:DO NETWORK」 exists to amplify human creativity through collaborative 
-                digital experiences. We believe that the most profound innovations emerge 
-                when diverse minds unite around shared visions, leveraging cutting-edge 
-                technology as a canvas for collective expression.
+                We're not just here to rebuild what we lost. We're here to imagine something better.
+                A foundation for human-sized spaces where creativity is healing, not a hustle.
               </p>
             </Card>
           </div>
@@ -76,7 +87,7 @@ const About = () => {
           {/* Values Grid */}
           <div className="mb-20">
             <h2 className="text-3xl font-bold text-center text-foreground mb-12">
-              Our Values
+              Our Core Values
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {values.map((value, index) => (
@@ -102,18 +113,37 @@ const About = () => {
             </div>
           </div>
 
+          {/* What We Believe */}
+          <div className="mb-20">
+            <h2 className="text-3xl font-bold text-center text-foreground mb-12">
+              What We Believe
+            </h2>
+            <Card className="p-8 bg-gradient-card border-border/50 hover:shadow-card transition-all duration-500">
+              <div className="space-y-4">
+                {beliefs.map((belief, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <span className="text-primary mt-1">•</span>
+                    <p className="text-foreground leading-relaxed">{belief}</p>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </div>
+
           {/* Philosophy */}
           <div className="text-center">
             <Card className="p-8 bg-gradient-card border-border/50 hover:shadow-card transition-all duration-500">
               <h2 className="text-2xl font-semibold text-foreground mb-4">
                 The RE:DO Philosophy
               </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                "RE:DO" represents our commitment to iterative excellence. Every project, 
-                every collaboration, every creative endeavor is an opportunity to refine, 
-                reimagine, and revolutionize. We don't just create—we continuously recreate, 
-                ensuring that our work evolves with the rapidly changing landscape of 
-                technology and human expression.
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "RE:DO" represents our commitment to gentle iteration. Every project, 
+                every collaboration, every creative endeavor is an opportunity to reflect, 
+                reconnect, and reimagine.
+              </p>
+              <p className="text-muted-foreground leading-relaxed italic">
+                This isn't the internet we were handed. This is the one we're making—with care.
+                You're not late. You're right on time.
               </p>
             </Card>
           </div>
