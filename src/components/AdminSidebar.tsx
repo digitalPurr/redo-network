@@ -8,7 +8,8 @@ import {
   CheckSquare, 
   Users, 
   Settings,
-  UserPlus 
+  UserPlus,
+  FileText
 } from 'lucide-react';
 
 const AdminSidebar = () => {
@@ -50,6 +51,12 @@ const AdminSidebar = () => {
       icon: Settings,
       label: 'Settings',
       href: '/admin/settings',
+      roles: ['network-admin', 'project-lead']
+    },
+    {
+      icon: FileText,
+      label: 'Site Content',
+      href: '/admin/site-content',
       roles: ['network-admin', 'project-lead']
     }
   ];

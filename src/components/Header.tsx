@@ -72,10 +72,10 @@ export const Header: React.FC<HeaderProps> = ({
               Community
             </Link>
             <Link 
-              to="/team" 
+              to="/member" 
               className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
             >
-              Team
+              Members
             </Link>
             <Link 
               to="/contact" 
