@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, Save, Eye } from 'lucide-react';
+import WaveAnimationControls from '@/components/dashboard/WaveAnimationControls';
 
 interface SiteContent {
   id: string;
@@ -128,10 +129,11 @@ const AdminSiteContent = () => {
   return (
     <AdminLayout title="Site Content" description="Manage front page content and sections">
       <Tabs defaultValue="hero" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-3">
+        <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="hero">Hero Section</TabsTrigger>
           <TabsTrigger value="philosophy">Philosophy</TabsTrigger>
           <TabsTrigger value="projects">Projects</TabsTrigger>
+          <TabsTrigger value="animations">Wave Animations</TabsTrigger>
         </TabsList>
 
         <TabsContent value="hero">
@@ -307,6 +309,10 @@ const AdminSiteContent = () => {
               </div>
             </CardContent>
           </Card>
+        </TabsContent>
+
+        <TabsContent value="animations">
+          <WaveAnimationControls />
         </TabsContent>
       </Tabs>
     </AdminLayout>

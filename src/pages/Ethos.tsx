@@ -126,9 +126,11 @@ const Ethos = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
       <GenerativeBackground />
-      <AnimatedWavesBlue />
+      <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
+        <AnimatedWavesBlue />
+      </div>
       <Header />
       
       <main className="relative z-10 pt-20">

@@ -47,13 +47,15 @@ const About = () => {
   return (
     <div className="min-h-screen relative">
       <GenerativeBackground />
-      <AnimatedWavesPurple />
+      <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
+        <AnimatedWavesPurple />
+      </div>
       <Header />
       
-      <main className="relative pt-32 pb-20 px-6">
-        <div className="max-w-4xl mx-auto">
+      <main className="relative pt-32 pb-20 px-4">
+        <div className="w-full max-w-none px-4">
           {/* Hero Section */}
-          <div className="text-center space-y-6 mb-20">
+          <div className="text-center space-y-6 mb-20 max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
               <span className="bg-gradient-primary bg-clip-text text-transparent">
                 About
@@ -72,7 +74,7 @@ const About = () => {
           </div>
 
           {/* Mission Statement */}
-          <div className="mb-20">
+          <div className="mb-20 max-w-4xl mx-auto">
             <Card className="p-8 bg-gradient-card border-border/50 hover:shadow-card transition-all duration-500">
               <h2 className="text-2xl font-semibold text-foreground mb-4">Our Mission</h2>
               <p className="text-muted-foreground leading-relaxed text-lg mb-4">
@@ -87,7 +89,7 @@ const About = () => {
           </div>
 
           {/* Consolidated Core Values */}
-          <div className="mb-20">
+          <div className="mb-20 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center text-foreground mb-12">
               Our Core Values
             </h2>
@@ -113,7 +115,7 @@ const About = () => {
           </div>
 
           {/* What We Believe */}
-          <div className="mb-20">
+          <div className="mb-20 max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center text-foreground mb-12">
               What We Believe
             </h2>
@@ -130,7 +132,7 @@ const About = () => {
           </div>
 
           {/* Philosophy */}
-          <div className="text-center">
+          <div className="text-center max-w-4xl mx-auto">
             <Card className="p-8 bg-gradient-card border-border/50 hover:shadow-card transition-all duration-500">
               <h2 className="text-2xl font-semibold text-foreground mb-4">
                 The ⌈RE⁝DO⌋ Philosophy
