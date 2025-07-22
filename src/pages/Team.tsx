@@ -9,7 +9,7 @@ const Team = () => {
   const teamMembers = [
     {
       name: "dirtnoise",
-      role: "Creative Director & Lead Developer",
+      role: "Creative Director & Lead Developer", 
       bio: "Visionary technologist pushing the boundaries of digital art and collaborative creation.",
       skills: ["Creative Direction", "Full-Stack Development", "AI Integration", "WebGL"],
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
@@ -18,6 +18,7 @@ const Team = () => {
         twitter: "#",
         portfolio: "#"
       }
+    }
   ];
 
   return (

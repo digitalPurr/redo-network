@@ -1,8 +1,8 @@
+
 import { GenerativeBackground } from "@/components/GenerativeBackground";
 import { Header } from "@/components/Header";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
 
 const Community = () => {
   const coreValues = [
@@ -46,9 +46,12 @@ const Community = () => {
         "We recognize that you can't include everyone in one community—and you shouldn't try.",
         "There are beliefs that hurt. There are systems that silence.",
         "We take the side of the marginalized, always.",
-        "Oppressive behavior is not tolerated—whether rooted in race, gender, class, disability, orientation, or otherwise.",
-        "When harm occurs, we investigate with empathy. If someone acts in ignorance, we teach. If they act with malice, we remove.",
-        "Safety is not censorship. It's the soil that lets creativity grow.",
+        "",
+        "This means:",
+        "• Oppressive behavior is not tolerated—whether rooted in race, gender, class, disability, orientation, or otherwise.",
+        "• When harm occurs, we investigate with empathy. If someone acts in ignorance, we teach. If they act with malice, we remove.",
+        "• Safety is not censorship. It's the soil that lets creativity grow.",
+        "",
         "We are not apolitical. We are intentionally just."
       ]
     },
@@ -56,10 +59,12 @@ const Community = () => {
       title: "II. Commitment to Collective Well-Being and Growth",
       subtitle: "This place only works if we all care for it—and each other.",
       content: [
-        "Sustainable selflessness: Help others when you can.",
-        "Compassionate presence: Sometimes just showing up is enough.",
-        "Emotional labor: Listening. Hearing. Pausing. Reflecting and asking for a moment before reacting.",
-        "Creative optimism: Build towards something—not just in opposition.",
+        "To build a healthy culture, we practice:",
+        "• Sustainable selflessness: Help others when you can.",
+        "• Compassionate presence: Sometimes just showing up is enough.",
+        "• Emotional labor: Listening. Hearing. Pausing. Reflecting and asking for a moment before reacting.",
+        "• Creative optimism: Build towards something—not just in opposition.",
+        "",
         "Growth isn't a linear path, and you don't have to be perfect.",
         "Just show up with the intention to learn, and you belong here."
       ]
@@ -69,10 +74,17 @@ const Community = () => {
       subtitle: "We are not brands. We are not followers. We are not algorithms.",
       content: [
         "We are people—building things for each other, not for metrics.",
-        "Treating others as assets, followers, or attention sources",
-        "Treating people as romantic or sexual objects without consent",
-        "Shaming rest, imperfection, or emotional vulnerability",
-        "Instead, we learn to relate as equals, consent to the space we enter, and recognize that the way we behave is shaped by the spaces we're in.",
+        "",
+        "So here, we unlearn:",
+        "• Treating others as assets, followers, or attention sources",
+        "• Treating people as romantic or sexual objects without consent",
+        "• Shaming rest, imperfection, or emotional vulnerability",
+        "",
+        "Instead, we learn to:",
+        "• Relate as equals",
+        "• Consent to the space we enter",
+        "• Recognize that the way we behave is shaped by the spaces we're in",
+        "",
         "We are here to build better spaces, so we can become better people."
       ]
     }
@@ -118,6 +130,8 @@ const Community = () => {
               </blockquote>
             </Card>
           </div>
+
+          <Separator className="my-12" />
 
           {/* Core Values */}
           <section className="mb-16">
@@ -185,6 +199,8 @@ const Community = () => {
             </p>
           </Card>
 
+          <Separator className="my-12" />
+
           {/* Commitments */}
           <section className="mb-16">
             <div className="space-y-12">
@@ -200,7 +216,7 @@ const Community = () => {
                   <div className="ml-8 space-y-3">
                     {commitment.content.map((item, itemIndex) => (
                       <p key={itemIndex} className="text-muted-foreground leading-relaxed">
-                        {itemIndex < 3 || commitment.title.includes("III") ? "• " : ""}{item}
+                        {item}
                       </p>
                     ))}
                   </div>
