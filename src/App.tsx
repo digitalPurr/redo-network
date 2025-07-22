@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,7 +8,7 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import Index from "./pages/Index";
 import Projects from "./pages/Projects";
 import About from "./pages/About";
-import Member from "./pages/Member";
+import Team from "./pages/Team";
 import Contact from "./pages/Contact";
 import Community from "./pages/Community";
 import Admin from "./pages/Admin";
@@ -17,7 +16,6 @@ import Auth from "./pages/Auth";
 import Profile from "./pages/Profile";
 import UserPage from "./pages/UserPage";
 import AdminTeam from "./pages/AdminTeam";
-import AdminSiteContent from "./pages/AdminSiteContent";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,9 +29,8 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/projects" element={<Projects />} />
             <Route path="/about" element={<About />} />
-            <Route path="/member" element={<Member />} />
+            <Route path="/team" element={<Team />} />
             <Route path="/team/:username" element={<UserPage />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/community" element={<Community />} />
@@ -59,14 +56,6 @@ const App = () => (
               element={
                 <ProtectedRoute allowedRoles={['network-admin', 'project-lead']}>
                   <AdminTeam />
-                </ProtectedRoute>
-              } 
-            />
-            <Route 
-              path="/admin/site-content" 
-              element={
-                <ProtectedRoute allowedRoles={['network-admin', 'project-lead']}>
-                  <AdminSiteContent />
                 </ProtectedRoute>
               } 
             />
