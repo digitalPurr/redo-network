@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
@@ -62,6 +63,7 @@ const Projects = () => {
                   title={project.title}
                   description={project.description}
                   category={project.category}
+                  imageUrl={project.image_url}
                   interactive={project.interactive}
                   demoUrl={project.demo_url}
                   projectUrl={project.project_url}
