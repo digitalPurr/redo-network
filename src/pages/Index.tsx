@@ -89,9 +89,9 @@ const Index = () => {
       {/* Call to Action */}
       <section className="relative py-20 px-6 z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Join the Network?</h2>
+          <h2 className="text-4xl font-bold mb-6">You’re not late. You’re right on time.</h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Start your journey with collaborative multimedia creation
+            This isn’t the internet we were handed. This is the one we’re making—with care.
           </p>
           <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 text-white border-0 hover-scale shadow-glow">
             <Link to="/auth">
