@@ -52,32 +52,119 @@ export type Database = {
       profiles: {
         Row: {
           avatar_url: string | null
+          bio: string | null
           created_at: string
           email: string
           first_name: string | null
+          github_url: string | null
           id: string
+          instagram_url: string | null
+          job_title: string | null
           last_name: string | null
+          page_content: Json | null
+          page_published: boolean | null
+          page_slug: string | null
+          page_views: number | null
+          portfolio_url: string | null
+          public_profile: boolean | null
+          show_on_team: boolean | null
+          skills: string[] | null
+          soundcloud_url: string | null
+          twitter_url: string | null
           updated_at: string
+          username: string | null
+          youtube_url: string | null
         }
         Insert: {
           avatar_url?: string | null
+          bio?: string | null
           created_at?: string
           email: string
           first_name?: string | null
+          github_url?: string | null
           id: string
+          instagram_url?: string | null
+          job_title?: string | null
           last_name?: string | null
+          page_content?: Json | null
+          page_published?: boolean | null
+          page_slug?: string | null
+          page_views?: number | null
+          portfolio_url?: string | null
+          public_profile?: boolean | null
+          show_on_team?: boolean | null
+          skills?: string[] | null
+          soundcloud_url?: string | null
+          twitter_url?: string | null
           updated_at?: string
+          username?: string | null
+          youtube_url?: string | null
         }
         Update: {
           avatar_url?: string | null
+          bio?: string | null
           created_at?: string
           email?: string
           first_name?: string | null
+          github_url?: string | null
           id?: string
+          instagram_url?: string | null
+          job_title?: string | null
           last_name?: string | null
+          page_content?: Json | null
+          page_published?: boolean | null
+          page_slug?: string | null
+          page_views?: number | null
+          portfolio_url?: string | null
+          public_profile?: boolean | null
+          show_on_team?: boolean | null
+          skills?: string[] | null
+          soundcloud_url?: string | null
+          twitter_url?: string | null
           updated_at?: string
+          username?: string | null
+          youtube_url?: string | null
         }
         Relationships: []
+      }
+      project_members: {
+        Row: {
+          created_at: string
+          id: string
+          project_id: string | null
+          role: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          project_id?: string | null
+          role?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          project_id?: string | null
+          role?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "project_members_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "project_members_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       projects: {
         Row: {

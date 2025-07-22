@@ -12,6 +12,9 @@ import Team from "./pages/Team";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
+import Profile from "./pages/Profile";
+import UserPage from "./pages/UserPage";
+import AdminTeam from "./pages/AdminTeam";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,13 +31,30 @@ const App = () => (
             <Route path="/projects" element={<Projects />} />
             <Route path="/about" element={<About />} />
             <Route path="/team" element={<Team />} />
+            <Route path="/team/:username" element={<UserPage />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/auth" element={<Auth />} />
+            <Route 
+              path="/profile" 
+              element={
+                <ProtectedRoute allowedRoles={['network-admin', 'project-lead', 'contributor', 'viewer']}>
+                  <Profile />
+                </ProtectedRoute>
+              } 
+            />
             <Route 
               path="/admin" 
               element={
                 <ProtectedRoute allowedRoles={['network-admin', 'project-lead', 'contributor']}>
                   <Admin />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/team" 
+              element={
+                <ProtectedRoute allowedRoles={['network-admin', 'project-lead']}>
+                  <AdminTeam />
                 </ProtectedRoute>
               } 
             />
