@@ -1,7 +1,16 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from './ThemeToggle';
-import { Menu, Settings, User } from 'lucide-react';
+import { useAuth } from '@/hooks/use-auth';
+import { 
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuSeparator, 
+  DropdownMenuTrigger 
+} from '@/components/ui/dropdown-menu';
+import { User, Settings, LogOut } from 'lucide-react';
 
 interface HeaderProps {
   onMenuClick?: () => void;
@@ -12,23 +21,23 @@ export const Header: React.FC<HeaderProps> = ({
   onMenuClick, 
   showAdminAccess = false 
 }) => {
+  const { user, signOut, userRole } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
+  };
+
+  const canAccessAdmin = userRole && ['network-admin', 'project-lead', 'contributor'].includes(userRole);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-md border-b border-border/50">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo / Brand */}
           <div className="flex items-center space-x-4">
-            {onMenuClick && (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={onMenuClick}
-                className="lg:hidden"
-              >
-                <Menu className="h-5 w-5" />
-              </Button>
-            )}
-            <div className="flex items-center space-x-3">
+            <Link to="/" className="flex items-center space-x-3">
               <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center">
                 <div className="w-4 h-4 rounded-sm bg-white/90" />
               </div>
@@ -38,58 +47,75 @@ export const Header: React.FC<HeaderProps> = ({
                 </h1>
                 <p className="text-xs text-muted-foreground -mt-1">NETWORK</p>
               </div>
-            </div>
+            </Link>
           </div>
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a 
-              href="/projects" 
+            <Link 
+              to="/projects" 
               className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
             >
               Projects
-            </a>
-            <a 
-              href="/about" 
+            </Link>
+            <Link 
+              to="/about" 
               className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
             >
               About
-            </a>
-            <a 
-              href="/team" 
+            </Link>
+            <Link 
+              to="/team" 
               className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
             >
               Team
-            </a>
-            <a 
-              href="/contact" 
+            </Link>
+            <Link 
+              to="/contact" 
               className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
             >
               Contact
-            </a>
+            </Link>
           </nav>
 
           {/* Actions */}
           <div className="flex items-center space-x-3">
             <ThemeToggle />
-            {showAdminAccess && (
+            
+            {user ? (
               <>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="relative"
-                >
-                  <User className="h-4 w-4" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="hidden sm:flex"
-                >
-                  <Settings className="h-4 w-4" />
-                  Admin
-                </Button>
+                {canAccessAdmin && (
+                  <Button asChild variant="outline" size="sm">
+                    <Link to="/admin">Admin Panel</Link>
+                  </Button>
+                )}
+                
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="sm" className="flex items-center space-x-2">
+                      <User size={16} />
+                      <span className="hidden sm:inline">{user.email}</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem asChild>
+                      <Link to="/profile" className="flex items-center space-x-2">
+                        <Settings size={16} />
+                        <span>Profile</span>
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={handleSignOut} className="flex items-center space-x-2 text-destructive">
+                      <LogOut size={16} />
+                      <span>Sign Out</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </>
+            ) : (
+              <Button asChild variant="outline" size="sm">
+                <Link to="/auth">Sign In</Link>
+              </Button>
             )}
           </div>
         </div>
