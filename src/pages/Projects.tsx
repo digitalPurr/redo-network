@@ -59,7 +59,12 @@ const Projects = () => {
               projects.map((project, index) => (
                 <ProjectCard
                   key={project.id}
-                  {...project}
+                  title={project.title}
+                  description={project.description}
+                  category={project.category}
+                  interactive={project.interactive}
+                  demoUrl={project.demo_url}
+                  projectUrl={project.project_url}
                   className={`animate-in slide-in-from-bottom-8 duration-700 [animation-delay:${index * 100}ms]`}
                 />
               ))
