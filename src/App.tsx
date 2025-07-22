@@ -33,7 +33,7 @@ const App = () => (
             <Route path="/team" element={<Member />} />
             <Route path="/team/:username" element={<UserPage />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/community" element={<Community />} />
+            <Route path="/ethos" element={<Community />} />
             <Route path="/auth" element={<Auth />} />
             <Route 
               path="/profile" 

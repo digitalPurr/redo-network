@@ -155,7 +155,16 @@ const Community = () => {
                   「RE:DO COMMUNITY ETHOS」
                 </h1>
                 <p className="text-xl text-accent italic">
-                  【Inspired by the Web of Yesterday—Forged by Us】
+                  【Inspired by the{' '}
+                  <a 
+                    href="https://yesterweb.org/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="underline hover:text-primary transition-colors"
+                  >
+                    Web of Yesterday
+                  </a>
+                  —Forged by Us】
                 </p>
                 <p className="text-muted-foreground">
                   ⁝ A Living Code for Intentional Connection ⁝
