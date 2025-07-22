@@ -24,8 +24,7 @@ const Index = () => {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in animation-delay-200">
-              A collaborative multimedia platform where digital avant-garde meets iterative creation. 
-              Join the network reshaping creative expression.
+              A collaborative multimedia platform where digital avant-garde meets iterative creation, where we start, build and finish projects.
             </p>
           </div>
           
@@ -49,7 +48,7 @@ const Index = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Why 「RE:DO NETWORK」?</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A new paradigm for collaborative digital creation
+              We’re not just here to rebuild what we lost. We’re here to imagine something better.
             </p>
           </div>
           
@@ -58,9 +57,9 @@ const Index = () => {
               <div className="w-16 h-16 rounded-full bg-gradient-primary/20 flex items-center justify-center mx-auto mb-4 shadow-glow">
                 <Zap className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Iterative by Design</h3>
+              <h3 className="text-xl font-semibold mb-3">Better by Design</h3>
               <p className="text-muted-foreground">
-                Embrace continuous refinement and experimental approaches to digital art and development.
+                We are here to build better spaces, so we can become better people.
               </p>
             </div>
             
@@ -68,9 +67,9 @@ const Index = () => {
               <div className="w-16 h-16 rounded-full bg-gradient-primary/20 flex items-center justify-center mx-auto mb-4 shadow-accent">
                 <Users className="h-8 w-8 text-accent" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Community Driven</h3>
+              <h3 className="text-xl font-semibold mb-3">🔻Commitment</h3>
               <p className="text-muted-foreground">
-                Connect with like-minded creators and build something extraordinary together.
+                Growth isn’t a linear path, and you don’t have to be perfect.
               </p>
             </div>
             
@@ -78,9 +77,9 @@ const Index = () => {
               <div className="w-16 h-16 rounded-full bg-gradient-accent/20 flex items-center justify-center mx-auto mb-4 shadow-glow">
                 <Globe className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Digital Avant-Garde</h3>
+              <h3 className="text-xl font-semibold mb-3">🔻Drive </h3>
               <p className="text-muted-foreground">
-                Push boundaries with cutting-edge tools and experimental multimedia approaches.
+                Just show up with the intention to learn, and you belong here.
               </p>
             </div>
           </div>
