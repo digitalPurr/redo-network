@@ -8,7 +8,7 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import Index from "./pages/Index";
 import Projects from "./pages/Projects";
 import About from "./pages/About";
-import Member from "./pages/Member";
+import Team from "./pages/Team";
 import Contact from "./pages/Contact";
 import Community from "./pages/Community";
 import Admin from "./pages/Admin";
@@ -30,7 +30,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
-            <Route path="/team" element={<Member />} />
+            <Route path="/team" element={<Team />} />
             <Route path="/team/:username" element={<UserPage />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/ethos" element={<Community />} />

@@ -72,10 +72,10 @@ export const Header: React.FC<HeaderProps> = ({
               Ethos
             </Link>
             <Link 
-              to="/member" 
+              to="/team" 
               className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
             >
-              Members
+              Team
             </Link>
             <Link 
               to="/contact" 

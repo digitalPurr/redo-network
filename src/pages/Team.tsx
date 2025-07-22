@@ -27,7 +27,7 @@ interface Profile {
   soundcloud_url: string | null;
 }
 
-const Member = () => {
+const Team = () => {
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -249,4 +249,4 @@ const Member = () => {
   );
 };
 
-export default Member;
+export default Team;
