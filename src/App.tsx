@@ -17,6 +17,7 @@ import Profile from "./pages/Profile";
 import UserPage from "./pages/UserPage";
 import AdminTeam from "./pages/AdminTeam";
 import AdminProjects from "./pages/AdminProjects";
+import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,8 @@ const App = () => (
             <Route path="/team" element={<Team />} />
             <Route path="/team/:username" element={<UserPage />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/ethos" element={<Community />} />
+            <Route path="/community" element={<Community />} />
             <Route path="/auth" element={<Auth />} />
             <Route 
               path="/dashboard" 
