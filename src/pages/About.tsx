@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
+import { AnimatedWavesRed } from '@/components/waves/AnimatedWavesRed';
 import { Header } from '@/components/Header';
 import { Card } from '@/components/ui/card';
 import { Heart, Users, Eye, Shield, Sprout } from 'lucide-react';
@@ -46,6 +46,7 @@ const About = () => {
   return (
     <div className="min-h-screen relative">
       <GenerativeBackground />
+      <AnimatedWavesRed />
       <Header />
       
       <main className="relative pt-32 pb-20 px-6">
