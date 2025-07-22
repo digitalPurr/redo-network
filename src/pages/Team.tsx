@@ -18,67 +18,6 @@ const Team = () => {
         twitter: "#",
         portfolio: "#"
       }
-    },
-    {
-      name: "Neural Architect",
-      role: "AI & Machine Learning Specialist",
-      bio: "Designing intelligent systems that enhance creative workflows and collaborative processes.",
-      skills: ["Machine Learning", "Computer Vision", "Neural Networks", "Python"],
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b647?w=400&h=400&fit=crop&crop=face",
-      links: {
-        github: "#",
-        twitter: "#",
-        portfolio: "#"
-      }
-    },
-    {
-      name: "Quantum Designer",
-      role: "UX/UI Design Lead",
-      bio: "Crafting intuitive interfaces that bridge complex technology with human creativity.",
-      skills: ["UI/UX Design", "Design Systems", "Prototyping", "User Research"],
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-      links: {
-        github: "#",
-        twitter: "#",
-        portfolio: "#"
-      }
-    },
-    {
-      name: "Spatial Engineer",
-      role: "AR/VR Development",
-      bio: "Building immersive experiences that redefine how we interact with digital spaces.",
-      skills: ["WebXR", "Three.js", "Unity", "Spatial Computing"],
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-      links: {
-        github: "#",
-        twitter: "#",
-        portfolio: "#"
-      }
-    },
-    {
-      name: "Audio Synthesist",
-      role: "Sound Design & Audio Engineering",
-      bio: "Creating sonic landscapes that complement and enhance visual digital experiences.",
-      skills: ["Audio Programming", "Sound Design", "Music Production", "Web Audio API"],
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
-      links: {
-        github: "#",
-        twitter: "#",
-        portfolio: "#"
-      }
-    },
-    {
-      name: "Data Visualist",
-      role: "Data Science & Visualization",
-      bio: "Transforming complex data into beautiful, interactive visual narratives.",
-      skills: ["Data Science", "D3.js", "Python", "Interactive Visualization"],
-      avatar: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=400&fit=crop&crop=face",
-      links: {
-        github: "#",
-        twitter: "#",
-        portfolio: "#"
-      }
-    }
   ];
 
   return (
