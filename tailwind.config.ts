@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -103,13 +104,50 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(20px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.6s ease-out forwards'
+			},
+			animationDelay: {
+				'200': '200ms',
+				'400': '400ms',
+				'600': '600ms'
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		function({ addUtilities }: any) {
+			addUtilities({
+				'.hover-scale': {
+					'@apply transition-transform duration-300 ease-out hover:scale-105': {}
+				},
+				'.drop-shadow-glow': {
+					filter: 'drop-shadow(0 0 20px hsl(var(--primary-glow) / 0.5))'
+				},
+				'.animation-delay-200': {
+					'animation-delay': '200ms'
+				},
+				'.animation-delay-400': {
+					'animation-delay': '400ms'
+				},
+				'.animation-delay-600': {
+					'animation-delay': '600ms'
+				}
+			})
+		}
+	],
 } satisfies Config;
