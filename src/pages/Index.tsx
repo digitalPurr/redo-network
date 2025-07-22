@@ -1,12 +1,56 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
 import { ProjectCard } from '@/components/ProjectCard';
+import PersonalPageCard from '@/components/PersonalPageCard';
 import { Button } from '@/components/ui/button';
+import { supabase } from '@/integrations/supabase/client';
 import { ArrowRight, Heart, Users, Sprout } from 'lucide-react';
 
 const Index = () => {
+  const [personalPages, setPersonalPages] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchPersonalPages();
+  }, []);
+
+  const fetchPersonalPages = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select(`
+          username,
+          first_name,
+          last_name,
+          job_title,
+          page_description,
+          page_header_image,
+          avatar_url,
+          skills,
+          github_url,
+          twitter_url,
+          instagram_url,
+          youtube_url,
+          soundcloud_url,
+          portfolio_url
+        `)
+        .eq('page_published', true)
+        .eq('public_profile', true)
+        .not('username', 'is', null)
+        .order('created_at', { ascending: false })
+        .limit(6);
+
+      if (error) throw error;
+      setPersonalPages(data || []);
+    } catch (error) {
+      console.error('Error fetching personal pages:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Sample projects data - would come from backend in real implementation
   const projects = [
     {
@@ -134,6 +178,52 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Personal Pages Section */}
+      {!loading && personalPages.length > 0 && (
+        <section className="py-20 px-6 bg-secondary/20">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center space-y-4 mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                Community Members
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Meet the creators, artists, and builders who make RE:DO NETWORK a vibrant collaborative space.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {personalPages.map((member, index) => (
+                <PersonalPageCard
+                  key={member.username}
+                  username={member.username}
+                  firstName={member.first_name}
+                  lastName={member.last_name}
+                  jobTitle={member.job_title}
+                  pageDescription={member.page_description}
+                  pageHeaderImage={member.page_header_image}
+                  avatarUrl={member.avatar_url}
+                  skills={member.skills || []}
+                  githubUrl={member.github_url}
+                  twitterUrl={member.twitter_url}
+                  instagramUrl={member.instagram_url}
+                  youtubeUrl={member.youtube_url}
+                  soundcloudUrl={member.soundcloud_url}
+                  portfolioUrl={member.portfolio_url}
+                  animationDelay={index * 100}
+                />
+              ))}
+            </div>
+            
+            <div className="text-center mt-12">
+              <Button variant="creative" size="lg">
+                View All Members
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Projects Section */}
       <section id="projects" className="py-20 px-6">

@@ -62,6 +62,8 @@ export type Database = {
           job_title: string | null
           last_name: string | null
           page_content: Json | null
+          page_description: string | null
+          page_header_image: string | null
           page_published: boolean | null
           page_slug: string | null
           page_views: number | null
@@ -87,6 +89,8 @@ export type Database = {
           job_title?: string | null
           last_name?: string | null
           page_content?: Json | null
+          page_description?: string | null
+          page_header_image?: string | null
           page_published?: boolean | null
           page_slug?: string | null
           page_views?: number | null
@@ -112,6 +116,8 @@ export type Database = {
           job_title?: string | null
           last_name?: string | null
           page_content?: Json | null
+          page_description?: string | null
+          page_header_image?: string | null
           page_published?: boolean | null
           page_slug?: string | null
           page_views?: number | null

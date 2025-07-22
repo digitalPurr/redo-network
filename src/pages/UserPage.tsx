@@ -36,6 +36,8 @@ interface UserProfile {
   soundcloud_url?: string;
   portfolio_url?: string;
   created_at: string;
+  page_header_image?: string;
+  page_description?: string;
 }
 
 interface Project {
@@ -191,8 +193,20 @@ const UserPage: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           {/* Profile Header */}
           <div className="mb-8">
-            <Card>
-              <CardContent className="p-8">
+            <Card className="overflow-hidden">
+              {/* Header Image */}
+              {profile.page_header_image && (
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={profile.page_header_image} 
+                    alt={`${profile.username}'s header`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                </div>
+              )}
+              
+              <CardContent className={`p-8 ${profile.page_header_image ? '-mt-12 relative z-10' : ''}`}>
                 <div className="flex flex-col md:flex-row items-start gap-6">
                   <Avatar className="h-24 w-24">
                     <AvatarImage src={profile.avatar_url} />
@@ -219,6 +233,10 @@ const UserPage: React.FC = () => {
 
                     {profile.bio && (
                       <p className="text-muted-foreground mb-4">{profile.bio}</p>
+                    )}
+
+                    {profile.page_description && (
+                      <p className="text-sm text-muted-foreground mb-4 italic">{profile.page_description}</p>
                     )}
 
                     {profile.skills && profile.skills.length > 0 && (

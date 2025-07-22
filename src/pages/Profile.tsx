@@ -51,6 +51,8 @@ interface Profile {
   youtube_url?: string;
   soundcloud_url?: string;
   portfolio_url?: string;
+  page_header_image?: string;
+  page_description?: string;
 }
 
 const Profile: React.FC = () => {
@@ -59,6 +61,7 @@ const Profile: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [uploadingAvatar, setUploadingAvatar] = useState(false);
+  const [uploadingHeader, setUploadingHeader] = useState(false);
   const [newSkill, setNewSkill] = useState('');
   const [pageContent, setPageContent] = useState('');
   const [usernameAvailable, setUsernameAvailable] = useState<boolean | null>(null);
@@ -184,6 +187,47 @@ const Profile: React.FC = () => {
     }
   };
 
+  const uploadHeaderImage = async (file: File) => {
+    if (!user) return;
+
+    setUploadingHeader(true);
+    try {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `header-${Date.now()}.${fileExt}`;
+      const filePath = `${user.id}/headers/${fileName}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from('user-content')
+        .upload(filePath, file, {
+          upsert: true
+        });
+
+      if (uploadError) {
+        throw uploadError;
+      }
+
+      const { data } = supabase.storage
+        .from('user-content')
+        .getPublicUrl(filePath);
+
+      await updateProfile({ page_header_image: data.publicUrl });
+
+      toast({
+        title: "Header image updated",
+        description: "Your page header image has been updated successfully.",
+      });
+    } catch (error) {
+      console.error('Error uploading header image:', error);
+      toast({
+        title: "Upload failed",
+        description: "There was an error uploading your header image.",
+        variant: "destructive",
+      });
+    } finally {
+      setUploadingHeader(false);
+    }
+  };
+
   const handleAvatarUpload = () => {
     const input = document.createElement('input');
     input.type = 'file';
@@ -192,6 +236,19 @@ const Profile: React.FC = () => {
       const file = (e.target as HTMLInputElement).files?.[0];
       if (file) {
         uploadAvatar(file);
+      }
+    };
+    input.click();
+  };
+
+  const handleHeaderUpload = () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.onchange = (e) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
+      if (file) {
+        uploadHeaderImage(file);
       }
     };
     input.click();
@@ -502,7 +559,7 @@ const Profile: React.FC = () => {
                     Create your own page with rich content, images, and embeds
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <Label>Page URL</Label>
@@ -520,6 +577,44 @@ const Profile: React.FC = () => {
                         {profile.page_published ? 'Published' : 'Draft'}
                       </Label>
                     </div>
+                  </div>
+
+                  <div>
+                    <Label>Header Image</Label>
+                    <div className="flex items-center space-x-4">
+                      {profile.page_header_image && (
+                        <div className="w-32 h-20 rounded-lg overflow-hidden bg-muted">
+                          <img 
+                            src={profile.page_header_image} 
+                            alt="Page header" 
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      )}
+                      <Button 
+                        variant="outline" 
+                        onClick={handleHeaderUpload}
+                        disabled={uploadingHeader}
+                      >
+                        <Upload className="h-4 w-4 mr-2" />
+                        {uploadingHeader ? 'Uploading...' : 'Upload Header Image'}
+                      </Button>
+                    </div>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Upload a banner image for your personal page (will be displayed on the front page card)
+                    </p>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="page_description">Page Description</Label>
+                    <Textarea
+                      id="page_description"
+                      value={profile.page_description || ''}
+                      onChange={(e) => setProfile(prev => prev ? {...prev, page_description: e.target.value} : null)}
+                      onBlur={() => updateProfile({ page_description: profile.page_description })}
+                      placeholder="A short description of your personal page (will appear on the front page card)"
+                      rows={3}
+                    />
                   </div>
 
                   <div>
