@@ -9,8 +9,8 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Team from "./pages/Team";
-import Contact from "./pages/Contact";
-import Community from "./pages/Community";
+import Portfolio from "./pages/Portfolio";
+import Dashboard from "./pages/Dashboard";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
 import Profile from "./pages/Profile";
@@ -33,9 +33,16 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/team" element={<Team />} />
             <Route path="/team/:username" element={<UserPage />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/ethos" element={<Community />} />
+            <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/auth" element={<Auth />} />
+            <Route 
+              path="/dashboard" 
+              element={
+                <ProtectedRoute allowedRoles={['network-admin', 'project-lead', 'contributor', 'viewer']}>
+                  <Dashboard />
+                </ProtectedRoute>
+              } 
+            />
             <Route 
               path="/profile" 
               element={

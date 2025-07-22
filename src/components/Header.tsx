@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator, 
   DropdownMenuTrigger 
 } from '@/components/ui/dropdown-menu';
-import { User, Settings, LogOut } from 'lucide-react';
+import { User, Settings, LogOut, LayoutDashboard } from 'lucide-react';
 
 interface HeaderProps {
   onMenuClick?: () => void;
@@ -54,22 +54,10 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link 
-              to="/projects" 
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
-            >
-              Projects
-            </Link>
-            <Link 
               to="/about" 
               className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
             >
               About
-            </Link>
-            <Link 
-              to="/ethos" 
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
-            >
-              Ethos
             </Link>
             <Link 
               to="/team" 
@@ -78,10 +66,10 @@ export const Header: React.FC<HeaderProps> = ({
               Team
             </Link>
             <Link 
-              to="/contact" 
+              to="/portfolio" 
               className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
             >
-              Contact
+              Portfolio
             </Link>
           </nav>
 
@@ -105,6 +93,12 @@ export const Header: React.FC<HeaderProps> = ({
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
+                    <DropdownMenuItem asChild>
+                      <Link to="/dashboard" className="flex items-center space-x-2">
+                        <LayoutDashboard size={16} />
+                        <span>Dashboard</span>
+                      </Link>
+                    </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link to="/profile" className="flex items-center space-x-2">
                         <Settings size={16} />

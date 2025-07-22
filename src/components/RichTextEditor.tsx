@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
@@ -17,12 +18,19 @@ import {
   Quote,
   Image as ImageIcon,
   Youtube as YoutubeIcon,
+  Music,
+  Video as VideoIcon,
+  AudioLines,
   Palette,
   Undo,
-  Redo
+  Redo,
+  Upload
 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
+import { SoundCloud } from './RichTextEditor/extensions/SoundCloudExtension';
+import { Video } from './RichTextEditor/extensions/VideoExtension';
+import { Audio } from './RichTextEditor/extensions/AudioExtension';
 
 interface RichTextEditorProps {
   content: string;
@@ -47,6 +55,9 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         controls: false,
         nocookie: true,
       }),
+      SoundCloud,
+      Video,
+      Audio,
       Color,
       TextStyle,
     ],
@@ -61,22 +72,22 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
     },
   });
 
-  const uploadImage = async (file: File) => {
+  const uploadFile = async (file: File, type: 'image' | 'video' | 'audio') => {
     try {
       const fileExt = file.name.split('.').pop();
-      const fileName = `${Math.random()}.${fileExt}`;
+      const fileName = `${type}-${Date.now()}.${fileExt}`;
       const { data: user } = await supabase.auth.getUser();
       
       if (!user.user) {
         toast({
           title: "Authentication required",
-          description: "You need to be logged in to upload images.",
+          description: "You need to be logged in to upload files.",
           variant: "destructive",
         });
         return;
       }
 
-      const filePath = `${user.user.id}/${fileName}`;
+      const filePath = `${user.user.id}/${type}s/${fileName}`;
 
       const { error: uploadError } = await supabase.storage
         .from('user-content')
@@ -91,31 +102,53 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         .getPublicUrl(filePath);
 
       if (editor) {
-        editor.chain().focus().setImage({ src: data.publicUrl }).run();
+        switch (type) {
+          case 'image':
+            editor.chain().focus().setImage({ src: data.publicUrl }).run();
+            break;
+          case 'video':
+            editor.chain().focus().setVideo({ src: data.publicUrl }).run();
+            break;
+          case 'audio':
+            editor.chain().focus().setAudio({ src: data.publicUrl }).run();
+            break;
+        }
       }
 
       toast({
-        title: "Image uploaded",
-        description: "Your image has been added to the editor.",
+        title: `${type.charAt(0).toUpperCase() + type.slice(1)} uploaded`,
+        description: `Your ${type} has been added to the editor.`,
       });
     } catch (error) {
-      console.error('Error uploading image:', error);
+      console.error(`Error uploading ${type}:`, error);
       toast({
         title: "Upload failed",
-        description: "There was an error uploading your image.",
+        description: `There was an error uploading your ${type}.`,
         variant: "destructive",
       });
     }
   };
 
-  const handleImageUpload = () => {
+  const handleFileUpload = (type: 'image' | 'video' | 'audio') => {
     const input = document.createElement('input');
     input.type = 'file';
-    input.accept = 'image/*';
+    
+    switch (type) {
+      case 'image':
+        input.accept = 'image/*';
+        break;
+      case 'video':
+        input.accept = 'video/*';
+        break;
+      case 'audio':
+        input.accept = 'audio/*';
+        break;
+    }
+    
     input.onchange = (e) => {
       const file = (e.target as HTMLInputElement).files?.[0];
       if (file) {
-        uploadImage(file);
+        uploadFile(file, type);
       }
     };
     input.click();
@@ -129,6 +162,13 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         width: 640,
         height: 480,
       });
+    }
+  };
+
+  const addSoundCloud = () => {
+    const url = prompt('Enter SoundCloud URL:');
+    if (url && editor) {
+      editor.commands.setSoundCloud({ src: url });
     }
   };
 
@@ -146,6 +186,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
     <div className="border border-border rounded-lg overflow-hidden">
       {/* Toolbar */}
       <div className="border-b border-border p-2 flex flex-wrap gap-1 bg-muted/50">
+        {/* Text formatting */}
         <Button
           variant="ghost"
           size="sm"
@@ -211,10 +252,11 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 
         <div className="w-px h-6 bg-border mx-1" />
 
+        {/* Media uploads */}
         <Button
           variant="ghost"
           size="sm"
-          onClick={handleImageUpload}
+          onClick={() => handleFileUpload('image')}
         >
           <ImageIcon className="h-4 w-4" />
         </Button>
@@ -222,9 +264,36 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         <Button
           variant="ghost"
           size="sm"
+          onClick={() => handleFileUpload('video')}
+        >
+          <VideoIcon className="h-4 w-4" />
+        </Button>
+
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => handleFileUpload('audio')}
+        >
+          <AudioLines className="h-4 w-4" />
+        </Button>
+
+        <div className="w-px h-6 bg-border mx-1" />
+
+        {/* External embeds */}
+        <Button
+          variant="ghost"
+          size="sm"
           onClick={addYouTube}
         >
           <YoutubeIcon className="h-4 w-4" />
+        </Button>
+
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={addSoundCloud}
+        >
+          <Music className="h-4 w-4" />
         </Button>
 
         <div className="w-px h-6 bg-border mx-1" />

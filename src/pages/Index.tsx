@@ -1,284 +1,105 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Zap, Users, Globe } from 'lucide-react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
-import { ProjectCard } from '@/components/ProjectCard';
-import PersonalPageCard from '@/components/PersonalPageCard';
-import { Button } from '@/components/ui/button';
-import { supabase } from '@/integrations/supabase/client';
-import { ArrowRight, Heart, Users, Sprout } from 'lucide-react';
 
 const Index = () => {
-  const [personalPages, setPersonalPages] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchPersonalPages();
-  }, []);
-
-  const fetchPersonalPages = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select(`
-          username,
-          first_name,
-          last_name,
-          job_title,
-          page_description,
-          page_header_image,
-          avatar_url,
-          skills,
-          github_url,
-          twitter_url,
-          instagram_url,
-          youtube_url,
-          soundcloud_url,
-          portfolio_url
-        `)
-        .eq('page_published', true)
-        .eq('public_profile', true)
-        .not('username', 'is', null)
-        .order('created_at', { ascending: false })
-        .limit(6);
-
-      if (error) throw error;
-      setPersonalPages(data || []);
-    } catch (error) {
-      console.error('Error fetching personal pages:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Sample projects data - would come from backend in real implementation
-  const projects = [
-    {
-      title: "Neural Synthesis",
-      description: "AI-powered generative art system that creates dynamic visual experiences through machine learning algorithms.",
-      category: "AI • VISUALS",
-      interactive: true,
-      demoUrl: "#",
-      projectUrl: "#"
-    },
-    {
-      title: "Quantum Interface",
-      description: "Revolutionary user interface design exploring quantum computing principles in human-computer interaction.",
-      category: "UI/UX • TECH",
-      interactive: true,
-      demoUrl: "#",
-      projectUrl: "#"
-    },
-    {
-      title: "Biometric Harmony",
-      description: "Real-time biometric data visualization creating immersive audio-visual experiences from human physiology.",
-      category: "DATA • AUDIO",
-      interactive: false,
-      demoUrl: "#",
-      projectUrl: "#"
-    },
-    {
-      title: "Spatial Computing",
-      description: "Next-generation spatial computing platform enabling collaborative creation in mixed reality environments.",
-      category: "AR/VR • COLLAB",
-      interactive: true,
-      demoUrl: "#",
-      projectUrl: "#"
-    }
-  ];
-
-  const values = [
-    {
-      icon: <Heart className="h-6 w-6" />,
-      title: "Intentionality",
-      description: "We build slowly, deliberately, and without pressure to perform. Every feature exists on purpose."
-    },
-    {
-      icon: <Users className="h-6 w-6" />,
-      title: "Mutuality",
-      description: "This isn't an audience—it's a collaboration. Everyone's voice matters, and no one builds alone here."
-    },
-    {
-      icon: <Sprout className="h-6 w-6" />,
-      title: "Gentle Accountability",
-      description: "We hold each other with kindness, not pressure. You're allowed to rest. You're allowed to try again."
-    }
-  ];
-
   return (
-    <div className="min-h-screen relative">
-      {/* Generative Background */}
+    <div className="min-h-screen relative overflow-hidden">
       <GenerativeBackground />
-      
-      {/* Header */}
       <Header />
-
+      
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
+        <div className="max-w-6xl mx-auto text-center">
+          <div className="mb-8">
+            <h1 className="text-6xl md:text-8xl font-bold mb-6">
               <span className="bg-gradient-primary bg-clip-text text-transparent">
                 RE:DO
               </span>
-              <br />
-              <span className="text-foreground">NETWORK</span>
             </h1>
-            <div className="space-y-2">
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                We are a second chance space.
-              </p>
-              <p className="text-lg text-muted-foreground italic">
-                For projects. For people. For possibilities.
-              </p>
-            </div>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+              A collaborative multimedia platform where digital avant-garde meets iterative creation. 
+              Join the network reshaping creative expression.
+            </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="hero" className="group">
-              Explore Projects
-              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 text-white border-0">
+              <Link to="/projects">
+                Explore Projects
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
-            <Button variant="glass" size="hero">
-              Join Community
+            <Button asChild variant="outline" size="lg">
+              <Link to="/team">Join the Network</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Philosophy Section */}
-      <section className="py-20 px-6">
+      {/* Features Section */}
+      <section className="relative py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Building with Care
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We uplift process over perfection. Human-sized spaces and emotional safety come first.
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Why 「RE:DO NETWORK」?</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              A new paradigm for collaborative digital creation
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {values.map((value, index) => (
-              <div
-                key={index}
-                className="group p-8 rounded-xl bg-gradient-card border border-border/50 hover:shadow-card transition-all duration-500 hover:scale-105"
-              >
-                <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center text-primary-foreground mb-6 group-hover:shadow-glow transition-all duration-300">
-                  {value.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {value.description}
-                </p>
+            <div className="text-center p-6 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50">
+              <div className="w-16 h-16 rounded-full bg-gradient-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Zap className="h-8 w-8 text-primary" />
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Personal Pages Section */}
-      {!loading && personalPages.length > 0 && (
-        <section className="py-20 px-6 bg-secondary/20">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center space-y-4 mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                Community Members
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Meet the creators, artists, and builders who make RE:DO NETWORK a vibrant collaborative space.
+              <h3 className="text-xl font-semibold mb-3">Iterative by Design</h3>
+              <p className="text-muted-foreground">
+                Embrace continuous refinement and experimental approaches to digital art and development.
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {personalPages.map((member, index) => (
-                <PersonalPageCard
-                  key={member.username}
-                  username={member.username}
-                  firstName={member.first_name}
-                  lastName={member.last_name}
-                  jobTitle={member.job_title}
-                  pageDescription={member.page_description}
-                  pageHeaderImage={member.page_header_image}
-                  avatarUrl={member.avatar_url}
-                  skills={member.skills || []}
-                  githubUrl={member.github_url}
-                  twitterUrl={member.twitter_url}
-                  instagramUrl={member.instagram_url}
-                  youtubeUrl={member.youtube_url}
-                  soundcloudUrl={member.soundcloud_url}
-                  portfolioUrl={member.portfolio_url}
-                  animationDelay={index * 100}
-                />
-              ))}
+            <div className="text-center p-6 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50">
+              <div className="w-16 h-16 rounded-full bg-gradient-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Community Driven</h3>
+              <p className="text-muted-foreground">
+                Connect with like-minded creators and build something extraordinary together.
+              </p>
             </div>
             
-            <div className="text-center mt-12">
-              <Button variant="creative" size="lg">
-                View All Members
-                <ArrowRight className="h-5 w-5" />
-              </Button>
+            <div className="text-center p-6 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50">
+              <div className="w-16 h-16 rounded-full bg-gradient-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Globe className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Digital Avant-Garde</h3>
+              <p className="text-muted-foreground">
+                Push boundaries with cutting-edge tools and experimental multimedia approaches.
+              </p>
             </div>
-          </div>
-        </section>
-      )}
-
-      {/* Projects Section */}
-      <section id="projects" className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Featured Projects
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              This is not content. This is connection. We're here to re:connect, re:build, and re:do—together.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <ProjectCard
-                key={index}
-                {...project}
-                className={`animate-in slide-in-from-bottom-8 duration-700 [animation-delay:${index * 150}ms]`}
-              />
-            ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Button variant="creative" size="lg">
-              View All Projects
-              <ArrowRight className="h-5 w-5" />
-            </Button>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border/50 py-12 px-6 mt-20">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="flex items-center justify-center space-x-3 mb-4">
-            <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-              <div className="w-4 h-4 rounded-sm bg-white/90" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              RE:DO NETWORK
-            </span>
-          </div>
-          <p className="text-muted-foreground mb-6">
-            Building the internet we actually want—with care.
+      {/* Call to Action */}
+      <section className="relative py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-6">Ready to Join the Network?</h2>
+          <p className="text-xl text-muted-foreground mb-8">
+            Start your journey with collaborative multimedia creation
           </p>
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
-            <a href="/about" className="hover:text-primary transition-colors duration-300">About</a>
-            <a href="/projects" className="hover:text-primary transition-colors duration-300">Projects</a>
-            <a href="/community" className="hover:text-primary transition-colors duration-300">Community</a>
-            <a href="/member" className="hover:text-primary transition-colors duration-300">Members</a>
-            <a href="/contact" className="hover:text-primary transition-colors duration-300">Contact</a>
-          </div>
+          <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 text-white border-0">
+            <Link to="/auth">
+              Get Started
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
         </div>
-      </footer>
+      </section>
     </div>
   );
 };
