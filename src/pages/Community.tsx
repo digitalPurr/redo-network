@@ -164,52 +164,53 @@ const Community = () => {
             </div>
           </Card>
 
-          {/* Core Directives */}
-          <Card className="mb-8 bg-card/80 backdrop-blur-sm border-l-4 border-l-primary">
-            <div className="p-6">
-              <div className="font-mono text-primary mb-4">⟦⟦ CORE DIRECTIVES ⟧⟧</div>
-              <div className="space-y-2 text-lg">
-                <div className="flex items-start gap-3">
-                  <span className="text-accent">◆</span>
-                  <span>We are a second-chance space.</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-accent">◇</span>
-                  <span>For projects. For people. For possibilities.</span>
-                </div>
-              </div>
-            </div>
-          </Card>
-
-          {/* Core Values */}
+          {/* Combined Core Values and Directives */}
           <section className="mb-12">
-            <Card className="mb-6 bg-card/80 backdrop-blur-sm border-l-4 border-l-accent">
-              <div className="p-6">
-                <h2 className="text-2xl font-bold font-mono text-primary mb-2">【⌁ CORE VALUES ⌁】</h2>
-              </div>
-            </Card>
-            
-            <div className="grid gap-4">
-              {coreValues.map((value, index) => (
-                <Card key={index} className="bg-card/60 backdrop-blur-sm border border-primary/20 hover:border-primary/40 transition-all duration-300">
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="text-xl text-accent">{value.symbol}</span>
-                      <h3 className="text-xl font-semibold text-primary">{value.title}</h3>
-                      <span className="text-xl text-accent">{value.closeSymbol}</span>
+            <Card className="bg-card/80 backdrop-blur-sm border-l-4 border-l-primary">
+              <div className="p-8">
+                <div className="text-center mb-8">
+                  <h2 className="text-2xl font-bold font-mono text-primary mb-2">【⌁ CORE VALUES ⌁】</h2>
+                </div>
+                
+                {/* Core Values Grid */}
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  {coreValues.map((value, index) => (
+                    <div key={index} className="border-l-2 border-primary/30 pl-6">
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="text-xl text-accent">{value.symbol}</span>
+                        <h3 className="text-lg font-semibold text-primary">{value.title}</h3>
+                        <span className="text-xl text-accent">{value.closeSymbol}</span>
+                      </div>
+                      <div className="space-y-2">
+                        {value.points.map((point, pointIndex) => (
+                          <div key={pointIndex} className="flex items-start gap-3">
+                            <span className="text-accent mt-1">⇀</span>
+                            <p className="text-muted-foreground text-sm">{point}</p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <div className="space-y-2 ml-8">
-                      {value.points.map((point, pointIndex) => (
-                        <div key={pointIndex} className="flex items-start gap-3">
-                          <span className="text-accent mt-1">⇀</span>
-                          <p className="text-muted-foreground">{point}</p>
-                        </div>
-                      ))}
+                  ))}
+                </div>
+
+                {/* Core Directives */}
+                <div className="border-t border-primary/20 pt-8">
+                  <div className="text-center mb-6">
+                    <div className="font-mono text-primary mb-4">⟦⟦ CORE DIRECTIVES ⟧⟧</div>
+                  </div>
+                  <div className="space-y-3 text-center">
+                    <div className="flex items-center justify-center gap-3 text-lg">
+                      <span className="text-accent">◆</span>
+                      <span>We are a second-chance space.</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-3 text-lg">
+                      <span className="text-accent">◇</span>
+                      <span>For projects. For people. For possibilities.</span>
                     </div>
                   </div>
-                </Card>
-              ))}
-            </div>
+                </div>
+              </div>
+            </Card>
           </section>
 
           {/* Belief Core */}
