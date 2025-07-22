@@ -44,25 +44,25 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <a 
-              href="#projects" 
+              href="/projects" 
               className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
             >
               Projects
             </a>
             <a 
-              href="#about" 
+              href="/about" 
               className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
             >
               About
             </a>
             <a 
-              href="#team" 
+              href="/team" 
               className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
             >
               Team
             </a>
             <a 
-              href="#contact" 
+              href="/contact" 
               className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
             >
               Contact
