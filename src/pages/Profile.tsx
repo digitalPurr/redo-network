@@ -81,7 +81,7 @@ const Profile: React.FC = () => {
       if (error) throw error;
 
       setProfile(data);
-      setPageContent(data.page_content ? JSON.stringify(data.page_content, null, 2) : '{}');
+      setPageContent(typeof data.page_content === 'string' ? data.page_content : '');
     } catch (error) {
       console.error('Error fetching profile:', error);
       toast({
@@ -213,16 +213,7 @@ const Profile: React.FC = () => {
   };
 
   const savePageContent = () => {
-    try {
-      const content = pageContent ? JSON.parse(pageContent) : {};
-      updateProfile({ page_content: content });
-    } catch (error) {
-      toast({
-        title: "Invalid JSON",
-        description: "Please check your page content format.",
-        variant: "destructive",
-      });
-    }
+    updateProfile({ page_content: pageContent });
   };
 
   const generateSlug = (username?: string) => {
@@ -532,17 +523,12 @@ const Profile: React.FC = () => {
                   </div>
 
                   <div>
-                    <Label>Page Content (JSON)</Label>
-                    <Textarea
-                      value={pageContent}
-                      onChange={(e) => setPageContent(e.target.value)}
-                      placeholder='{"title": "Your Page Title", "content": "Your content here..."}'
-                      rows={10}
-                      className="font-mono text-sm"
+                    <Label>Page Content</Label>
+                    <RichTextEditor
+                      content={pageContent}
+                      onChange={setPageContent}
+                      placeholder="Create your personal page with rich content, images, videos, and more..."
                     />
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Enter valid JSON format for your page content
-                    </p>
                   </div>
 
                   <Button onClick={savePageContent} disabled={saving}>
