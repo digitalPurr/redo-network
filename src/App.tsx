@@ -19,7 +19,7 @@ import AdminProjects from '@/pages/AdminProjects';
 import AdminSiteContent from '@/pages/AdminSiteContent';
 import UserPage from '@/pages/UserPage';
 import NotFound from '@/pages/NotFound';
-import { ProtectedRoute } from '@/components/ProtectedRoute';
+import ProtectedRoute from '@/components/ProtectedRoute';
 import './App.css';
 
 const queryClient = new QueryClient({

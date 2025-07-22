@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
-import { AnimatedWavesRed } from '@/components/waves/AnimatedWavesRed';
+import { AnimatedWavesPurple } from '@/components/waves/AnimatedWavesPurple';
 import { Header } from '@/components/Header';
 import { Card } from '@/components/ui/card';
 import { Heart, Users, Eye, Shield, Sprout } from 'lucide-react';
@@ -46,7 +47,7 @@ const About = () => {
   return (
     <div className="min-h-screen relative">
       <GenerativeBackground />
-      <AnimatedWavesRed />
+      <AnimatedWavesPurple />
       <Header />
       
       <main className="relative pt-32 pb-20 px-6">
@@ -58,7 +59,7 @@ const About = () => {
                 About
               </span>
               <br />
-              <span className="text-foreground">RE:DO NETWORK</span>
+              <span className="text-foreground">⌈RE⁝DO⌋ NETWORK</span>
             </h1>
             <div className="space-y-4">
               <p className="text-xl text-muted-foreground leading-relaxed font-medium">
@@ -85,33 +86,30 @@ const About = () => {
             </Card>
           </div>
 
-          {/* Values Grid */}
+          {/* Consolidated Core Values */}
           <div className="mb-20">
             <h2 className="text-3xl font-bold text-center text-foreground mb-12">
               Our Core Values
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {values.map((value, index) => (
-                <Card
-                  key={index}
-                  className={`
-                    p-6 bg-gradient-card border-border/50 hover:shadow-card 
-                    transition-all duration-500 hover:scale-105
-                    animate-in slide-in-from-bottom-8 duration-700 [animation-delay:${index * 100}ms]
-                  `}
-                >
-                  <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center text-primary-foreground mb-4 group-hover:shadow-glow transition-all duration-300">
-                    {value.icon}
+            <Card className="p-8 bg-gradient-card border-border/50 hover:shadow-card transition-all duration-500">
+              <div className="space-y-8">
+                {values.map((value, index) => (
+                  <div key={index} className="flex items-start gap-6 p-6 rounded-lg bg-card/50 border border-border/30 hover:border-border/50 transition-all duration-300">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center text-primary-foreground flex-shrink-0">
+                      {value.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-foreground mb-3">
+                        {value.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {value.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    {value.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {value.description}
-                  </p>
-                </Card>
-              ))}
-            </div>
+                ))}
+              </div>
+            </Card>
           </div>
 
           {/* What We Believe */}
@@ -135,7 +133,7 @@ const About = () => {
           <div className="text-center">
             <Card className="p-8 bg-gradient-card border-border/50 hover:shadow-card transition-all duration-500">
               <h2 className="text-2xl font-semibold text-foreground mb-4">
-                The RE:DO Philosophy
+                The ⌈RE⁝DO⌋ Philosophy
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 "RE:DO" represents our commitment to gentle iteration. Every project, 
