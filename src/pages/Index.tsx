@@ -4,7 +4,7 @@ import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Heart, Users, Seedling } from 'lucide-react';
+import { ArrowRight, Heart, Users, Sprout } from 'lucide-react';
 
 const Index = () => {
   // Sample projects data - would come from backend in real implementation
@@ -55,7 +55,7 @@ const Index = () => {
       description: "This isn't an audience—it's a collaboration. Everyone's voice matters, and no one builds alone here."
     },
     {
-      icon: <Seedling className="h-6 w-6" />,
+      icon: <Sprout className="h-6 w-6" />,
       title: "Gentle Accountability",
       description: "We hold each other with kindness, not pressure. You're allowed to rest. You're allowed to try again."
     }

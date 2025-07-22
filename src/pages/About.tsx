@@ -3,7 +3,7 @@ import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
 import { Card } from '@/components/ui/card';
-import { Heart, Users, Eye, Shield, Seedling } from 'lucide-react';
+import { Heart, Users, Eye, Shield, Sprout } from 'lucide-react';
 
 const About = () => {
   const values = [
@@ -28,7 +28,7 @@ const About = () => {
       description: "This space isn't for clout-farming or recruiting people into unpaid labor. We connect because we want to, not because we need something."
     },
     {
-      icon: <Seedling className="h-6 w-6" />,
+      icon: <Sprout className="h-6 w-6" />,
       title: "Gentle Accountability",
       description: "We hold each other with kindness, not pressure. You're allowed to rest. You're allowed to try again."
     }
