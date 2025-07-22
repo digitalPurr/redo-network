@@ -10,6 +10,7 @@ import Projects from "./pages/Projects";
 import About from "./pages/About";
 import Team from "./pages/Team";
 import Contact from "./pages/Contact";
+import Community from "./pages/Community";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
 import Profile from "./pages/Profile";
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/team" element={<Team />} />
             <Route path="/team/:username" element={<UserPage />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/community" element={<Community />} />
             <Route path="/auth" element={<Auth />} />
             <Route 
               path="/profile" 
