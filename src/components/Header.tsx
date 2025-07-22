@@ -60,6 +60,12 @@ export const Header: React.FC<HeaderProps> = ({
               About
             </Link>
             <Link 
+              to="/ethos" 
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
+            >
+              Ethos
+            </Link>
+            <Link 
               to="/team" 
               className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
             >
