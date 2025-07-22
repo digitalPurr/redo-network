@@ -10,7 +10,7 @@ import { useAuth } from '@/hooks/use-auth';
 import { 
   FolderOpen, 
   User, 
-  Timeline, 
+  History, 
   BarChart3, 
   Plus,
   Settings,
@@ -60,7 +60,7 @@ const Dashboard = () => {
                 </TabsTrigger>
               )}
               <TabsTrigger value="portfolio" className="flex items-center gap-2">
-                <Timeline className="h-4 w-4" />
+                <History className="h-4 w-4" />
                 Portfolio
               </TabsTrigger>
               <TabsTrigger value="analytics" className="flex items-center gap-2">
@@ -102,7 +102,7 @@ const Dashboard = () => {
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">Portfolio Items</CardTitle>
-                    <Timeline className="h-4 w-4 text-muted-foreground" />
+                    <History className="h-4 w-4 text-muted-foreground" />
                   </CardHeader>
                   <CardContent>
                     <div className="text-2xl font-bold">8</div>

@@ -8,7 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { RichTextEditor } from '@/components/RichTextEditor';
+import RichTextEditor from '@/components/RichTextEditor';
 import { useAuth } from '@/hooks/use-auth';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
@@ -48,7 +48,11 @@ const PersonalPageEditor = () => {
       if (error) throw error;
       
       setProfile(data);
-      setPageContent(data?.page_content?.content || '');
+      // Safely access the content property
+      const content = data?.page_content && typeof data.page_content === 'object' && 'content' in data.page_content 
+        ? data.page_content.content 
+        : '';
+      setPageContent(content || '');
     } catch (error) {
       console.error('Error fetching profile:', error);
       toast({
