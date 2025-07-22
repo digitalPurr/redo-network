@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/hooks/use-auth';
 import { supabase } from '@/integrations/supabase/client';
@@ -25,7 +26,8 @@ import {
   X,
   Save,
   Eye,
-  EyeOff
+  EyeOff,
+  Upload
 } from 'lucide-react';
 
 interface Profile {
@@ -56,6 +58,7 @@ const Profile: React.FC = () => {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [uploadingAvatar, setUploadingAvatar] = useState(false);
   const [newSkill, setNewSkill] = useState('');
   const [pageContent, setPageContent] = useState('');
   const [usernameAvailable, setUsernameAvailable] = useState<boolean | null>(null);
@@ -78,7 +81,7 @@ const Profile: React.FC = () => {
       if (error) throw error;
 
       setProfile(data);
-      setPageContent(data.page_content ? JSON.stringify(data.page_content) : '');
+      setPageContent(data.page_content ? JSON.stringify(data.page_content, null, 2) : '{}');
     } catch (error) {
       console.error('Error fetching profile:', error);
       toast({
@@ -140,6 +143,60 @@ const Profile: React.FC = () => {
     }
   };
 
+  const uploadAvatar = async (file: File) => {
+    if (!user) return;
+
+    setUploadingAvatar(true);
+    try {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `avatar-${Date.now()}.${fileExt}`;
+      const filePath = `${user.id}/${fileName}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from('user-content')
+        .upload(filePath, file, {
+          upsert: true
+        });
+
+      if (uploadError) {
+        throw uploadError;
+      }
+
+      const { data } = supabase.storage
+        .from('user-content')
+        .getPublicUrl(filePath);
+
+      await updateProfile({ avatar_url: data.publicUrl });
+
+      toast({
+        title: "Avatar updated",
+        description: "Your profile picture has been updated successfully.",
+      });
+    } catch (error) {
+      console.error('Error uploading avatar:', error);
+      toast({
+        title: "Upload failed",
+        description: "There was an error uploading your avatar.",
+        variant: "destructive",
+      });
+    } finally {
+      setUploadingAvatar(false);
+    }
+  };
+
+  const handleAvatarUpload = () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.onchange = (e) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
+      if (file) {
+        uploadAvatar(file);
+      }
+    };
+    input.click();
+  };
+
   const addSkill = () => {
     if (newSkill.trim() && profile) {
       const updatedSkills = [...(profile.skills || []), newSkill.trim()];
@@ -161,8 +218,8 @@ const Profile: React.FC = () => {
       updateProfile({ page_content: content });
     } catch (error) {
       toast({
-        title: "Invalid content",
-        description: "There was an error saving your page content.",
+        title: "Invalid JSON",
+        description: "Please check your page content format.",
         variant: "destructive",
       });
     }
@@ -228,7 +285,14 @@ const Profile: React.FC = () => {
                         {profile.first_name?.[0]}{profile.last_name?.[0]}
                       </AvatarFallback>
                     </Avatar>
-                    <Button variant="outline">Change Avatar</Button>
+                    <Button 
+                      variant="outline" 
+                      onClick={handleAvatarUpload}
+                      disabled={uploadingAvatar}
+                    >
+                      <Upload className="h-4 w-4 mr-2" />
+                      {uploadingAvatar ? 'Uploading...' : 'Change Avatar'}
+                    </Button>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
@@ -467,11 +531,19 @@ const Profile: React.FC = () => {
                     </div>
                   </div>
 
-                  <RichTextEditor
-                    content={pageContent}
-                    onChange={setPageContent}
-                    placeholder="Create your personal page with rich content, images, videos, and more..."
-                  />
+                  <div>
+                    <Label>Page Content (JSON)</Label>
+                    <Textarea
+                      value={pageContent}
+                      onChange={(e) => setPageContent(e.target.value)}
+                      placeholder='{"title": "Your Page Title", "content": "Your content here..."}'
+                      rows={10}
+                      className="font-mono text-sm"
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Enter valid JSON format for your page content
+                    </p>
+                  </div>
 
                   <Button onClick={savePageContent} disabled={saving}>
                     <Save className="h-4 w-4 mr-2" />
