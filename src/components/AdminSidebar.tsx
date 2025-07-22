@@ -1,14 +1,13 @@
+
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useAuth } from '@/hooks/use-auth';
 import { cn } from '@/lib/utils';
+import { useAuth } from '@/hooks/use-auth';
 import { 
   LayoutDashboard, 
-  FolderOpen, 
-  CheckSquare, 
   Users, 
+  FolderOpen,
   Settings,
-  UserPlus,
   FileText
 } from 'lucide-react';
 
@@ -16,57 +15,39 @@ const AdminSidebar = () => {
   const location = useLocation();
   const { userRole } = useAuth();
 
-  const menuItems = [
+  const navigationItems = [
     {
-      icon: LayoutDashboard,
-      label: 'Dashboard',
+      title: 'Dashboard',
       href: '/admin',
+      icon: LayoutDashboard,
       roles: ['network-admin', 'project-lead', 'contributor']
     },
     {
-      icon: FolderOpen,
-      label: 'Projects',
+      title: 'Projects',
       href: '/admin/projects',
-      roles: ['network-admin', 'project-lead', 'contributor']
+      icon: FolderOpen,
+      roles: ['network-admin', 'project-lead']
     },
     {
-      icon: CheckSquare,
-      label: 'Tasks',
-      href: '/admin/tasks',
-      roles: ['network-admin', 'project-lead', 'contributor']
-    },
-    {
-      icon: Users,
-      label: 'Team',
+      title: 'Team',
       href: '/admin/team',
+      icon: Users,
       roles: ['network-admin', 'project-lead']
     },
     {
-      icon: UserPlus,
-      label: 'User Management',
-      href: '/admin/users',
-      roles: ['network-admin']
-    },
-    {
-      icon: Settings,
-      label: 'Settings',
-      href: '/admin/settings',
-      roles: ['network-admin', 'project-lead']
-    },
-    {
+      title: 'Site Content',
+      href: '/admin/content',
       icon: FileText,
-      label: 'Site Content',
-      href: '/admin/site-content',
       roles: ['network-admin', 'project-lead']
     }
   ];
 
-  const filteredItems = menuItems.filter(item => 
+  const filteredItems = navigationItems.filter(item => 
     item.roles.includes(userRole || '')
   );
 
   return (
-    <aside className="w-64 bg-card border-r border-border min-h-screen">
+    <aside className="w-64 bg-card border-r border-border h-screen sticky top-20">
       <div className="p-6">
         <h2 className="text-lg font-semibold text-foreground mb-6">Admin Panel</h2>
         
@@ -79,14 +60,14 @@ const AdminSidebar = () => {
                 key={item.href}
                 to={item.href}
                 className={cn(
-                  "flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors",
+                  "flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-colors",
                   isActive 
                     ? "bg-primary text-primary-foreground" 
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 )}
               >
-                <item.icon size={18} />
-                <span className="text-sm font-medium">{item.label}</span>
+                <item.icon className="h-4 w-4" />
+                {item.title}
               </Link>
             );
           })}

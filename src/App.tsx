@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/use-auth";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import Index from "./pages/Index";
-import Projects from "./pages/Projects";
 import About from "./pages/About";
 import Team from "./pages/Team";
 import Contact from "./pages/Contact";
@@ -16,6 +16,7 @@ import Auth from "./pages/Auth";
 import Profile from "./pages/Profile";
 import UserPage from "./pages/UserPage";
 import AdminTeam from "./pages/AdminTeam";
+import AdminProjects from "./pages/AdminProjects";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,7 +30,6 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/projects" element={<Projects />} />
             <Route path="/about" element={<About />} />
             <Route path="/team" element={<Team />} />
             <Route path="/team/:username" element={<UserPage />} />
@@ -57,6 +57,14 @@ const App = () => (
               element={
                 <ProtectedRoute allowedRoles={['network-admin', 'project-lead']}>
                   <AdminTeam />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/projects" 
+              element={
+                <ProtectedRoute allowedRoles={['network-admin', 'project-lead']}>
+                  <AdminProjects />
                 </ProtectedRoute>
               } 
             />
