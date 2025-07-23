@@ -177,10 +177,10 @@ const Ethos = () => {
           <div className="p-8">
             <div className="text-center">
               <div className="flex items-center justify-center gap-3 mb-2">
-            <span className="text-xl text-accent">⌈↺</span>
-              <h2 className="text-2xl font-bold font-mono text-primary mb-4 text-center">SYSTEM INTENT ≣ ⌈RE⁝DO⌋ PHILOSOPHY </h2>
-              <span className="text-xl text-accent">⌋</span>
-            </div>
+                <span className="text-xl text-accent">⌈↺</span>
+                <h2 className="text-2xl font-bold font-mono text-primary mb-4 text-center">SYSTEM INTENT ≣ ⌈RE⁝DO⌋ PHILOSOPHY </h2>
+                <span className="text-xl text-accent">⌋</span>
+              </div>
             <div className="space-y-4">
               <p className="text-lg text-center">
                 ⌈↺ RE⁝DO is our code for compassionate iteration. ⌋
@@ -205,6 +205,7 @@ const Ethos = () => {
                   <span className="ml-2">We're engineering the future we actually want.</span>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </Card>
