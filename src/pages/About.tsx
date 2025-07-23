@@ -56,9 +56,6 @@ const About = () => {
           {/* Hero Section */}
           <div className="text-center space-y-6 mb-20 max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-                About
-              </span>
               <br />
               <span className="text-foreground">⌈RE⁝DO⌋ NETWORK</span>
             </h1>
