@@ -144,7 +144,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
       const fileExt = file.name.split('.').pop();
       const fileName = `${type}-${Date.now()}.${fileExt}`;
       
-      if (!user?.user) {
+      if (!user) {
         toast({
           title: "Authentication required",
           description: "You need to be logged in to upload files.",
@@ -153,7 +153,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         return;
       }
 
-      const filePath = `${user.user.id}/${type}s/${fileName}`;
+      const filePath = `${user.id}/${type}s/${fileName}`;
 
       const { error: uploadError } = await supabase.storage
         .from('user-content')
