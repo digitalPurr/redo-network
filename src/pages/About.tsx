@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
-import { WaveContainer } from '@/components/WaveContainer';
+import { AnimatedWavesPurple } from '@/components/waves/AnimatedWavesPurple';
 import { CornerWaves } from '@/components/CornerWaves';
 import { Header } from '@/components/Header';
 import { Card } from '@/components/ui/card';
@@ -48,7 +48,9 @@ const About = () => {
   return (
     <div className="min-h-screen relative">
       <GenerativeBackground />
-      <WaveContainer variant="teal" />
+      <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
+        <AnimatedWavesPurple rotation={180} />
+      </div>
       <CornerWaves position="random" variant="purple-teal" size="small" />
       <Header />
       

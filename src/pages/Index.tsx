@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { WaveContainer } from '@/components/WaveContainer';
+import { AnimatedWavesPurple } from '@/components/waves/AnimatedWavesPurple';
 import { CornerWaves } from '@/components/CornerWaves';
 import { ArrowRight, Zap, Users, Globe } from 'lucide-react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
@@ -14,7 +14,9 @@ const Index = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       <GenerativeBackground />
-      <WaveContainer variant="random" />
+      <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
+        <AnimatedWavesPurple rotation={0} />
+      </div>
       <CornerWaves position="top-left" variant="random" size="small" />
       <CornerWaves position="bottom-right" variant="random" size="small" />
       <Header />

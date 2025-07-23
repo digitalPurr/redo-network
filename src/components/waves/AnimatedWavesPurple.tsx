@@ -1,9 +1,13 @@
 
 import React from 'react';
 
-export const AnimatedWavesPurple = () => {
+interface AnimatedWavesPurpleProps {
+  rotation?: number;
+}
+
+export const AnimatedWavesPurple: React.FC<AnimatedWavesPurpleProps> = ({ rotation = 0 }) => {
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden" style={{ transform: `rotate(${rotation}deg)` }}>
       <svg
         width="100%"
         height="100%"

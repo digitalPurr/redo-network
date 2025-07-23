@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
 import { ProjectCard } from '@/components/ProjectCard';
-import { WaveContainer } from '@/components/WaveContainer';
+import { AnimatedWavesPurple } from '@/components/waves/AnimatedWavesPurple';
 import { CornerWaves } from '@/components/CornerWaves';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -37,7 +37,9 @@ const Projects = () => {
   return (
     <div className="min-h-screen relative">
       <GenerativeBackground />
-      <WaveContainer variant="red" />
+      <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
+        <AnimatedWavesPurple rotation={90} />
+      </div>
       <CornerWaves position="top-left" variant="red-orange" size="large" />
       <Header />
       
