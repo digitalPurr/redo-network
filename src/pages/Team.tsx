@@ -8,6 +8,7 @@ import { Github, Twitter, Globe, Loader2, ExternalLink, Youtube, Instagram, Musi
 import { supabase } from '@/integrations/supabase/client';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { WaveContainer } from '@/components/WaveContainer';
+import { CornerWaves } from '@/components/CornerWaves';
 
 interface Profile {
   id: string;
@@ -91,6 +92,7 @@ const Team = () => {
     <div className="min-h-screen relative">
       <GenerativeBackground />
       <WaveContainer variant="silver" height={60} />
+      <CornerWaves position="random" variant="purple-silver" size="medium" />
       <Header />
       
       <div className="pt-32 pb-20 px-4">

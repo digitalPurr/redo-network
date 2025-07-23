@@ -3,6 +3,7 @@ import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
 import { AnimatedWavesRed } from '@/components/waves/AnimatedWavesRed';
+import { CornerWaves } from '@/components/CornerWaves';
 
 const Portfolio = () => {
   return (
@@ -11,6 +12,7 @@ const Portfolio = () => {
       <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
         <AnimatedWavesRed />
       </div>
+      <CornerWaves position="top-right" variant="red-orange" size="small" />
       <Header />
       
       <main className="pt-20 p-8">

@@ -4,6 +4,7 @@ import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
 import { ProjectCard } from '@/components/ProjectCard';
 import { WaveContainer } from '@/components/WaveContainer';
+import { CornerWaves } from '@/components/CornerWaves';
 import { supabase } from '@/integrations/supabase/client';
 
 const Projects = () => {
@@ -37,6 +38,7 @@ const Projects = () => {
     <div className="min-h-screen relative">
       <GenerativeBackground />
       <WaveContainer variant="red" />
+      <CornerWaves position="top-left" variant="red-orange" size="large" />
       <Header />
       
       <main className="relative pt-32 pb-20 px-6">

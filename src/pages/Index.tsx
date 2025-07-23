@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { WaveContainer } from '@/components/WaveContainer';
+import { CornerWaves } from '@/components/CornerWaves';
 import { ArrowRight, Zap, Users, Globe } from 'lucide-react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { AnimatedWaves } from '@/components/AnimatedWaves';
@@ -14,6 +15,8 @@ const Index = () => {
     <div className="min-h-screen relative overflow-hidden">
       <GenerativeBackground />
       <WaveContainer variant="random" />
+      <CornerWaves position="top-left" variant="random" size="small" />
+      <CornerWaves position="bottom-right" variant="random" size="small" />
       <Header />
       
       {/* Hero Section */}

@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { toast } from "sonner";
 import { WaveContainer } from '@/components/WaveContainer';
+import { CornerWaves } from '@/components/CornerWaves';
 import { Mail, MessageSquare, Users, Zap } from 'lucide-react';
 
 const Contact = () => {
@@ -62,6 +63,7 @@ const Contact = () => {
     <div className="min-h-screen relative">
       <GenerativeBackground />
       <WaveContainer variant="purple" />
+      <CornerWaves position="bottom-left" variant="red-orange" size="medium" />
       <Header />
       
       <main className="relative pt-32 pb-20 px-6">

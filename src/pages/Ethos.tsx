@@ -5,6 +5,7 @@ import { AnimatedWavesBlue } from '@/components/waves/AnimatedWavesBlue';
 import { Header } from '@/components/Header';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { CornerWaves } from '@/components/CornerWaves';
 
 const Ethos = () => {
   const coreValues = [
@@ -131,6 +132,7 @@ const Ethos = () => {
       <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
         <AnimatedWavesBlue />
       </div>
+      <CornerWaves position="bottom-right" variant="purple-silver" size="medium" />
       <Header />
       
       <main className="relative z-10 pt-20">

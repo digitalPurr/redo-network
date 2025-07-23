@@ -2,6 +2,7 @@
 import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { WaveContainer } from '@/components/WaveContainer';
+import { CornerWaves } from '@/components/CornerWaves';
 import { Header } from '@/components/Header';
 import { Card } from '@/components/ui/card';
 import { Heart, Users, Eye, Shield, Sprout } from 'lucide-react';
@@ -48,6 +49,7 @@ const About = () => {
     <div className="min-h-screen relative">
       <GenerativeBackground />
       <WaveContainer variant="teal" />
+      <CornerWaves position="random" variant="purple-teal" size="small" />
       <Header />
       
       <main className="relative pt-32 pb-20 px-4">
