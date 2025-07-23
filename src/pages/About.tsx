@@ -115,10 +115,10 @@ const About = () => {
 
           {/* What We Believe */}
           <div className="mb-20 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-foreground mb-12">
-              What We Believe
-            </h2>
             <Card className="p-8 bg-gradient-card border-border/50 hover:shadow-card transition-all duration-500">
+              <h2 className="text-3xl font-bold text-center text-foreground mb-12">
+                What We Believe
+              </h2>
               <div className="space-y-4">
                 {beliefs.map((belief, index) => (
                   <div key={index} className="flex items-start gap-3">
