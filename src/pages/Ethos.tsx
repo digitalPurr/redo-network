@@ -168,48 +168,6 @@ const Ethos = () => {
                 </Card>
               </div>
 
-              {/* Belief Core */}
-              <div className="border-t border-primary/20 pt-8">
-                <div className="mb-6 text-center">
-                  <div className="flex items-center justify-center gap-3 mb-2">
-                    <span className="text-xl text-accent">⌈↺</span>
-                    <span className="font-mono text-primary text-center">BELIEF CORE ≣ FOUNDATIONAL PRINCIPLES</span>
-                    <span className="text-xl text-accent">⌋</span>
-                  </div>
-                  <div className="font-mono text-sm text-muted-foreground">【COMM LOG: CORE】</div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <span className="text-accent">◆</span>
-                      <span className="font-medium">Everyone deserves another shot</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-accent">◇</span>
-                      <span className="font-medium">Process &gt; Perfection</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-accent">◆</span>
-                      <span className="font-medium">Emotional safety comes first</span>
-                    </div>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <span className="text-accent">◇</span>
-                      <span className="font-medium">Conflict happens—we hold space, not debates</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-accent">◆</span>
-                      <span className="font-medium">Creativity heals—it isn't hustle</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-accent">◇</span>
-                      <span className="font-medium">This is connection—not content</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </Card>
@@ -252,6 +210,31 @@ const Ethos = () => {
         <Card className="mb-8 bg-card/80 backdrop-blur-sm border border-primary/30">
           <div className="p-8">
             <div className="space-y-8">
+              {/* Belief Core */}
+              <div>
+                <div className="mb-6 text-center">
+                  <div className="flex items-center justify-center gap-3 mb-2">
+                    <span className="text-xl text-accent">⌈↺</span>
+                    <span className="font-mono text-primary text-center">BELIEF CORE ≣ FOUNDATIONAL PRINCIPLES</span>
+                    <span className="text-xl text-accent">⌋</span>
+                  </div>
+                  <div className="font-mono text-sm text-muted-foreground">【COMM LOG: CORE】</div>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-4 ml-4">
+                  <div className="space-y-2">
+                    <p className="text-muted-foreground font-mono">◆ Everyone deserves another shot</p>
+                    <p className="text-muted-foreground font-mono">◇ Process > Perfection</p>
+                    <p className="text-muted-foreground font-mono">◆ Emotional safety comes first</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-muted-foreground font-mono">◇ Conflict happens—we hold space, not debates</p>
+                    <p className="text-muted-foreground font-mono">◆ Creativity heals—it isn't hustle</p>
+                    <p className="text-muted-foreground font-mono">◇ This is connection—not content</p>
+                  </div>
+                </div>
+              </div>
+
               {/* Protocol I */}
               <div>
                 <div className="mb-6 text-center">
