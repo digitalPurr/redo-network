@@ -311,7 +311,9 @@ const Ethos = () => {
             <div className="space-y-8">
               {/* Social Etiquette */}
               <div>
-                <h2 className="text-2xl font-bold font-mono text-primary mb-4">【SOCIAL ETIQUETTE // SHARED PRACTICES】</h2>
+              <span className="text-xl text-accent">⌈↺</span>
+                <h2 className="font-mono text-primary text-center">SOCIAL ETIQUETTE ≣ SHARED PRACTICES</h2>
+              <span className="text-xl text-accent">⌋</span>
                 <div className="space-y-4 mb-6 text-center">
                   <div className="text-center">
                     <span className="text-accent">◇</span>
