@@ -176,24 +176,22 @@ const Ethos = () => {
         <Card className="mb-8 bg-card/80 backdrop-blur-sm border-l-4 border-l-accent">
           <div className="p-8">
             <div className="text-center">
-                <span className="text-xl text-accent">⌈↺</span>
-                <span className="font-mono text-primary text-center">SYSTEM INTENT ≣ ⌈RE⁝DO⌋ PHILOSOPHY</span>
-                <span className="text-xl text-accent">⌋</span>
+              <h2 className="text-2xl font-bold font-mono text-primary mb-4 text-center">⌈ SYSTEM INTENT ≣ ⌈RE⁝DO⌋ PHILOSOPHY ⌋</h2>
             </div>
             <div className="space-y-4">
-              <p className="text-lg text-center">
-                <span className="text-xl text-accent">⌈↺</span>
-                RE⁝DO is our code for compassionate iteration.               
-                <span className="text-xl text-accent">⌋</span>
-              </p>
+              <div className="flex items-center justify-center gap-3 mb-2">
+              <span className="text-xl text-accent">⌈↺</span>
+              <span className="font-mono text-primary text-center">RE⁝DO is our code for compassionate iteration.</span>
+              <span className="text-xl text-accent">⌋</span>
+              </div>
               <div className="text-center text-muted-foreground">
                 <span className="text-accent">⇉</span>
                 <span>Every collaboration</span>
-                <span className="text-accent">↺<</span>
+                <span className="text-accent">⇉</span>
                 <span>re:connection</span>
-                <span className="text-accent">↺<</span>
+                <span className="text-accent">⇉</span>
                 <span>re:flection</span>
-                <span className="text-accent">↺<</span>
+                <span className="text-accent">⇉</span>
                 <span>re:imagination.</span>
               </div>
               <div className="space-y-2 mt-6 text-center">
