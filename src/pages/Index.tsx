@@ -74,7 +74,7 @@ const Index = () => {
               <div className="w-16 h-16 rounded-full bg-gradient-primary/20 flex items-center justify-center mx-auto mb-4 shadow-accent">
                 <Users className="h-8 w-8 text-accent" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">🔻Commitment</h3>
+              <h3 className="text-xl font-semibold mb-3">Commitment</h3>
               <p className="text-muted-foreground">
                 Growth isn’t a linear path, and you don’t have to be perfect.
               </p>
@@ -84,7 +84,7 @@ const Index = () => {
               <div className="w-16 h-16 rounded-full bg-gradient-accent/20 flex items-center justify-center mx-auto mb-4 shadow-glow">
                 <Globe className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">🔻Drive </h3>
+              <h3 className="text-xl font-semibold mb-3">Drive </h3>
               <p className="text-muted-foreground">
                 Just show up with the intention to learn, and you belong here.
               </p>
