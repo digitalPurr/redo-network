@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { SimpleBottomWave } from '@/components/waves/SimpleBottomWave';
@@ -182,7 +183,7 @@ const Ethos = () => {
                 ⌈↺ RE⁝DO is our code for compassionate iteration. ⌋
               </p>
               <div className="text-center text-muted-foreground">
-                <span className="text-accent">⇉</span>
+                <span className="text-accent">↺</span>
                 <span>Every collaboration</span>
                 <span className="text-accent">⇉</span>
                 <span>re:connection</span>
@@ -270,11 +271,11 @@ const Ethos = () => {
                 </div>
                 
                 <div className="space-y-2 text-center">
-                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◆</span> Sustainable selflessness <span className="text-accent">→</span> Help when you can</p>
-                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◆</span> Compassionate presence <span className="text-accent">→</span> Showing up is enough</p>
-                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◆</span> Emotional labor <span className="text-accent">→</span> Pause, listen, reflect</p>
-                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◆</span> Creative optimism <span className="text-accent">→</span> Build toward, not just against</p>
-                  <p className="text-muted-foreground font-mono">Growth is nonlinear. Belonging starts with intention.</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold"><span className="text-accent font-bold">◆</span> Sustainable selflessness <span className="text-accent">→</span></span> Help when you can</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold"><span className="text-accent font-bold">◆</span> Compassionate presence <span className="text-accent">→</span></span> Showing up is enough</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold"><span className="text-accent font-bold">◆</span> Emotional labor <span className="text-accent">→</span></span> Pause, listen, reflect</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold"><span className="text-accent font-bold">◆</span> Creative optimism <span className="text-accent">→</span></span> Build toward, not just against</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold"></span> Growth is nonlinear. Belonging starts with intention.</p>
                 </div>
               </div>
 
@@ -310,11 +311,9 @@ const Ethos = () => {
             <div className="space-y-8">
               {/* Social Etiquette */}
               <div>
-                <div className="flex items-center justify-center gap-3 mb-2">
-                  <span className="text-xl text-accent">⌈↺</span>
-                  <h2 className="font-mono text-primary text-center">SOCIAL ETIQUETTE ≣ SHARED PRACTICES</h2>
-                  <span className="text-xl text-accent">⌋</span>
-                </div>
+              <span className="text-xl text-accent">⌈↺</span>
+                <h2 className="font-mono text-primary text-center">SOCIAL ETIQUETTE ≣ SHARED PRACTICES</h2>
+              <span className="text-xl text-accent">⌋</span>
                 <div className="space-y-4 mb-6 text-center">
                   <div className="text-center">
                     <span className="text-accent">◆</span>
