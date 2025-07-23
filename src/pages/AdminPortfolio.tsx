@@ -38,7 +38,7 @@ interface PortfolioItem {
   user_id: string;
   title: string;
   description: string | null;
-  rich_content: string | null;
+  rich_content: any;
   project_url: string | null;
   demo_url: string | null;
   image_url: string | null;
@@ -84,7 +84,7 @@ const AdminPortfolio: React.FC = () => {
         .from('portfolio_projects')
         .select(`
           *,
-          profiles(
+          profiles!inner(
             first_name,
             last_name,
             username,
@@ -95,15 +95,19 @@ const AdminPortfolio: React.FC = () => {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      setPortfolioItems(data?.map(item => ({
+      
+      const transformedData = data?.map(item => ({
         ...item,
         tags: Array.isArray(item.tags) ? item.tags as string[] : [],
         approval_status: item.approval_status || 'pending',
         views: item.views || 0,
         likes: item.likes || 0,
         featured: item.featured || false,
-        published: item.published || false
-      })) || []);
+        published: item.published || false,
+        profiles: Array.isArray(item.profiles) ? item.profiles[0] : item.profiles
+      })) || [];
+      
+      setPortfolioItems(transformedData);
     } catch (error) {
       console.error('Error fetching portfolio items:', error);
       toast({
