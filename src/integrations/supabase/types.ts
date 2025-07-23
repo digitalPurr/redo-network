@@ -49,6 +49,75 @@ export type Database = {
           },
         ]
       }
+      portfolio_projects: {
+        Row: {
+          approval_status: string | null
+          category: string | null
+          created_at: string
+          demo_url: string | null
+          description: string | null
+          end_date: string | null
+          featured: boolean | null
+          id: string
+          image_url: string | null
+          likes: number | null
+          project_url: string | null
+          published: boolean | null
+          rejection_reason: string | null
+          rich_content: Json | null
+          start_date: string | null
+          tags: Json | null
+          title: string
+          updated_at: string
+          user_id: string
+          views: number | null
+        }
+        Insert: {
+          approval_status?: string | null
+          category?: string | null
+          created_at?: string
+          demo_url?: string | null
+          description?: string | null
+          end_date?: string | null
+          featured?: boolean | null
+          id?: string
+          image_url?: string | null
+          likes?: number | null
+          project_url?: string | null
+          published?: boolean | null
+          rejection_reason?: string | null
+          rich_content?: Json | null
+          start_date?: string | null
+          tags?: Json | null
+          title: string
+          updated_at?: string
+          user_id: string
+          views?: number | null
+        }
+        Update: {
+          approval_status?: string | null
+          category?: string | null
+          created_at?: string
+          demo_url?: string | null
+          description?: string | null
+          end_date?: string | null
+          featured?: boolean | null
+          id?: string
+          image_url?: string | null
+          likes?: number | null
+          project_url?: string | null
+          published?: boolean | null
+          rejection_reason?: string | null
+          rich_content?: Json | null
+          start_date?: string | null
+          tags?: Json | null
+          title?: string
+          updated_at?: string
+          user_id?: string
+          views?: number | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null

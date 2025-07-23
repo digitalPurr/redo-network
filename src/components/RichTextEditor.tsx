@@ -12,6 +12,15 @@ import { Color } from '@tiptap/extension-color';
 import { TextStyle } from '@tiptap/extension-text-style';
 import { Button } from '@/components/ui/button';
 import { TooltipProvider, Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { SoundCloud } from './RichTextEditor/extensions/SoundCloudExtension';
+import { Video } from './RichTextEditor/extensions/VideoExtension';
+import { Audio } from './RichTextEditor/extensions/AudioExtension';
+import { Callout } from './RichTextEditor/extensions/CalloutExtension';
+import { Divider } from './RichTextEditor/extensions/DividerExtension';
+import { TableExtensions } from './RichTextEditor/extensions/TableExtension';
+import { CodeBlockExtension } from './RichTextEditor/extensions/CodeBlockExtension';
+import { Collapsible } from './RichTextEditor/extensions/CollapsibleExtension';
+import { CustomButton } from './RichTextEditor/extensions/ButtonExtension';
 import { 
   Bold, 
   Italic, 
@@ -42,15 +51,16 @@ import {
   XCircle,
   Minus,
   MoreHorizontal,
-  Type
+  Type,
+  TableIcon,
+  Code2,
+  ChevronDown,
+  Square,
+  Link,
+  Plus
 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
-import { SoundCloud } from './RichTextEditor/extensions/SoundCloudExtension';
-import { Video } from './RichTextEditor/extensions/VideoExtension';
-import { Audio } from './RichTextEditor/extensions/AudioExtension';
-import { Callout } from './RichTextEditor/extensions/CalloutExtension';
-import { Divider } from './RichTextEditor/extensions/DividerExtension';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -94,6 +104,10 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
       Audio,
       Callout,
       Divider,
+      ...TableExtensions,
+      CodeBlockExtension,
+      Collapsible,
+      CustomButton,
       Color,
       TextStyle,
     ],
@@ -433,6 +447,144 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
               <DropdownMenuItem onClick={() => editor.chain().focus().setDivider({ style: 'dotted' }).run()}>
                 <MoreHorizontal className="h-4 w-4 mr-2" />
                 Dotted Line
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <div className="w-px h-6 bg-border mx-1" />
+
+          {/* Table */}
+          <DropdownMenu>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm">
+                    <TableIcon className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Insert Table</p>
+              </TooltipContent>
+            </Tooltip>
+            <DropdownMenuContent>
+              <DropdownMenuItem onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}>
+                <TableIcon className="h-4 w-4 mr-2" />
+                Insert Table (3x3)
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => editor.chain().focus().addColumnBefore().run()}
+                disabled={!editor.isActive('table')}
+              >
+                <Plus className="h-4 w-4 mr-2" />
+                Add Column Before
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => editor.chain().focus().addColumnAfter().run()}
+                disabled={!editor.isActive('table')}
+              >
+                <Plus className="h-4 w-4 mr-2" />
+                Add Column After
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => editor.chain().focus().deleteColumn().run()}
+                disabled={!editor.isActive('table')}
+              >
+                <Minus className="h-4 w-4 mr-2" />
+                Delete Column
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => editor.chain().focus().addRowBefore().run()}
+                disabled={!editor.isActive('table')}
+              >
+                <Plus className="h-4 w-4 mr-2" />
+                Add Row Before
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => editor.chain().focus().addRowAfter().run()}
+                disabled={!editor.isActive('table')}
+              >
+                <Plus className="h-4 w-4 mr-2" />
+                Add Row After
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => editor.chain().focus().deleteRow().run()}
+                disabled={!editor.isActive('table')}
+              >
+                <Minus className="h-4 w-4 mr-2" />
+                Delete Row
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => editor.chain().focus().deleteTable().run()}
+                disabled={!editor.isActive('table')}
+              >
+                <XCircle className="h-4 w-4 mr-2" />
+                Delete Table
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* Code Block */}
+          <ToolbarButton
+            onClick={() => editor.chain().focus().toggleCodeBlock().run()}
+            isActive={editor.isActive('codeBlock')}
+            tooltip="Code Block"
+          >
+            <Code2 className="h-4 w-4" />
+          </ToolbarButton>
+
+          {/* Collapsible Section */}
+          <DropdownMenu>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm">
+                    <ChevronDown className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Insert Collapsible Section</p>
+              </TooltipContent>
+            </Tooltip>
+            <DropdownMenuContent>
+              <DropdownMenuItem onClick={() => editor.chain().focus().setCollapsible({ summary: 'Click to expand', defaultOpen: false }).run()}>
+                <ChevronDown className="h-4 w-4 mr-2" />
+                Collapsible Section
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* Custom Button */}
+          <DropdownMenu>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm">
+                    <Square className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Insert Button</p>
+              </TooltipContent>
+            </Tooltip>
+            <DropdownMenuContent>
+              <DropdownMenuItem onClick={() => {
+                const text = prompt('Button text:') || 'Click me';
+                const url = prompt('Button URL (optional):') || '';
+                editor.chain().focus().setCustomButton({ text, url, variant: 'default' }).run();
+              }}>
+                <Square className="h-4 w-4 mr-2" />
+                Primary Button
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => {
+                const text = prompt('Button text:') || 'Click me';
+                const url = prompt('Button URL (optional):') || '';
+                editor.chain().focus().setCustomButton({ text, url, variant: 'outline' }).run();
+              }}>
+                <Square className="h-4 w-4 mr-2" />
+                Outline Button
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
