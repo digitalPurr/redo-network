@@ -293,10 +293,12 @@ const Ethos = () => {
                     <span className="text-xl text-accent">⌋</span>
                   </div>
                   <div className="font-mono text-sm text-muted-foreground">【COMM LOG: III】</div>
+                  <div className="mt-3 text-lg font-medium">
+                    <span className="text-accent">◆</span> We are people—co-creating human space.
+                  </div>
                 </div>
                 
                 <div className="space-y-2 ml-4">
-                  <p className="text-muted-foreground font-mono">◆ We are people—co-creating human space.</p>
                   <p className="text-muted-foreground font-mono">◇ We are not brands.</p>
                   <p className="text-muted-foreground font-mono">◇ We are not content streams.</p>
                   <p className="text-muted-foreground font-mono">⇲ Unlearn: extraction, objectification, performance</p>
