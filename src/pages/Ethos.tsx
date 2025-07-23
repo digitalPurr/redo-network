@@ -170,30 +170,43 @@ const Ethos = () => {
 
               {/* Belief Core */}
               <div className="border-t border-primary/20 pt-8">
-                <div className="space-y-3 text-center">
-                  <div className="text-center">
-                    <span className="text-primary">•</span>
-                    <span className="ml-2">Everyone deserves another shot</span>
+                <div className="mb-6 text-center">
+                  <div className="flex items-center justify-center gap-3 mb-2">
+                    <span className="text-xl text-accent">⌈↺</span>
+                    <span className="font-mono text-primary text-center">BELIEF CORE ≣ FOUNDATIONAL PRINCIPLES</span>
+                    <span className="text-xl text-accent">⌋</span>
                   </div>
-                  <div className="text-center">
-                    <span className="text-primary">•</span>
-                    <span className="ml-2">Process &gt; Perfection</span>
+                  <div className="font-mono text-sm text-muted-foreground">【COMM LOG: CORE】</div>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <span className="text-accent">◆</span>
+                      <span className="font-medium">Everyone deserves another shot</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-accent">◇</span>
+                      <span className="font-medium">Process &gt; Perfection</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-accent">◆</span>
+                      <span className="font-medium">Emotional safety comes first</span>
+                    </div>
                   </div>
-                  <div className="text-center">
-                    <span className="text-primary">•</span>
-                    <span className="ml-2">Emotional safety comes first</span>
-                  </div>
-                  <div className="text-center">
-                    <span className="text-primary">•</span>
-                    <span className="ml-2">Conflict happens—we hold space, not debates</span>
-                  </div>
-                  <div className="text-center">
-                    <span className="text-primary">•</span>
-                    <span className="ml-2">Creativity heals—it isn't hustle</span>
-                  </div>
-                  <div className="text-center">
-                    <span className="text-primary">•</span>
-                    <span className="ml-2">This is connection—not content</span>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <span className="text-accent">◇</span>
+                      <span className="font-medium">Conflict happens—we hold space, not debates</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-accent">◆</span>
+                      <span className="font-medium">Creativity heals—it isn't hustle</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-accent">◇</span>
+                      <span className="font-medium">This is connection—not content</span>
+                    </div>
                   </div>
                 </div>
               </div>
