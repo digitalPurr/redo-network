@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
+import { AnimatedWavesBottomTwo } from '@/components/waves/AnimatedWavesBottomTwo';
 import { Header } from '@/components/Header';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -9,6 +10,9 @@ const Ethos = () => {
   return (
     <div className="min-h-screen relative">
       <GenerativeBackground />
+      <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
+        <AnimatedWavesBottomTwo />
+      </div>
       <Header />
       
       <main className="relative z-10 pt-20 px-4 max-w-6xl mx-auto pb-20">
@@ -19,11 +23,8 @@ const Ethos = () => {
             <div className="text-primary/80 mb-4">
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-accent">⇱</span>
-                <span>DESTINY LIVING NOSTALGIA</span>
-              </div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-accent">⇲</span>
-                <span>ORIGIN ⌈RE⁝DO⌋ NETWORK CORE</span>
+                <span>DESTINY LIVING NOSTALGIA</span>b-2">
+            <span>ORIGIN ⌈RE⁝DO⌋ NETWORK CORE</span>
               </div>
             </div>
             
@@ -205,7 +206,7 @@ const Ethos = () => {
             </div>
             <div className="space-y-4">
               <p className="text-lg">
-                RE⁝DO is our code for compassionate iteration.
+                "RE⁝DO" is our code for compassionate iteration.
               </p>
               <div className="text-center text-muted-foreground">
                 <span className="text-accent">⇉</span>
