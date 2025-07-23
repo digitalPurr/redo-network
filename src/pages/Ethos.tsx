@@ -180,10 +180,8 @@ const Ethos = () => {
             </div>
             <div className="space-y-4">
               <p className="text-lg text-center">
-                <span className="text-xl text-accent">⌈↺</span>
-               <p className="font-medium">RE⁝DO is our code for compassionate iteration.  </p>
-                <span className="text-xl text-accent">⌋</span>
-           
+                ⌈↺ RE⁝DO is our code for compassionate iteration. ⌋
+              </p>
               <div className="text-center text-muted-foreground">
                 <span className="text-accent">⇉</span>
                 <span>Every collaboration</span>
@@ -312,10 +310,11 @@ const Ethos = () => {
           <div className="p-8">
             <div className="space-y-8">
               {/* Social Etiquette */}
-              <div>
-              <span className="text-xl text-accent">⌈↺</span>
+                  <div className="flex items-center justify-center gap-3 mb-2">
+                    <span className="text-xl text-accent">⌈↺</span>
                 <h2 className="font-mono text-primary text-center">SOCIAL ETIQUETTE ≣ SHARED PRACTICES</h2>
-              <span className="text-xl text-accent">⌋</span>
+                    <span className="text-xl text-accent">⌋</span>
+                  </div>
                 <div className="space-y-4 mb-6 text-center">
                   <div className="text-center">
                     <span className="text-accent">◆</span>
