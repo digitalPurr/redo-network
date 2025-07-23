@@ -34,21 +34,21 @@ interface PortfolioItem {
   id: string;
   user_id: string;
   title: string;
-  description: string;
+  description: string | null;
   rich_content: string | null;
-  project_url?: string;
-  demo_url?: string;
-  image_url?: string;
-  approval_status: 'pending' | 'approved' | 'rejected';
-  rejection_reason?: string;
-  published: boolean;
-  tags: string[];
-  start_date?: string;
-  end_date?: string;
-  category?: string;
-  views: number;
-  likes: number;
-  featured: boolean;
+  project_url: string | null;
+  demo_url: string | null;
+  image_url: string | null;
+  approval_status: string | null;
+  rejection_reason: string | null;
+  published: boolean | null;
+  tags: string[] | null;
+  start_date: string | null;
+  end_date: string | null;
+  category: string | null;
+  views: number | null;
+  likes: number | null;
+  featured: boolean | null;
   created_at: string;
   updated_at: string;
 }
@@ -90,7 +90,12 @@ const PortfolioManagement = () => {
       setPortfolioItems(data?.map(item => ({
         ...item,
         rich_content: typeof item.rich_content === 'string' ? item.rich_content : JSON.stringify(item.rich_content || ''),
-        tags: Array.isArray(item.tags) ? item.tags : []
+        tags: Array.isArray(item.tags) ? item.tags as string[] : [],
+        approval_status: item.approval_status || 'pending',
+        views: item.views || 0,
+        likes: item.likes || 0,
+        featured: item.featured || false,
+        published: item.published || false
       })) || []);
     } catch (error) {
       console.error('Error fetching portfolio items:', error);
@@ -240,7 +245,7 @@ const PortfolioManagement = () => {
       project_url: item.project_url || '',
       demo_url: item.demo_url || '',
       image_url: item.image_url || '',
-      tags: Array.isArray(item.tags) ? item.tags.join(', ') : '',
+            tags: Array.isArray(item.tags) ? item.tags.join(', ') : '',
       start_date: item.start_date || '',
       end_date: item.end_date || '',
       category: item.category || ''
@@ -295,7 +300,7 @@ const PortfolioManagement = () => {
     }
   };
 
-  const getStatusIcon = (status: string) => {
+  const getStatusIcon = (status: string | null) => {
     switch (status) {
       case 'approved':
         return <CheckCircle className="h-4 w-4 text-green-500" />;
@@ -306,7 +311,7 @@ const PortfolioManagement = () => {
     }
   };
 
-  const getStatusColor = (status: string) => {
+  const getStatusColor = (status: string | null) => {
     switch (status) {
       case 'approved':
         return 'bg-green-100 text-green-800 border-green-200';
