@@ -271,11 +271,11 @@ const Ethos = () => {
                 </div>
                 
                 <div className="space-y-2 text-center">
-                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold"><span className="text-accent">⇉</span></span> Sustainable selflessness → Help when you can</p>
-                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold"><span className="text-accent">⇉</span></span> Compassionate presence → Showing up is enough</p>
-                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold"><span className="text-accent">⇉</span></span> Emotional labor → Pause, listen, reflect</p>
-                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold"><span className="text-accent">⇉</span></span> Creative optimism → Build toward, not just against</p>
-                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold"><span className="text-accent">⇉</span></span> Growth is nonlinear. Belonging starts with intention.</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold"><span className="text-accent font-bold">◆</span> Sustainable selflessness <span className="text-accent">→</span></span> Help when you can</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold"><span className="text-accent font-bold">◆</span> Compassionate presence <span className="text-accent">→</span></span> Showing up is enough</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold"><span className="text-accent font-bold">◆</span> Emotional labor <span className="text-accent">→</span></span> Pause, listen, reflect</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold"><span className="text-accent font-bold">◆</span> Creative optimism <span className="text-accent">→</span></span> Build toward, not just against</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold"></span> Growth is nonlinear. Belonging starts with intention.</p>
                 </div>
               </div>
 
