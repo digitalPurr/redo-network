@@ -2,6 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { WaveContainer } from '@/components/WaveContainer';
 import { ArrowRight, Zap, Users, Globe } from 'lucide-react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { AnimatedWaves } from '@/components/AnimatedWaves';
@@ -11,7 +13,7 @@ const Index = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       <GenerativeBackground />
-      <AnimatedWaves />
+      <WaveContainer variant="random" />
       <Header />
       
       {/* Hero Section */}

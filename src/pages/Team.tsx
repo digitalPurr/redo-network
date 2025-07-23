@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Github, Twitter, Globe, Loader2, ExternalLink, Youtube, Instagram, Music } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { AnimatedWavesSilver } from '@/components/waves/AnimatedWavesSilver';
+import { WaveContainer } from '@/components/WaveContainer';
 
 interface Profile {
   id: string;
@@ -90,9 +90,7 @@ const Team = () => {
   return (
     <div className="min-h-screen relative">
       <GenerativeBackground />
-      <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
-        <AnimatedWavesSilver />
-      </div>
+      <WaveContainer variant="silver" height={60} />
       <Header />
       
       <div className="pt-32 pb-20 px-4">

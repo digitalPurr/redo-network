@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
 import { ProjectCard } from '@/components/ProjectCard';
+import { WaveContainer } from '@/components/WaveContainer';
 import { supabase } from '@/integrations/supabase/client';
 
 const Projects = () => {
@@ -35,6 +36,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen relative">
       <GenerativeBackground />
+      <WaveContainer variant="red" />
       <Header />
       
       <main className="relative pt-32 pb-20 px-6">

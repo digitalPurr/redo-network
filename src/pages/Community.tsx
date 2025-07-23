@@ -5,6 +5,7 @@ import { Header } from '@/components/Header';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { WaveContainer } from '@/components/WaveContainer';
 import { Heart, Users, Eye, Shield, Sprout, MessageCircle, Link as LinkIcon, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -77,6 +78,7 @@ const Community = () => {
   return (
     <div className="min-h-screen relative">
       <GenerativeBackground />
+      <WaveContainer variant="blue" />
       <AnimatedWavesBlue />
       <Header />
       

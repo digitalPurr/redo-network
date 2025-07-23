@@ -4,9 +4,10 @@ import { AnimatedWavesBlue } from '@/components/waves/AnimatedWavesBlue';
 import { AnimatedWavesRed } from '@/components/waves/AnimatedWavesRed';
 import { AnimatedWavesPurple } from '@/components/waves/AnimatedWavesPurple';
 import { AnimatedWavesSilver } from '@/components/waves/AnimatedWavesSilver';
+import { AnimatedWavesTeal } from '@/components/waves/AnimatedWavesTeal';
 
 interface WaveContainerProps {
-  variant?: 'random' | 'purple' | 'blue' | 'red' | 'silver' | 'default';
+  variant?: 'random' | 'purple' | 'blue' | 'red' | 'silver' | 'teal' | 'default';
   opacity?: number;
   height?: number;
   fixed?: boolean;
@@ -25,12 +26,13 @@ export const WaveContainer: React.FC<WaveContainerProps> = ({
     purple: AnimatedWavesPurple,
     blue: AnimatedWavesBlue,
     red: AnimatedWavesRed,
-    silver: AnimatedWavesSilver
+    silver: AnimatedWavesSilver,
+    teal: AnimatedWavesTeal
   };
 
   useEffect(() => {
     if (variant === 'random') {
-      const waveOptions = ['default', 'purple', 'blue', 'red', 'silver'];
+      const waveOptions = ['default', 'purple', 'blue', 'red', 'silver', 'teal'];
       const randomWave = waveOptions[Math.floor(Math.random() * waveOptions.length)];
       setSelectedWave(randomWave);
     } else {
