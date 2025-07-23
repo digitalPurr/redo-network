@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
-import { AnimatedWavesBottomTwo } from '@/components/waves/AnimatedWavesBottomTwo';
+import { SimpleBottomWave } from '@/components/waves/SimpleBottomWave';
 import { Header } from '@/components/Header';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -11,7 +11,7 @@ const Ethos = () => {
     <div className="min-h-screen relative">
       <GenerativeBackground />
       <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
-        <AnimatedWavesBottomTwo />
+        <SimpleBottomWave />
       </div>
       <Header />
       
@@ -299,7 +299,9 @@ const Ethos = () => {
                 </div>
                 
                 <div className="space-y-2 ml-4">
-                  <p className="text-muted-foreground font-mono">◆ We are people—co-creating human space.</p>
+                  <div className="mt-3 text-lg font-medium">
+                    <span className="text-accent">◆</span> We are people—co-creating human space.
+                  </div>
                   <p className="text-muted-foreground font-mono">◇ We are not brands.</p>
                   <p className="text-muted-foreground font-mono">◇ We are not content streams.</p>
                   <p className="text-muted-foreground font-mono">⇲ Unlearn: extraction, objectification, performance</p>
