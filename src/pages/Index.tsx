@@ -17,17 +17,17 @@ const Index = () => {
       <section className="relative pt-32 pb-20 px-6 z-10">
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-8">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in">
+            <h1 className="text-6xl md:text-8xl font-bold mb-6">
               <span className="bg-gradient-primary bg-clip-text text-transparent drop-shadow-glow">
                 RE:DO
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in animation-delay-200">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               A collaborative multimedia platform where digital avant-garde meets iterative creation, where we start, build and finish projects.
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in animation-delay-400">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 text-white border-0 hover-scale shadow-glow">
               <Link to="/projects">
                 Explore Projects

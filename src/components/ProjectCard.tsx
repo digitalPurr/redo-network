@@ -70,7 +70,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       className={`
         group relative overflow-hidden bg-gradient-card border-border/50 
         transition-all duration-500 ease-spring hover:shadow-card hover:scale-[1.02]
-        ${isInView ? 'animate-in slide-in-from-bottom-8 duration-700' : 'opacity-0'}
+        ${isInView ? '' : ''}
         ${className}
       `}
       onMouseEnter={() => handleHover(true)}

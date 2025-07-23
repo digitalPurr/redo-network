@@ -86,7 +86,6 @@ const Contact = () => {
                 className={`
                   group p-6 bg-gradient-card border-border/50 hover:shadow-card 
                   transition-all duration-500 hover:scale-105 cursor-pointer
-                  animate-in slide-in-from-bottom-8 duration-700 [animation-delay:${index * 100}ms]
                 `}
                 onClick={() => setFormData(prev => ({ ...prev, subject: type.action }))}
               >
