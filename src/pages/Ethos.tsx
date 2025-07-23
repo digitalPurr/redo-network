@@ -176,14 +176,15 @@ const Ethos = () => {
         <Card className="mb-8 bg-card/80 backdrop-blur-sm border-l-4 border-l-accent">
           <div className="p-8">
             <div className="text-center">
-              <h2 className="text-2xl font-bold font-mono text-primary mb-4 text-center">⌈ SYSTEM INTENT ≣ ⌈RE⁝DO⌋ PHILOSOPHY ⌋</h2>
+              <div className="flex items-center justify-center gap-3 mb-2">
+            <span className="text-xl text-accent">⌈↺</span>
+              <h2 className="text-2xl font-bold font-mono text-primary mb-4 text-center">SYSTEM INTENT ≣ ⌈RE⁝DO⌋ PHILOSOPHY </h2>
+              <span className="text-xl text-accent">⌋</span>
             </div>
             <div className="space-y-4">
-              <div className="flex items-center justify-center gap-3 mb-2">
-              <span className="text-xl text-accent">⌈↺</span>
-              <span className="font-mono text-primary text-center">RE⁝DO is our code for compassionate iteration.</span>
-              <span className="text-xl text-accent">⌋</span>
-              </div>
+              <p className="text-lg text-center">
+                ⌈↺ RE⁝DO is our code for compassionate iteration. ⌋
+              </p>
               <div className="text-center text-muted-foreground">
                 <span className="text-accent">⇉</span>
                 <span>Every collaboration</span>
