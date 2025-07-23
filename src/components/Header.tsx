@@ -1,150 +1,239 @@
-
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { useAuth } from '@/hooks/use-auth';
-import { 
-  DropdownMenu, 
-  DropdownMenuContent, 
-  DropdownMenuItem, 
-  DropdownMenuSeparator, 
-  DropdownMenuTrigger 
-} from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { User, Settings, LogOut, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 export const Header = () => {
-  const { user, signOut } = useAuth();
-  const navigate = useNavigate();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const { user, userRole, signOut } = useAuth();
+
+  const navigation = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Ethos', href: '/ethos' },
+    { name: 'Team', href: '/team' },
+    { name: 'Portfolio', href: '/portfolio' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Contact', href: '/contact' },
+  ];
+
+  const isActive = (path: string) => location.pathname === path;
+
+  const canAccessAdmin = userRole && ['network-admin', 'project-lead', 'contributor'].includes(userRole);
 
   const handleSignOut = async () => {
     await signOut();
-    navigate('/');
   };
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
-
-  const navItems = [
-    { to: "/", label: "Home" },
-    { to: "/projects", label: "Projects" },
-    { to: "/about", label: "About" },
-    { to: "/ethos", label: "Ethos" },
-    { to: "/team", label: "Team" },
-    { to: "/contact", label: "Contact" }
-  ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <div className="w-full px-4 lg:px-6 h-16 flex items-center justify-between">
-        <div className="flex items-center space-x-4">
-          <Link to="/" className="flex items-center space-x-3">
-            <div>
-              <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                ⌈RE⁝DO⌋
-              </h1>
-              <p className="text-xs text-muted-foreground -mt-1 tracking-[0.3em]">
-                N E T W O R K
-              </p>
-            </div>
-          </Link>
-        </div>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-            >
-              {item.label}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex items-center">
+            <Link to="/" className="flex-shrink-0">
+              <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                「RE:DO NETWORK」
+              </span>
             </Link>
-          ))}
-        </nav>
+          </div>
 
-        {/* Auth Section */}
-        <div className="flex items-center space-x-4">
-          {user ? (
-            <>
+          {/* Desktop Navigation */}
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-4">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={cn(
+                    "px-3 py-2 rounded-md text-sm font-medium transition-colors",
+                    isActive(item.href)
+                      ? "bg-primary text-primary-foreground"
+                      : "text-foreground hover:bg-muted hover:text-foreground"
+                  )}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* User Menu and Theme Toggle */}
+          <div className="hidden md:flex items-center space-x-4">
+            <ThemeToggle />
+            {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-                    <Avatar className="h-8 w-8">
-                      <AvatarImage src={user.user_metadata?.avatar_url} alt={user.email} />
-                      <AvatarFallback>
-                        {user.email?.charAt(0).toUpperCase()}
-                      </AvatarFallback>
-                    </Avatar>
+                  <Button variant="ghost" className="flex items-center space-x-2">
+                    <span>{user.email}</span>
+                    <ChevronDown className="h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56" align="end" forceMount>
-                  <div className="flex items-center justify-start gap-2 p-2">
-                    <div className="flex flex-col space-y-1 leading-none">
-                      <p className="font-medium">{user.email}</p>
-                    </div>
-                  </div>
-                  <DropdownMenuSeparator />
+                <DropdownMenuContent align="end" className="w-56">
                   <DropdownMenuItem asChild>
-                    <Link to="/profile" className="flex items-center space-x-2">
-                      <User size={16} />
-                      <span>Profile</span>
-                    </Link>
+                    <Link to="/dashboard">Dashboard</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link to="/dashboard" className="flex items-center space-x-2">
-                      <Settings size={16} />
-                      <span>Dashboard</span>
-                    </Link>
+                    <Link to="/profile">Profile Settings</Link>
                   </DropdownMenuItem>
+                  {canAccessAdmin && (
+                    <>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem asChild>
+                        <Link to="/admin">Admin Dashboard</Link>
+                      </DropdownMenuItem>
+                      {(userRole === 'network-admin' || userRole === 'project-lead') && (
+                        <>
+                          <DropdownMenuItem asChild>
+                            <Link to="/admin/team">Team Management</Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem asChild>
+                            <Link to="/admin/projects">Project Management</Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem asChild>
+                            <Link to="/admin/site-content">Site Content</Link>
+                          </DropdownMenuItem>
+                        </>
+                      )}
+                    </>
+                  )}
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={handleSignOut} className="flex items-center space-x-2 text-destructive">
-                    <LogOut size={16} />
-                    <span>Sign Out</span>
+                  <DropdownMenuItem onClick={handleSignOut}>
+                    Sign Out
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-            </>
-          ) : (
-            <div className="flex items-center space-x-2">
-              <Button asChild variant="ghost" size="sm">
-                <Link to="/auth">Sign In</Link>
-              </Button>
-            </div>
-          )}
-
-          {/* Mobile Menu Toggle */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden"
-            onClick={toggleMobileMenu}
-          >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </Button>
-        </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-md border-b border-border/50">
-          <nav className="px-4 py-4 space-y-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.label}
+            ) : (
+              <Link to="/auth">
+                <Button variant="outline">Sign In</Button>
               </Link>
-            ))}
-          </nav>
+            )}
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center space-x-2">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-foreground hover:bg-muted focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
-      )}
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-t border-border">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={cn(
+                    "block px-3 py-2 rounded-md text-base font-medium transition-colors",
+                    isActive(item.href)
+                      ? "bg-primary text-primary-foreground"
+                      : "text-foreground hover:bg-muted hover:text-foreground"
+                  )}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              
+              {user ? (
+                <>
+                  <div className="border-t border-border pt-4 pb-3">
+                    <div className="flex items-center px-3">
+                      <div className="text-base font-medium text-foreground">{user.email}</div>
+                    </div>
+                    <div className="mt-3 px-2 space-y-1">
+                      <Link
+                        to="/dashboard"
+                        className="block px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-md"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Dashboard
+                      </Link>
+                      <Link
+                        to="/profile"
+                        className="block px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-md"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Profile Settings
+                      </Link>
+                      {canAccessAdmin && (
+                        <>
+                          <Link
+                            to="/admin"
+                            className="block px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-md"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            Admin Dashboard
+                          </Link>
+                          {(userRole === 'network-admin' || userRole === 'project-lead') && (
+                            <>
+                              <Link
+                                to="/admin/team"
+                                className="block px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-md"
+                                onClick={() => setIsOpen(false)}
+                              >
+                                Team Management
+                              </Link>
+                              <Link
+                                to="/admin/projects"
+                                className="block px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-md"
+                                onClick={() => setIsOpen(false)}
+                              >
+                                Project Management
+                              </Link>
+                              <Link
+                                to="/admin/site-content"
+                                className="block px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-md"
+                                onClick={() => setIsOpen(false)}
+                              >
+                                Site Content
+                              </Link>
+                            </>
+                          )}
+                        </>
+                      )}
+                      <button
+                        onClick={() => {
+                          handleSignOut();
+                          setIsOpen(false);
+                        }}
+                        className="block w-full text-left px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-md"
+                      >
+                        Sign Out
+                      </button>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <Link
+                  to="/auth"
+                  className="block px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-md"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Sign In
+                </Link>
+              )}
+            </div>
+          </div>
+        )}
+      </nav>
     </header>
   );
 };

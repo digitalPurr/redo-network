@@ -36,7 +36,7 @@ const AdminSidebar = () => {
     },
     {
       title: 'Site Content',
-      href: '/admin/content',
+      href: '/admin/site-content',
       icon: FileText,
       roles: ['network-admin', 'project-lead']
     }
