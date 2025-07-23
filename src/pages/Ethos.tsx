@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
-
+import { AnimatedWavesBottomTwo } from '@/components/waves/AnimatedWavesBottomTwo';
 import { Header } from '@/components/Header';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -10,6 +10,9 @@ const Ethos = () => {
   return (
     <div className="min-h-screen relative">
       <GenerativeBackground />
+      <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
+        <AnimatedWavesBottomTwo />
+      </div>
       <Header />
       
       <main className="relative z-10 pt-20 px-4 max-w-6xl mx-auto pb-20">
@@ -22,7 +25,7 @@ const Ethos = () => {
                 <span className="text-accent">⇱</span>
                 <span>DESTINY LIVING NOSTALGIA</span>
               </div>
-              <div className="flex items-center justify-end gap-2 mb-2">
+              <div className="flex items-center gap-2 mb-2">
                 <span className="text-accent">⇲</span>
                 <span>ORIGIN ⌈RE⁝DO⌋ NETWORK CORE</span>
               </div>
@@ -206,7 +209,7 @@ const Ethos = () => {
             </div>
             <div className="space-y-4">
               <p className="text-lg">
-                "RE⁝DO" is our code for compassionate iteration.
+                RE⁝DO is our code for compassionate iteration.
               </p>
               <div className="text-center text-muted-foreground">
                 <span className="text-accent">⇉</span>
@@ -293,12 +296,10 @@ const Ethos = () => {
                     <span className="text-xl text-accent">⌋</span>
                   </div>
                   <div className="font-mono text-sm text-muted-foreground">【COMM LOG: III】</div>
-                  <div className="mt-3 text-lg font-medium">
-                    <span className="text-accent">◆</span> We are people—co-creating human space.
-                  </div>
                 </div>
                 
                 <div className="space-y-2 ml-4">
+                  <p className="text-muted-foreground font-mono">◆ We are people—co-creating human space.</p>
                   <p className="text-muted-foreground font-mono">◇ We are not brands.</p>
                   <p className="text-muted-foreground font-mono">◇ We are not content streams.</p>
                   <p className="text-muted-foreground font-mono">⇲ Unlearn: extraction, objectification, performance</p>
