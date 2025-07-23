@@ -14,7 +14,7 @@ const About = () => {
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: "Mutuality",
+      title: "Mutuality", 
       description: "This isn't an audience—it's a collaboration. Everyone's voice matters, and no one builds alone here."
     },
     {
@@ -89,10 +89,10 @@ const About = () => {
 
           {/* Consolidated Core Values */}
           <div className="mb-20 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-foreground mb-12">
-              Our Core Values
-            </h2>
             <Card className="p-8 bg-gradient-card border-border/50 hover:shadow-card transition-all duration-500">
+              <h2 className="text-3xl font-bold text-center text-foreground mb-12">
+                Our Core Values
+              </h2>
               <div className="space-y-8">
                 {values.map((value, index) => (
                   <div key={index} className="flex items-start gap-6 p-6 rounded-lg bg-card/50 border border-border/30 hover:border-border/50 transition-all duration-300">
