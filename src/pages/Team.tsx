@@ -7,8 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Github, Twitter, Globe, Loader2, ExternalLink, Youtube, Instagram, Music } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { WaveContainer } from '@/components/WaveContainer';
-import { CornerWaves } from '@/components/CornerWaves';
+import { AnimatedWavesTopOne } from '@/components/waves/AnimatedWavesTopOne';
 
 interface Profile {
   id: string;
@@ -91,8 +90,9 @@ const Team = () => {
   return (
     <div className="min-h-screen relative">
       <GenerativeBackground />
-      <WaveContainer variant="silver" height={60} />
-      <CornerWaves position="random" variant="purple-silver" size="medium" />
+      <div className="fixed top-0 left-0 right-0 overflow-hidden pointer-events-none z-0">
+        <AnimatedWavesTopOne />
+      </div>
       <Header />
       
       <div className="pt-32 pb-20 px-4">

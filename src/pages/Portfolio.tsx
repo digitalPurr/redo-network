@@ -2,17 +2,15 @@
 import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
-import { AnimatedWavesRed } from '@/components/waves/AnimatedWavesRed';
-import { CornerWaves } from '@/components/CornerWaves';
+import { AnimatedWavesTopTwo } from '@/components/waves/AnimatedWavesTopTwo';
 
 const Portfolio = () => {
   return (
     <div className="min-h-screen relative">
       <GenerativeBackground />
-      <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
-        <AnimatedWavesRed />
+      <div className="fixed top-0 left-0 right-0 overflow-hidden pointer-events-none z-0">
+        <AnimatedWavesTopTwo />
       </div>
-      <CornerWaves position="top-right" variant="red-orange" size="small" />
       <Header />
       
       <main className="pt-20 p-8">
