@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
-import { AnimatedWavesBottomTwo } from '@/components/waves/AnimatedWavesBottomTwo';
+import { SimpleBottomWave } from '@/components/waves/SimpleBottomWave';
 import { Header } from '@/components/Header';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -11,7 +11,7 @@ const Ethos = () => {
     <div className="min-h-screen relative">
       <GenerativeBackground />
       <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
-        <AnimatedWavesBottomTwo />
+        <SimpleBottomWave />
       </div>
       <Header />
       
@@ -21,10 +21,12 @@ const Ethos = () => {
         <Card className="mb-8 bg-gradient-to-r from-card/90 to-card/70 backdrop-blur-sm border-2 border-primary/30 shadow-glow">
           <div className="p-6 font-mono text-sm">
             <div className="text-primary/80 mb-4">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-accent">⇱</span>
-                <span>DESTINY LIVING NOSTALGIA</span>b-2">
-            <span>ORIGIN ⌈RE⁝DO⌋ NETWORK CORE</span>
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-accent">⇱</span>
+                  <span>DESTINY LIVING NOSTALGIA</span>
+                </div>
+                <span>ORIGIN ⌈RE⁝DO⌋ NETWORK CORE</span>
               </div>
             </div>
             
