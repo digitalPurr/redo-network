@@ -197,7 +197,7 @@ const Ethos = () => {
         {/* System Intent Card */}
         <Card className="mb-8 bg-card/80 backdrop-blur-sm border-l-4 border-l-accent">
           <div className="p-8">
-            <h2 className="text-2xl font-bold font-mono text-primary mb-4">⟦⟦ SYSTEM INTENT: ⌈RE⁝DO⌋ PHILOSOPHY ⟧⟧</h2>
+            <h2 className="text-2xl font-bold font-mono text-primary mb-4">⟦ SYSTEM INTENT ≣ ⌈RE⁝DO⌋ PHILOSOPHY ⟧</h2>
             <div className="space-y-4">
               <p className="text-lg">
                 "RE⁝DO" is our code for compassionate iteration.
@@ -235,7 +235,7 @@ const Ethos = () => {
                 <div className="mb-6">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-xl text-accent">⌈↺</span>
-                    <span className="font-mono text-primary">ACTIVE PROTOCOL⁝ SOCIAL RESPONSIBILITY</span>
+                    <span className="font-mono text-primary">ACTIVE PROTOCOL ≣ SOCIAL RESPONSIBILITY</span>
                     <span className="text-xl text-accent">⌋</span>
                   </div>
                   <div className="font-mono text-sm text-muted-foreground">【COMM LOG: I】</div>
@@ -283,7 +283,7 @@ const Ethos = () => {
                 <div className="mb-6">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-xl text-accent">⌈↺</span>
-                    <span className="font-mono text-primary">ACTIVE PROTOCOL REHUMANIZATION</span>
+                    <span className="font-mono text-primary">ACTIVE PROTOCOL ≣ REHUMANIZATION</span>
                     <span className="text-xl text-accent">⌋</span>
                   </div>
                   <div className="font-mono text-sm text-muted-foreground">【COMM LOG: III】</div>
