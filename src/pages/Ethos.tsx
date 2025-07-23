@@ -15,7 +15,7 @@ const Ethos = () => {
       </div>
       <Header />
       
-      <main className="relative z-10 pt-20 px-4 max-w-4xl mx-auto pb-20">
+      <main className="relative z-10 pt-20 px-4 max-w-6xl mx-auto pb-20">
           
         {/* System Log Header */}
         <Card className="mb-8 bg-gradient-to-r from-card/90 to-card/70 backdrop-blur-sm border-2 border-primary/30 shadow-glow">
@@ -51,105 +51,111 @@ const Ethos = () => {
         <Card className="mb-8 bg-card/80 backdrop-blur-sm border-l-4 border-l-primary">
           <div className="p-8">
             <div className="space-y-8">
-              {/* Core Values - 3 columns */}
+              {/* Core Values - 3 columns with consistent card design */}
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="border-l-2 border-primary/30 pl-6">
-                  <div className="flex items-center gap-3 mb-3">
+                {/* Intentionality */}
+                <Card className="bg-card/50 border-primary/30 p-6 text-center">
+                  <div className="flex items-center justify-center gap-3 mb-4">
                     <span className="text-xl text-accent">⩤</span>
                     <h3 className="text-lg font-semibold text-primary">Intentionality</h3>
                     <span className="text-xl text-accent">⩥</span>
                   </div>
-                  <div className="space-y-2">
-                    <div className="flex items-start gap-3">
-                      <span className="text-accent mt-1">⇀</span>
+                  <div className="space-y-3 text-center">
+                    <div className="flex items-center justify-center gap-3">
+                      <span className="text-accent">⇀</span>
                       <p className="text-muted-foreground text-sm">We build slowly, deliberately, without pressure to perform.</p>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <span className="text-accent mt-1">⇀</span>
+                    <div className="flex items-center justify-center gap-3">
+                      <span className="text-accent">⇀</span>
                       <p className="text-muted-foreground text-sm">Every post, channel, and feature exists on purpose.</p>
                     </div>
                   </div>
-                </div>
+                </Card>
 
-                <div className="border-l-2 border-primary/30 pl-6">
-                  <div className="flex items-center gap-3 mb-3">
+                {/* Mutuality */}
+                <Card className="bg-card/50 border-primary/30 p-6 text-center">
+                  <div className="flex items-center justify-center gap-3 mb-4">
                     <span className="text-xl text-accent">⩤</span>
                     <h3 className="text-lg font-semibold text-primary">Mutuality</h3>
                     <span className="text-xl text-accent">⩥</span>
                   </div>
-                  <div className="space-y-2">
-                    <div className="flex items-start gap-3">
-                      <span className="text-accent mt-1">⇀</span>
+                  <div className="space-y-3 text-center">
+                    <div className="flex items-center justify-center gap-3">
+                      <span className="text-accent">⇀</span>
                       <p className="text-muted-foreground text-sm">This isn't an audience—it's a collaboration.</p>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <span className="text-accent mt-1">⇀</span>
+                    <div className="flex items-center justify-center gap-3">
+                      <span className="text-accent">⇀</span>
                       <p className="text-muted-foreground text-sm">Everyone contributes. No one builds alone.</p>
                     </div>
                   </div>
-                </div>
+                </Card>
 
-                <div className="border-l-2 border-primary/30 pl-6">
-                  <div className="flex items-center gap-3 mb-3">
+                {/* Transparency */}
+                <Card className="bg-card/50 border-primary/30 p-6 text-center">
+                  <div className="flex items-center justify-center gap-3 mb-4">
                     <span className="text-xl text-accent">⩤</span>
                     <h3 className="text-lg font-semibold text-primary">Transparency</h3>
                     <span className="text-xl text-accent">⩥</span>
                   </div>
-                  <div className="space-y-2">
-                    <div className="flex items-start gap-3">
-                      <span className="text-accent mt-1">⇀</span>
+                  <div className="space-y-3 text-center">
+                    <div className="flex items-center justify-center gap-3">
+                      <span className="text-accent">⇀</span>
                       <p className="text-muted-foreground text-sm">We talk openly about how and why things change.</p>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <span className="text-accent mt-1">⇀</span>
+                    <div className="flex items-center justify-center gap-3">
+                      <span className="text-accent">⇀</span>
                       <p className="text-muted-foreground text-sm">No "behind the curtain" nonsense.</p>
                     </div>
                   </div>
-                </div>
+                </Card>
 
-                <div className="border-l-2 border-primary/30 pl-6">
-                  <div className="flex items-center gap-3 mb-3">
+                {/* Non-Extractive Culture */}
+                <Card className="bg-card/50 border-primary/30 p-6 text-center">
+                  <div className="flex items-center justify-center gap-3 mb-4">
                     <span className="text-xl text-accent">⩤</span>
                     <h3 className="text-lg font-semibold text-primary">Non-Extractive Culture</h3>
                     <span className="text-xl text-accent">⩥</span>
                   </div>
-                  <div className="space-y-2">
-                    <div className="flex items-start gap-3">
-                      <span className="text-accent mt-1">⇀</span>
+                  <div className="space-y-3 text-center">
+                    <div className="flex items-center justify-center gap-3">
+                      <span className="text-accent">⇀</span>
                       <p className="text-muted-foreground text-sm">No clout-farming. No recruiting into unpaid labor.</p>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <span className="text-accent mt-1">⇀</span>
+                    <div className="flex items-center justify-center gap-3">
+                      <span className="text-accent">⇀</span>
                       <p className="text-muted-foreground text-sm">We connect because we want to.</p>
                     </div>
                   </div>
-                </div>
+                </Card>
 
-                <div className="border-l-2 border-primary/30 pl-6">
-                  <div className="flex items-center gap-3 mb-3">
+                {/* Gentle Accountability */}
+                <Card className="bg-card/50 border-primary/30 p-6 text-center">
+                  <div className="flex items-center justify-center gap-3 mb-4">
                     <span className="text-xl text-accent">⩤</span>
                     <h3 className="text-lg font-semibold text-primary">Gentle Accountability</h3>
                     <span className="text-xl text-accent">⩥</span>
                   </div>
-                  <div className="space-y-2">
-                    <div className="flex items-start gap-3">
-                      <span className="text-accent mt-1">⇀</span>
+                  <div className="space-y-3 text-center">
+                    <div className="flex items-center justify-center gap-3">
+                      <span className="text-accent">⇀</span>
                       <p className="text-muted-foreground text-sm">Kindness before performance.</p>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <span className="text-accent mt-1">⇀</span>
+                    <div className="flex items-center justify-center gap-3">
+                      <span className="text-accent">⇀</span>
                       <p className="text-muted-foreground text-sm">You're allowed to rest. You're allowed to RE⁝DO.</p>
                     </div>
                   </div>
-                </div>
+                </Card>
 
-                <div className="border-l-2 border-primary/30 pl-6">
-                  <div className="flex items-center gap-3 mb-3">
+                {/* Second-Chance Space */}
+                <Card className="bg-card/50 border-primary/30 p-6 text-center">
+                  <div className="flex items-center justify-center gap-3 mb-4">
                     <span className="text-xl text-accent">⩤</span>
                     <h3 className="text-lg font-semibold text-primary">Second-Chance Space</h3>
                     <span className="text-xl text-accent">⩥</span>
                   </div>
-                  <div className="space-y-2 text-center">
+                  <div className="space-y-3 text-center">
                     <div className="text-lg">
                       <span className="text-accent">◆</span>
                       <span className="ml-2">We are a second-chance space.</span>
@@ -159,7 +165,7 @@ const Ethos = () => {
                       <span className="ml-2">For projects. For people. For possibilities.</span>
                     </div>
                   </div>
-                </div>
+                </Card>
               </div>
 
               {/* Belief Core */}
@@ -199,7 +205,7 @@ const Ethos = () => {
         <Card className="mb-8 bg-card/80 backdrop-blur-sm border-l-4 border-l-accent">
           <div className="p-8">
             <div className="text-center">
-              <h2 className="text-2xl font-bold font-mono text-primary mb-4">⌈ SYSTEM INTENT ≣ ⌈RE⁝DO⌋ PHILOSOPHY ⌋</h2>
+              <h2 className="text-2xl font-bold font-mono text-primary mb-4 text-center">⌈ SYSTEM INTENT ≣ ⌈RE⁝DO⌋ PHILOSOPHY ⌋</h2>
             </div>
             <div className="space-y-4">
               <p className="text-lg">
@@ -238,7 +244,7 @@ const Ethos = () => {
                 <div className="mb-6 text-center">
                   <div className="flex items-center justify-center gap-3 mb-2">
                     <span className="text-xl text-accent">⌈↺</span>
-                    <span className="font-mono text-primary">ACTIVE PROTOCOL ≣ SOCIAL RESPONSIBILITY</span>
+                    <span className="font-mono text-primary text-center">ACTIVE PROTOCOL ≣ SOCIAL RESPONSIBILITY</span>
                     <span className="text-xl text-accent">⌋</span>
                   </div>
                   <div className="font-mono text-sm text-muted-foreground">【COMM LOG: I】</div>
@@ -263,7 +269,7 @@ const Ethos = () => {
                 <div className="mb-6 text-center">
                   <div className="flex items-center justify-center gap-3 mb-2">
                     <span className="text-xl text-accent">⌈↺</span>
-                    <span className="font-mono text-primary">ACTIVE PROTOCOL ≣ COLLECTIVE WELLBEING</span>
+                    <span className="font-mono text-primary text-center">ACTIVE PROTOCOL ≣ COLLECTIVE WELLBEING</span>
                     <span className="text-xl text-accent">⌋</span>
                   </div>
                   <div className="font-mono text-sm text-muted-foreground">【COMM LOG: II】</div>
@@ -286,7 +292,7 @@ const Ethos = () => {
                 <div className="mb-6 text-center">
                   <div className="flex items-center justify-center gap-3 mb-2">
                     <span className="text-xl text-accent">⌈↺</span>
-                    <span className="font-mono text-primary">ACTIVE PROTOCOL ≣ REHUMANIZATION</span>
+                    <span className="font-mono text-primary text-center">ACTIVE PROTOCOL ≣ REHUMANIZATION</span>
                     <span className="text-xl text-accent">⌋</span>
                   </div>
                   <div className="font-mono text-sm text-muted-foreground">【COMM LOG: III】</div>
