@@ -8,7 +8,7 @@ import { Separator } from '@/components/ui/separator';
 
 const Ethos = () => {
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen relative">
       <GenerativeBackground />
       <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
         <AnimatedWavesPurple rotation={0} />
@@ -125,7 +125,7 @@ const Ethos = () => {
                   </div>
                 </div>
 
-                <div className="md:col-span-2 border-l-2 border-primary/30 pl-6">
+                <div className="border-l-2 border-primary/30 pl-6">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-xl text-accent">⩤</span>
                     <h3 className="text-lg font-semibold text-primary">Gentle Accountability</h3>
@@ -142,49 +142,50 @@ const Ethos = () => {
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Core Directives */}
-              <div className="border-t border-primary/20 pt-8">
-                <div className="text-center mb-6">
-                  <div className="font-mono text-primary mb-4">⟦⟦ CORE DIRECTIVES ⟧⟧</div>
-                </div>
-                <div className="space-y-3 text-center">
-                  <div className="flex items-center justify-center gap-3 text-lg">
-                    <span className="text-accent">◆</span>
-                    <span>We are a second-chance space.</span>
+                <div className="md:col-span-2 border-l-2 border-primary/30 pl-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-xl text-accent">⩤</span>
+                    <h3 className="text-lg font-semibold text-primary">Second-Chance Space</h3>
+                    <span className="text-xl text-accent">⩥</span>
                   </div>
-                  <div className="flex items-center justify-center gap-3 text-lg">
-                    <span className="text-accent">◇</span>
-                    <span>For projects. For people. For possibilities.</span>
+                  <div className="space-y-2 text-center">
+                    <div className="text-lg">
+                      <span className="text-accent">◆</span>
+                      <span className="ml-2">We are a second-chance space.</span>
+                    </div>
+                    <div className="text-lg">
+                      <span className="text-accent">◇</span>
+                      <span className="ml-2">For projects. For people. For possibilities.</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Belief Core */}
               <div className="border-t border-primary/20 pt-8">
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
+                <div className="space-y-3 text-center">
+                  <div className="flex items-center justify-center gap-3">
                     <span className="text-primary">•</span>
                     <p className="text-foreground">Everyone deserves another shot</p>
                   </div>
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center gap-3">
                     <span className="text-primary">•</span>
                     <p className="text-foreground">Process &gt; Perfection</p>
                   </div>
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center gap-3">
                     <span className="text-primary">•</span>
                     <p className="text-foreground">Emotional safety comes first</p>
                   </div>
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center gap-3">
                     <span className="text-primary">•</span>
                     <p className="text-foreground">Conflict happens—we hold space, not debates</p>
                   </div>
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center gap-3">
                     <span className="text-primary">•</span>
                     <p className="text-foreground">Creativity heals—it isn't hustle</p>
                   </div>
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center gap-3">
                     <span className="text-primary">•</span>
                     <p className="text-foreground">This is connection—not content</p>
                   </div>
@@ -197,29 +198,31 @@ const Ethos = () => {
         {/* System Intent Card */}
         <Card className="mb-8 bg-card/80 backdrop-blur-sm border-l-4 border-l-accent">
           <div className="p-8">
-            <h2 className="text-2xl font-bold font-mono text-primary mb-4">⟦ SYSTEM INTENT ≣ ⌈RE⁝DO⌋ PHILOSOPHY ⟧</h2>
+            <div className="text-center">
+              <h2 className="text-2xl font-bold font-mono text-primary mb-4">⌈ SYSTEM INTENT ≣ ⌈RE⁝DO⌋ PHILOSOPHY ⌋</h2>
+            </div>
             <div className="space-y-4">
               <p className="text-lg">
                 "RE⁝DO" is our code for compassionate iteration.
               </p>
-              <div className="flex items-center gap-3 text-muted-foreground">
+              <div className="flex items-center justify-center gap-3 text-muted-foreground">
                 <span className="text-accent">⇉</span>
                 <span>Every collaboration</span>
                 <span className="text-accent">⇉</span>
                 <span>re:connection</span>
                 <span className="text-accent">⇉</span>
-                <span>reflection</span>
+                <span>re:flection</span>
                 <span className="text-accent">⇉</span>
-                <span>reimagination.</span>
+                <span>re:imagination.</span>
               </div>
-              <div className="space-y-2 mt-6">
-                <div className="flex items-start gap-3">
-                  <span className="text-accent">⇲</span>
-                  <span>We're not recreating nostalgia.</span>
+              <div className="space-y-2 mt-6 text-center">
+                <div className="text-lg">
+                  <span className="text-accent">◆</span>
+                  <span className="ml-2">We're not recreating nostalgia.</span>
                 </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-accent">⇲</span>
-                  <span>We're engineering the future we actually want.</span>
+                <div className="text-lg">
+                  <span className="text-accent">◇</span>
+                  <span className="ml-2">We're engineering the future we actually want.</span>
                 </div>
               </div>
             </div>
@@ -232,8 +235,8 @@ const Ethos = () => {
             <div className="space-y-8">
               {/* Protocol I */}
               <div>
-                <div className="mb-6">
-                  <div className="flex items-center gap-3 mb-2">
+                <div className="mb-6 text-center">
+                  <div className="flex items-center justify-center gap-3 mb-2">
                     <span className="text-xl text-accent">⌈↺</span>
                     <span className="font-mono text-primary">ACTIVE PROTOCOL ≣ SOCIAL RESPONSIBILITY</span>
                     <span className="text-xl text-accent">⌋</span>
@@ -257,8 +260,8 @@ const Ethos = () => {
 
               {/* Protocol II */}
               <div className="border-t border-primary/20 pt-8">
-                <div className="mb-6">
-                  <div className="flex items-center gap-3 mb-2">
+                <div className="mb-6 text-center">
+                  <div className="flex items-center justify-center gap-3 mb-2">
                     <span className="text-xl text-accent">⌈↺</span>
                     <span className="font-mono text-primary">ACTIVE PROTOCOL ≣ COLLECTIVE WELLBEING</span>
                     <span className="text-xl text-accent">⌋</span>
@@ -280,8 +283,8 @@ const Ethos = () => {
 
               {/* Protocol III */}
               <div className="border-t border-primary/20 pt-8">
-                <div className="mb-6">
-                  <div className="flex items-center gap-3 mb-2">
+                <div className="mb-6 text-center">
+                  <div className="flex items-center justify-center gap-3 mb-2">
                     <span className="text-xl text-accent">⌈↺</span>
                     <span className="font-mono text-primary">ACTIVE PROTOCOL ≣ REHUMANIZATION</span>
                     <span className="text-xl text-accent">⌋</span>
@@ -310,16 +313,16 @@ const Ethos = () => {
               {/* Social Etiquette */}
               <div>
                 <h2 className="text-2xl font-bold font-mono text-primary mb-4">【SOCIAL ETIQUETTE // SHARED PRACTICES】</h2>
-                <div className="space-y-4 mb-6">
-                  <div className="flex items-start gap-3">
+                <div className="space-y-4 mb-6 text-center">
+                  <div className="flex items-center justify-center gap-3">
                     <span className="text-accent">◇</span>
                     <span className="text-foreground">Engage in good faith</span>
                   </div>
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center gap-3">
                     <span className="text-accent">◇</span>
                     <span className="text-foreground">Embrace constructive conflict</span>
                   </div>
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center gap-3">
                     <span className="text-accent">◇</span>
                     <span className="text-foreground">Share the space generously</span>
                   </div>
