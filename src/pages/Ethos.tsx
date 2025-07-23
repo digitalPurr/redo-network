@@ -156,13 +156,13 @@ const Ethos = () => {
                     <span className="text-xl text-accent">⩥</span>
                   </div>
                   <div className="space-y-3 text-center">
-                    <div className="text-lg">
+                    <div className="flex items-center justify-center gap-3">
                       <span className="text-accent">◆</span>
-                      <p className="text-muted-foreground text-sm">We are a second-chance space.</span>
+                      <p className="text-muted-foreground text-sm">We are a second-chance space.</p>
                     </div>
-                    <div className="text-lg">
+                    <div className="flex items-center justify-center gap-3">
                       <span className="text-accent">◇</span>
-                      <p className="text-muted-foreground text-sm">For projects. For people. For possibilities.</span>
+                      <p className="text-muted-foreground text-sm">For projects. For people. For possibilities.</p>
                     </div>
                   </div>
                 </Card>
