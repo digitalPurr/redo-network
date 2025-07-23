@@ -179,8 +179,8 @@ const Ethos = () => {
               <h2 className="text-2xl font-bold font-mono text-primary mb-4 text-center">⌈ SYSTEM INTENT ≣ ⌈RE⁝DO⌋ PHILOSOPHY ⌋</h2>
             </div>
             <div className="space-y-4">
-              <p className="text-lg">
-                "RE⁝DO" is our code for compassionate iteration.
+              <p className="text-lg text-center">
+                ⌈↺ RE⁝DO is our code for compassionate iteration. ⌋
               </p>
               <div className="text-center text-muted-foreground">
                 <span className="text-accent">⇉</span>
@@ -221,13 +221,13 @@ const Ethos = () => {
                   <div className="font-mono text-sm text-muted-foreground">【COMM LOG: CORE】</div>
                 </div>
                 
-                <div className="space-y-2 ml-4">
-                  <p className="text-muted-foreground font-mono">◆ Everyone deserves another shot</p>
-                  <p className="text-muted-foreground font-mono">◇ Process &gt; Perfection</p>
-                  <p className="text-muted-foreground font-mono">◆ Emotional safety comes first</p>
-                  <p className="text-muted-foreground font-mono">◇ Conflict happens—we hold space, not debates</p>
-                  <p className="text-muted-foreground font-mono">◆ Creativity heals—it isn't hustle</p>
-                  <p className="text-muted-foreground font-mono">◇ This is connection—not content</p>
+                <div className="space-y-2 text-center">
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◆</span> Everyone deserves another shot</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◇</span> Process &gt; Perfection</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◆</span> Emotional safety comes first</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◇</span> Conflict happens—we hold space, not debates</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◆</span> Creativity heals—it isn't hustle</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◇</span> This is connection—not content</p>
                 </div>
               </div>
 
@@ -245,14 +245,14 @@ const Ethos = () => {
                   </div>
                 </div>
                 
-                <div className="space-y-2 ml-4">
-                  <p className="text-muted-foreground font-mono">◆ We side with the marginalized—always.</p>
-                  <p className="text-muted-foreground font-mono">◇ Harmful ideologies aren't welcome.</p>
-                  <p className="text-muted-foreground font-mono">◆ We investigate harm with empathy.</p>
-                  <p className="text-muted-foreground font-mono">◇ Ignorance is met with teaching.</p>
-                  <p className="text-muted-foreground font-mono">◇ Malice is met with removal.</p>
-                  <p className="text-muted-foreground font-mono">◇ Safety is not censorship—it's fertile soil.</p>
-                  <p className="text-muted-foreground font-mono">◆ We are not apolitical. We are intentionally just.</p>
+                <div className="space-y-2 text-center">
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◆</span> We side with the marginalized—always.</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◇</span> Harmful ideologies aren't welcome.</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◆</span> We investigate harm with empathy.</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◇</span> Ignorance is met with teaching.</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◇</span> Malice is met with removal.</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◇</span> Safety is not censorship—it's fertile soil.</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◆</span> We are not apolitical. We are intentionally just.</p>
                 </div>
               </div>
 
@@ -270,12 +270,12 @@ const Ethos = () => {
                   </div>
                 </div>
                 
-                <div className="space-y-2 ml-4">
-                  <p className="text-muted-foreground font-mono">• Sustainable selflessness → Help when you can</p>
-                  <p className="text-muted-foreground font-mono">• Compassionate presence → Showing up is enough</p>
-                  <p className="text-muted-foreground font-mono">• Emotional labor → Pause, listen, reflect</p>
-                  <p className="text-muted-foreground font-mono">• Creative optimism → Build toward, not just against</p>
-                  <p className="text-muted-foreground font-mono">• Growth is nonlinear. Belonging starts with intention.</p>
+                <div className="space-y-2 text-center">
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">•</span> Sustainable selflessness → Help when you can</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">•</span> Compassionate presence → Showing up is enough</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">•</span> Emotional labor → Pause, listen, reflect</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">•</span> Creative optimism → Build toward, not just against</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">•</span> Growth is nonlinear. Belonging starts with intention.</p>
                 </div>
               </div>
 
@@ -290,15 +290,15 @@ const Ethos = () => {
                   <div className="font-mono text-sm text-muted-foreground">【COMM LOG: III】</div>
                 </div>
                 
-                <div className="space-y-2 ml-4">
+                <div className="space-y-2 text-center">
                   <div className="mt-3 text-lg font-medium">
-                    <span className="text-accent">◆</span> We are people—co-creating human space.
+                    <span className="text-accent font-bold">◆</span> We are people—co-creating human space.
                   </div>
-                  <p className="text-muted-foreground font-mono">◇ We are not brands.</p>
-                  <p className="text-muted-foreground font-mono">◇ We are not content streams.</p>
-                  <p className="text-muted-foreground font-mono">⇲ Unlearn: extraction, objectification, performance</p>
-                  <p className="text-muted-foreground font-mono">⇲ Relearn: consent, equity, emotional permission</p>
-                  <p className="text-muted-foreground font-mono">↺ Shift: shape spaces that shape behaviour</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◇</span> We are not brands.</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◇</span> We are not content streams.</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">⇲</span> Unlearn: extraction, objectification, performance</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">⇲</span> Relearn: consent, equity, emotional permission</p>
+                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">↺</span> Shift: shape spaces that shape behaviour</p>
                 </div>
               </div>
             </div>
