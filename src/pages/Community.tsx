@@ -1,12 +1,9 @@
 import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
-import { AnimatedWavesBlue } from '@/components/waves/AnimatedWavesBlue';
 import { Header } from '@/components/Header';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { AnimatedWavesPurple } from '@/components/waves/AnimatedWavesPurple';
-import { CornerWaves } from '@/components/CornerWaves';
 import { Heart, Users, Eye, Shield, Sprout, MessageCircle, Link as LinkIcon, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -79,11 +76,6 @@ const Community = () => {
   return (
     <div className="min-h-screen relative">
       <GenerativeBackground />
-      <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
-        <AnimatedWavesPurple rotation={270} />
-      </div>
-      <CornerWaves position="top-right" variant="purple-teal" size="small" />
-      <AnimatedWavesBlue />
       <Header />
       
       <main className="relative pt-32 pb-20 px-6">
