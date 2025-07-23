@@ -7,7 +7,6 @@ import {
   LayoutDashboard, 
   Users, 
   FolderOpen,
-  Settings,
   FileText,
   History
 } from 'lucide-react';
@@ -54,9 +53,16 @@ const AdminSidebar = () => {
   );
 
   return (
-    <aside className="w-64 bg-card border-r border-border h-screen sticky top-20">
-      <div className="p-6">
-        <h2 className="text-lg font-semibold text-foreground mb-6">Admin Panel</h2>
+    <aside className="w-64 bg-card/80 border-r border-primary/30 h-screen sticky top-20">
+      <div className="p-6 space-y-6">
+        <div className="text-center">
+          <h2 className="text-lg font-bold text-primary font-mono">
+            【ADMIN PANEL】
+          </h2>
+          <p className="text-sm text-muted-foreground mt-1">
+            Network Control Center
+          </p>
+        </div>
         
         <nav className="space-y-2">
           {filteredItems.map((item) => {
@@ -67,10 +73,10 @@ const AdminSidebar = () => {
                 key={item.href}
                 to={item.href}
                 className={cn(
-                  "flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-colors",
+                  "flex items-center gap-3 px-4 py-3 text-sm rounded-lg transition-all duration-200",
                   isActive 
-                    ? "bg-primary text-primary-foreground" 
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? "bg-primary text-primary-foreground font-medium shadow-md" 
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 )}
               >
                 <item.icon className="h-4 w-4" />
