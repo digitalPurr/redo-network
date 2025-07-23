@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
-import { SimpleBottomWave } from '@/components/waves/SimpleBottomWave';
+import { AnimatedWavesBottomTwo } from '@/components/waves/AnimatedWavesBottomTwo';
 import { Header } from '@/components/Header';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -11,7 +11,7 @@ const Ethos = () => {
     <div className="min-h-screen relative">
       <GenerativeBackground />
       <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
-        <SimpleBottomWave />
+        <AnimatedWavesBottomTwo />
       </div>
       <Header />
       
@@ -21,11 +21,12 @@ const Ethos = () => {
         <Card className="mb-8 bg-gradient-to-r from-card/90 to-card/70 backdrop-blur-sm border-2 border-primary/30 shadow-glow">
           <div className="p-6 font-mono text-sm">
             <div className="text-primary/80 mb-4">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-accent">⇱</span>
-                  <span>DESTINY LIVING NOSTALGIA</span>
-                </div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-accent">⇱</span>
+                <span>DESTINY LIVING NOSTALGIA</span>
+              </div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-accent">⇲</span>
                 <span>ORIGIN ⌈RE⁝DO⌋ NETWORK CORE</span>
               </div>
             </div>
@@ -204,12 +205,7 @@ const Ethos = () => {
         <Card className="mb-8 bg-card/80 backdrop-blur-sm border-l-4 border-l-accent">
           <div className="p-8">
             <div className="text-center">
-              <div className="flex items-center justify-center gap-3 mb-2">
-                <span className="text-xl text-accent">⌈↺</span>
-                <span className="font-mono text-primary text-center">SYSTEM INTENT ≣ ⌈RE⁝DO⌋ PHILOSOPHY</span>
-                <span className="text-xl text-accent">⌋</span>
-              </div>
-              <div className="font-mono text-sm text-muted-foreground">【CORE LOG: φ】</div>
+              <h2 className="text-2xl font-bold font-mono text-primary mb-4 text-center">⌈ SYSTEM INTENT ≣ ⌈RE⁝DO⌋ PHILOSOPHY ⌋</h2>
             </div>
             <div className="space-y-4">
               <p className="text-lg">
