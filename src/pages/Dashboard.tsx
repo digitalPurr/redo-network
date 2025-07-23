@@ -1,5 +1,6 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -16,7 +17,9 @@ import {
   Settings,
   Eye,
   Users,
-  Calendar
+  Calendar,
+  Edit,
+  ExternalLink
 } from 'lucide-react';
 import ProjectManagement from '@/components/dashboard/ProjectManagement';
 import PersonalPageEditor from '@/components/dashboard/PersonalPageEditor';
@@ -25,9 +28,52 @@ import AnalyticsDashboard from '@/components/dashboard/AnalyticsDashboard';
 
 const Dashboard = () => {
   const { user, userRole } = useAuth();
+  const [searchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState('overview');
 
   const canManageProjects = userRole && ['network-admin', 'project-lead', 'contributor'].includes(userRole);
+
+  // Handle tab parameter from URL
+  useEffect(() => {
+    const tabParam = searchParams.get('tab');
+    if (tabParam) {
+      setActiveTab(tabParam);
+    }
+  }, [searchParams]);
+
+  const quickActions = [
+    {
+      icon: Edit,
+      label: 'Edit Personal Page',
+      description: 'Update your profile and page content',
+      action: () => setActiveTab('personal'),
+      variant: 'default' as const
+    },
+    {
+      icon: Plus,
+      label: 'Create Portfolio Item',
+      description: 'Add a new project to your portfolio',
+      action: () => setActiveTab('portfolio'),
+      variant: 'outline' as const
+    },
+    {
+      icon: Eye,
+      label: 'Preview Public Profile',
+      description: 'See how others view your profile',
+      action: () => window.open(`/team/${user?.user_metadata?.username || 'preview'}`, '_blank'),
+      variant: 'outline' as const
+    },
+  ];
+
+  if (canManageProjects) {
+    quickActions.splice(2, 0, {
+      icon: FolderOpen,
+      label: 'Manage Projects',
+      description: 'Create and manage collaborative projects',
+      action: () => setActiveTab('projects'),
+      variant: 'outline' as const
+    });
+  }
 
   return (
     <div className="min-h-screen relative">
@@ -163,24 +209,24 @@ const Dashboard = () => {
                     <CardDescription>Common tasks and shortcuts</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-3">
-                    <Button className="w-full justify-start" variant="outline">
-                      <Plus className="h-4 w-4 mr-2" />
-                      Create New Portfolio Item
-                    </Button>
-                    <Button className="w-full justify-start" variant="outline">
-                      <Settings className="h-4 w-4 mr-2" />
-                      Edit Personal Page
-                    </Button>
-                    {canManageProjects && (
-                      <Button className="w-full justify-start" variant="outline">
-                        <FolderOpen className="h-4 w-4 mr-2" />
-                        Create New Project
+                    {quickActions.map((action, index) => (
+                      <Button 
+                        key={index}
+                        className="w-full justify-start h-auto p-4" 
+                        variant={action.variant}
+                        onClick={action.action}
+                      >
+                        <div className="flex items-start gap-3">
+                          <action.icon className="h-5 w-5 mt-0.5" />
+                          <div className="text-left">
+                            <div className="font-medium">{action.label}</div>
+                            <div className="text-xs text-muted-foreground font-normal">
+                              {action.description}
+                            </div>
+                          </div>
+                        </div>
                       </Button>
-                    )}
-                    <Button className="w-full justify-start" variant="outline">
-                      <Eye className="h-4 w-4 mr-2" />
-                      Preview Public Profile
-                    </Button>
+                    ))}
                   </CardContent>
                 </Card>
               </div>
