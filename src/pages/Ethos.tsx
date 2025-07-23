@@ -222,7 +222,7 @@ const Ethos = () => {
                 </div>
                 
                 <div className="space-y-2 text-center">
-                  <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◆</span> Everyone deserves another shot</p>
+                  <p className="text-foreground font-mono font-bold"><span className="text-accent font-bold">◆</span> Everyone deserves another shot</p>
                   <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◇</span> Process &gt; Perfection</p>
                   <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◆</span> Emotional safety comes first</p>
                   <p className="text-muted-foreground font-mono"><span className="text-accent font-bold">◇</span> Conflict happens—we hold space, not debates</p>
