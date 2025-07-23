@@ -180,10 +180,12 @@ const Ethos = () => {
             </div>
             <div className="space-y-4">
               <p className="text-lg text-center">
-                ⌈↺ RE⁝DO is our code for compassionate iteration. ⌋
+                <span className="text-xl text-accent">⌈↺</span> 
+                <span className="font-mono text-primary text-center">RE⁝DO is our code for compassionate iteration. </span>
+                  <span className="text-xl text-accent">⌋</span>
               </p>
               <div className="text-center text-muted-foreground">
-                <span className="text-accent">↺</span>
+                <span className="text-accent">⇉</span>
                 <span>Every collaboration</span>
                 <span className="text-accent">⇉</span>
                 <span>re:connection</span>
