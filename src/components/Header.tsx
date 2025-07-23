@@ -39,14 +39,13 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Logo / Brand */}
           <div className="flex items-center space-x-4">
             <Link to="/" className="flex items-center space-x-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-                <div className="w-4 h-4 rounded-sm bg-white/90" />
-              </div>
               <div>
                 <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
                   ⌈RE⁝DO⌋
                 </h1>
-                <p className="text-xs text-muted-foreground -mt-1">NETWORK</p>
+                <p className="text-xs text-muted-foreground -mt-1 tracking-[0.3em]">
+                  N E T W O R K
+                </p>
               </div>
             </Link>
           </div>
@@ -115,7 +114,8 @@ export const Header: React.FC<HeaderProps> = ({
                     <DropdownMenuItem onClick={handleSignOut} className="flex items-center space-x-2 text-destructive">
                       <LogOut size={16} />
                       <span>Sign Out</span>
-                    </DropdownMenuItem>
+                    </Link>
+                  </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </>
