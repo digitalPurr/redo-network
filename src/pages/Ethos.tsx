@@ -249,14 +249,18 @@ const Ethos = () => {
                   </div>
                 </div>
                 
-                <div className="space-y-2 ml-4">
-                  <p className="text-muted-foreground font-mono">◆ We side with the marginalized—always.</p>
-                  <p className="text-muted-foreground font-mono">◇ Harmful ideologies aren't welcome.</p>
-                  <p className="text-muted-foreground font-mono">◆ We investigate harm with empathy.</p>
-                  <p className="text-muted-foreground font-mono">◇ Ignorance is met with teaching.</p>
-                  <p className="text-muted-foreground font-mono">◇ Malice is met with removal.</p>
-                  <p className="text-muted-foreground font-mono">◇ Safety is not censorship—it's fertile soil.</p>
-                  <p className="text-muted-foreground font-mono">◆ We are not apolitical. We are intentionally just.</p>
+                <div className="grid md:grid-cols-2 gap-4 ml-4">
+                  <div className="space-y-2">
+                    <p className="text-muted-foreground font-mono">◆ We side with the marginalized—always.</p>
+                    <p className="text-muted-foreground font-mono">◇ Harmful ideologies aren't welcome.</p>
+                    <p className="text-muted-foreground font-mono">◆ We investigate harm with empathy.</p>
+                    <p className="text-muted-foreground font-mono">◇ Ignorance is met with teaching.</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-muted-foreground font-mono">◇ Malice is met with removal.</p>
+                    <p className="text-muted-foreground font-mono">◇ Safety is not censorship—it's fertile soil.</p>
+                    <p className="text-muted-foreground font-mono">◆ We are not apolitical. We are intentionally just.</p>
+                  </div>
                 </div>
               </div>
 
@@ -274,12 +278,16 @@ const Ethos = () => {
                   </div>
                 </div>
                 
-                <div className="space-y-2 ml-4">
-                  <p className="text-muted-foreground font-mono">• Sustainable selflessness → Help when you can</p>
-                  <p className="text-muted-foreground font-mono">• Compassionate presence → Showing up is enough</p>
-                  <p className="text-muted-foreground font-mono">• Emotional labor → Pause, listen, reflect</p>
-                  <p className="text-muted-foreground font-mono">• Creative optimism → Build toward, not just against</p>
-                  <p className="text-muted-foreground font-mono">• Growth is nonlinear. Belonging starts with intention.</p>
+                <div className="grid md:grid-cols-2 gap-4 ml-4">
+                  <div className="space-y-2">
+                    <p className="text-muted-foreground font-mono">• Sustainable selflessness → Help when you can</p>
+                    <p className="text-muted-foreground font-mono">• Compassionate presence → Showing up is enough</p>
+                    <p className="text-muted-foreground font-mono">• Emotional labor → Pause, listen, reflect</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-muted-foreground font-mono">• Creative optimism → Build toward, not just against</p>
+                    <p className="text-muted-foreground font-mono">• Growth is nonlinear. Belonging starts with intention.</p>
+                  </div>
                 </div>
               </div>
 
