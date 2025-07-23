@@ -22,7 +22,7 @@ const Ethos = () => {
                 <span className="text-accent">⇱</span>
                 <span>DESTINY LIVING NOSTALGIA</span>
               </div>
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex items-center justify-end gap-2 mb-2">
                 <span className="text-accent">⇲</span>
                 <span>ORIGIN ⌈RE⁝DO⌋ NETWORK CORE</span>
               </div>
