@@ -232,7 +232,7 @@ const Ethos = () => {
               </div>
 
               {/* Protocol I */}
-              <div>
+              <div className="border-t border-primary/20 pt-8">
                 <div className="mb-6 text-center">
                   <div className="flex items-center justify-center gap-3 mb-2">
                     <span className="text-xl text-accent">⌈↺</span>
