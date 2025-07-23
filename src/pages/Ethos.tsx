@@ -1,161 +1,298 @@
-
 import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
+import { SimpleBottomWave } from '@/components/waves/SimpleBottomWave';
 import { Header } from '@/components/Header';
-import { ProtocolCard } from '@/components/ethos/ProtocolCard';
-import { ManifestoCard } from '@/components/ethos/ManifestoCard';
+import { Card } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
 import { CoreValueCard } from '@/components/ethos/CoreValueCard';
+import { ProtocolSection } from '@/components/ethos/ProtocolSection';
+import { ProtocolHeader } from '@/components/ethos/ProtocolHeader';
 
 const Ethos = () => {
+  const coreValues = [
+    {
+      title: "Intentionality",
+      points: [
+        "We build slowly, deliberately, without pressure to perform.",
+        "Every post, channel, and feature exists on purpose."
+      ]
+    },
+    {
+      title: "Mutuality",
+      points: [
+        "This isn't an audience—it's a collaboration.",
+        "Everyone contributes. No one builds alone."
+      ]
+    },
+    {
+      title: "Transparency",
+      points: [
+        "We talk openly about how and why things change.",
+        "No \"behind the curtain\" nonsense."
+      ]
+    },
+    {
+      title: "Non-Extractive Culture",
+      points: [
+        "No clout-farming. No recruiting into unpaid labor.",
+        "We connect because we want to."
+      ]
+    },
+    {
+      title: "Gentle Accountability",
+      points: [
+        "Kindness before performance.",
+        "You're allowed to rest. You're allowed to RE⁝DO."
+      ]
+    },
+    {
+      title: "Second-Chance Space",
+      points: [
+        "We are a second-chance space.",
+        "For projects. For people. For possibilities."
+      ]
+    }
+  ];
+
+  const beliefCorePoints = [
+    { symbol: "◆", text: "Everyone deserves another shot", isHighlighted: true },
+    { symbol: "◇", text: "Process > Perfection" },
+    { symbol: "◆", text: "Emotional safety comes first" },
+    { symbol: "◇", text: "Conflict happens—we hold space, not debates" },
+    { symbol: "◆", text: "Creativity heals—it isn't hustle" },
+    { symbol: "◇", text: "This is connection—not content" }
+  ];
+
+  const socialResponsibilityPoints = [
+    { symbol: "◆", text: "We side with the marginalized—always." },
+    { symbol: "◇", text: "Harmful ideologies aren't welcome." },
+    { symbol: "◆", text: "We investigate harm with empathy." },
+    { symbol: "◇", text: "Ignorance is met with teaching." },
+    { symbol: "◇", text: "Malice is met with removal." },
+    { symbol: "◇", text: "Safety is not censorship—it's fertile soil." },
+    { symbol: "◆", text: "We are not apolitical. We are intentionally just." }
+  ];
+
+  const collectiveWellbeingPoints = [
+    { symbol: "◆", text: "Sustainable selflessness → Help when you can" },
+    { symbol: "◆", text: "Compassionate presence → Showing up is enough" },
+    { symbol: "◆", text: "Emotional labor → Pause, listen, reflect" },
+    { symbol: "◆", text: "Creative optimism → Build toward, not just against" },
+    { symbol: "", text: "Growth is nonlinear. Belonging starts with intention." }
+  ];
+
+  const rehumanizationPoints = [
+    { symbol: "◇", text: "We are not brands." },
+    { symbol: "◇", text: "We are not content streams." },
+    { symbol: "⇲", text: "Unlearn → extraction, objectification, performance" },
+    { symbol: "⇲", text: "Relearn → consent, equity, emotional permission" },
+    { symbol: "↺", text: "Shift: shape spaces that shape behaviour" }
+  ];
+
   return (
     <div className="min-h-screen relative">
       <GenerativeBackground />
+      <div className="fixed bottom-0 left-0 right-0 overflow-hidden pointer-events-none">
+        <SimpleBottomWave />
+      </div>
       <Header />
       
-      <main className="pt-24 pb-16 px-6">
-        <div className="max-w-4xl mx-auto space-y-8">
-          {/* Main Title */}
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <span className="text-3xl text-accent">⌈</span>
-              <h1 className="text-4xl font-bold font-mono text-primary">
-                「RE:DO NETWORK」ETHOS
-              </h1>
-              <span className="text-3xl text-accent">⌋</span>
+      <main className="relative z-10 pt-20 px-4 max-w-6xl mx-auto pb-20">
+          
+        {/* System Log Header */}
+        <Card className="mb-8 bg-gradient-to-r from-card/90 to-card/70 backdrop-blur-sm border-2 border-primary/30 shadow-glow">
+          <div className="p-6 font-mono text-sm">
+            <div className="text-primary/80 mb-4">
+              <div className="flex items-center justify-end gap-2 mb-2">
+                <span className="text-accent">⇱</span>
+                <span>DESTINY LIVING NOSTALGIA</span>
+              </div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-accent">⇲</span>
+                <span>ORIGIN ⌈RE⁝DO⌋ NETWORK CORE</span>
+              </div>
             </div>
-            <p className="text-xl text-muted-foreground font-mono">
-              【OPERATIONAL PROTOCOLS & NETWORK MANIFESTO】
-            </p>
+            
+            <Separator className="my-6 bg-primary/20" />
+            
+            <div className="text-center space-y-4">
+              <h1 className="text-3xl md:text-4xl font-bold text-primary">
+                ⌈RE⁝DO⌋ COMMUNITY ETHOS
+              </h1>
+              <p className="text-xl text-accent italic">
+                【Inspired by the Web of Yesterday—Forged by Us】
+              </p>
+              <p className="text-muted-foreground">
+                ⩤ A Living Code for Intentional Connection ⩥
+              </p>
+            </div>
           </div>
+        </Card>
 
-          {/* Manifesto Section */}
-          <ManifestoCard
-            title="NETWORK MANIFESTO"
-            content={
-              <div className="space-y-6">
-                <p className="text-lg font-mono text-foreground">
-                  「RE:DO NETWORK」operates as a <strong className="text-primary">creative-technical collective</strong>, 
-                  where multimedia artistry converges with cutting-edge development practices.
+        {/* Core Values Card */}
+        <Card className="mb-8 bg-card/80 backdrop-blur-sm border-l-4 border-l-primary">
+          <div className="p-8">
+            <div className="grid md:grid-cols-3 gap-6">
+              {coreValues.map((value, index) => (
+                <CoreValueCard key={index} title={value.title} points={value.points} />
+              ))}
+            </div>
+          </div>
+        </Card>
+
+        {/* System Intent Card */}
+        <Card className="mb-8 bg-card/80 backdrop-blur-sm border-l-4 border-l-accent">
+          <div className="p-8">
+            <div className="text-center">
+              <ProtocolHeader 
+                title="SYSTEM INTENT ≣ ⌈RE⁝DO⌋ PHILOSOPHY"
+              />
+              <div className="space-y-4">
+                <p className="text-lg text-center">
+                  ⌈↺ RE⁝DO is our code for compassionate iteration. ⌋
                 </p>
-                
-                <div className="grid md:grid-cols-2 gap-6 mt-8">
-                  <div className="space-y-3">
-                    <h3 className="text-lg font-semibold text-primary flex items-center gap-2">
-                      <span className="text-accent">◆</span> Creative Excellence
-                    </h3>
-                    <p className="text-muted-foreground">
-                      We push boundaries in multimedia expression, blending traditional artistry with digital innovation.
-                    </p>
+                <div className="text-center text-muted-foreground">
+                  <span className="text-accent">⇉</span>
+                  <span>Every collaboration</span>
+                  <span className="text-accent">⇉</span>
+                  <span>re:connection</span>
+                  <span className="text-accent">⇉</span>
+                  <span>re:flection</span>
+                  <span className="text-accent">⇉</span>
+                  <span>re:imagination.</span>
+                </div>
+                <div className="space-y-2 mt-6 text-center">
+                  <div className="text-lg">
+                    <span className="text-accent">◆</span>
+                    <span className="ml-2">We're not recreating nostalgia.</span>
                   </div>
-                  
-                  <div className="space-y-3">
-                    <h3 className="text-lg font-semibold text-primary flex items-center gap-2">
-                      <span className="text-accent">◆</span> Technical Mastery
-                    </h3>
-                    <p className="text-muted-foreground">
-                      Our development practices embrace both proven methodologies and experimental approaches.
-                    </p>
+                  <div className="text-lg">
+                    <span className="text-accent">◇</span>
+                    <span className="ml-2">We're engineering the future we actually want.</span>
                   </div>
                 </div>
               </div>
-            }
-          />
-
-          {/* Protocol I */}
-          <ProtocolCard
-            title="PROTOCOL I: ITERATIVE REFINEMENT"
-            logId="PROTO-001"
-            subtitle="Continuous Evolution Through Structured Experimentation"
-            points={[
-              { symbol: "◇", text: "Every project undergoes systematic iteration cycles" },
-              { symbol: "◇", text: "Feedback loops integrate both technical and creative perspectives" },
-              { symbol: "◇", text: "Version control maintains historical context for all creative decisions" },
-              { symbol: "◇", text: "Regular retrospectives guide strategic pivots and improvements", isHighlighted: true },
-              { symbol: "◇", text: "Documentation preserves the reasoning behind each iteration" }
-            ]}
-          />
-
-          {/* Protocol II */}
-          <ProtocolCard
-            title="PROTOCOL II: COLLABORATIVE SYNTHESIS"
-            logId="PROTO-002"
-            subtitle="Harmonizing Individual Expertise Within Collective Vision"
-            points={[
-              { symbol: "◇", text: "Cross-disciplinary collaboration drives innovation beyond individual capabilities" },
-              { symbol: "◇", text: "Shared knowledge repositories accelerate collective learning" },
-              { symbol: "◇", text: "Regular sync sessions maintain alignment across diverse skill sets", isHighlighted: true },
-              { symbol: "◇", text: "Peer review processes ensure quality while fostering knowledge transfer" },
-              { symbol: "◇", text: "Open communication channels support both synchronous and asynchronous collaboration" }
-            ]}
-          />
-
-          {/* Protocol III */}
-          <ProtocolCard
-            title="PROTOCOL III: REHUMANIZATION"
-            logId="PROTO-003"
-            subtitle="Technology Serving Human Expression & Connection"
-            points={[
-              { symbol: "◇", text: "Technology amplifies rather than replaces human creativity" },
-              { symbol: "◇", text: "User experience prioritizes emotional resonance over pure functionality" },
-              { symbol: "◇", text: "Accessibility ensures inclusive participation across diverse communities", isHighlighted: true },
-              { symbol: "◇", text: "Ethical considerations guide all technical and creative decisions" },
-              { symbol: "◇", text: "Human agency remains central in all automated processes" }
-            ]}
-          />
-
-          {/* Core Values */}
-          <div className="grid md:grid-cols-2 gap-8 mt-12">
-            <CoreValueCard
-              title="EXPERIMENTAL MINDSET"
-              points={[
-                "Embrace controlled risk-taking in creative and technical domains",
-                "Learn rapidly from both successes and failures",
-                "Maintain curiosity about emerging technologies and methodologies"
-              ]}
-            />
-            
-            <CoreValueCard
-              title="CRAFT EXCELLENCE"
-              points={[
-                "Pursue mastery in chosen disciplines while remaining adaptable",
-                "Balance perfectionism with pragmatic delivery timelines",
-                "Celebrate both technical precision and creative innovation"
-              ]}
-            />
-            
-            <CoreValueCard
-              title="COLLECTIVE GROWTH"
-              points={[
-                "Prioritize knowledge sharing and mentorship within the network",
-                "Support individual development paths while strengthening team cohesion",
-                "Recognize contributions across all skill levels and experience ranges"
-              ]}
-            />
-            
-            <CoreValueCard
-              title="SUSTAINABLE IMPACT"
-              points={[
-                "Build projects with long-term viability and positive social impact",
-                "Maintain work-life integration that supports sustained creativity",
-                "Consider environmental and social implications of technical choices"
-              ]}
-            />
-          </div>
-
-          {/* Closing Statement */}
-          <div className="mt-16 text-center space-y-4">
-            <div className="flex items-center justify-center gap-3">
-              <span className="text-2xl text-accent">⟨</span>
-              <p className="text-lg font-mono text-primary">
-                【NETWORK STATUS: OPERATIONAL】
-              </p>
-              <span className="text-2xl text-accent">⟩</span>
             </div>
-            <p className="text-muted-foreground font-mono">
-              These protocols guide our collective evolution as we RE:DO the landscape of creative technology.
-            </p>
           </div>
-        </div>
+        </Card>
+
+        {/* Active Protocols Card */}
+        <Card className="mb-8 bg-card/80 backdrop-blur-sm border border-primary/30">
+          <div className="p-8">
+            <div className="space-y-8">
+              {/* Belief Core */}
+              <div>
+                <ProtocolHeader 
+                  title="BELIEF CORE ≣ FOUNDATIONAL PRINCIPLES"
+                  logId="CORE"
+                />
+                <div className="space-y-2 text-center">
+                  {beliefCorePoints.map((point, index) => (
+                    <p 
+                      key={index} 
+                      className={`font-mono ${point.isHighlighted ? 'text-foreground font-bold' : 'text-muted-foreground'}`}
+                    >
+                      <span className="text-accent font-bold">{point.symbol}</span> {point.text}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              {/* Protocol I */}
+              <ProtocolSection
+                title="ACTIVE PROTOCOL ≣ SOCIAL RESPONSIBILITY"
+                logId="I"
+                subtitle="This space is not neutral."
+                points={socialResponsibilityPoints}
+              />
+
+              {/* Protocol II */}
+              <ProtocolSection
+                title="ACTIVE PROTOCOL ≣ COLLECTIVE WELLBEING"
+                logId="II"
+                subtitle="Build the culture you want to inhabit."
+                points={collectiveWellbeingPoints}
+              />
+
+              {/* Protocol III */}
+              <div className="border-t border-primary/20 pt-8">
+                <ProtocolHeader 
+                  title="ACTIVE PROTOCOL ≣ REHUMANIZATION"
+                  logId="III"
+                />
+                <div className="space-y-2 text-center">
+                  <div className="mt-3 text-lg font-medium">
+                    <span className="text-accent font-bold">◆</span> We are people—co-creating human space.
+                  </div>
+                  {rehumanizationPoints.map((point, index) => (
+                    <p key={index} className="text-muted-foreground font-mono">
+                      <span className="text-accent font-bold">{point.symbol}</span> {point.text}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        {/* Final Heartbeat Card */}
+        <Card className="bg-gradient-to-r from-primary/20 to-accent/20 border-2 border-primary/40 shadow-glow">
+          <div className="p-8">
+            <div className="space-y-8">
+              {/* Social Etiquette */}
+              <div>
+                <ProtocolHeader 
+                  title="SOCIAL ETIQUETTE ≣ SHARED PRACTICES"
+                />
+                <div className="space-y-4 mb-6 text-center">
+                  <div className="text-center">
+                    <span className="text-accent">◆</span>
+                    <span className="ml-2">Engage in good faith</span>
+                  </div>
+                  <div className="text-center">
+                    <span className="text-accent">◆</span>
+                    <span className="ml-2">Embrace constructive conflict</span>
+                  </div>
+                  <div className="text-center">
+                    <span className="text-accent">◆</span>
+                    <span className="ml-2">Share the space generously</span>
+                  </div>
+                </div>
+                <div className="space-y-2 text-center">
+                  <div className="flex items-center justify-center gap-3">
+                    <span className="text-accent font-bold">◆</span>
+                    <span>We aren't here to argue.</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-3">
+                    <span className="text-accent font-bold">◆</span>
+                    <span>We're here to build connection.</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Final Heartbeat */}
+              <div className="border-t border-primary/20 pt-8 text-center">
+                <div className="font-mono text-primary mb-4">【FINAL ↺ HEARTBEAT】</div>
+                <div className="space-y-4 text-lg">
+                  <div className="space-y-2">
+                    <p className="font-medium">「This isn't the web we were handed.」</p>
+                    <p className="font-medium">「It's the one we're making—together.」</p>
+                  </div>
+                  <div className="space-y-1 text-accent">
+                    <div className="flex items-center justify-center gap-3">
+                      <span>◆</span>
+                      <span>You're not late. You're right on time.</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-3">
+                      <span>◆</span>
+                      <span className="font-bold text-primary">Welcome to ⌈RE⁝DO⌋.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
       </main>
     </div>
   );
