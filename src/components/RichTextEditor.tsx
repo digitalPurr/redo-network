@@ -42,8 +42,7 @@ import {
   XCircle,
   Minus,
   MoreHorizontal,
-  Type,
-  Separator
+  Type
 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
@@ -424,7 +423,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
             </Tooltip>
             <DropdownMenuContent>
               <DropdownMenuItem onClick={() => editor.chain().focus().setDivider({ style: 'solid' }).run()}>
-                <Separator className="h-4 w-4 mr-2" />
+                <Minus className="h-4 w-4 mr-2" />
                 Solid Line
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => editor.chain().focus().setDivider({ style: 'dashed' }).run()}>
