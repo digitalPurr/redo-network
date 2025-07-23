@@ -1,11 +1,9 @@
+
 import React, { useState } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Image from '@tiptap/extension-image';
 import Youtube from '@tiptap/extension-youtube';
-import Underline from '@tiptap/extension-underline';
-import Strike from '@tiptap/extension-strike';
-import Code from '@tiptap/extension-code';
 import TextAlign from '@tiptap/extension-text-align';
 import { Color } from '@tiptap/extension-color';
 import { TextStyle } from '@tiptap/extension-text-style';
@@ -40,7 +38,6 @@ import {
   Music,
   Video as VideoIcon,
   AudioLines,
-  Palette,
   Undo,
   Redo,
   Upload,
@@ -53,8 +50,6 @@ import {
   CheckCircle,
   XCircle,
   Minus,
-  MoreHorizontal,
-  Type,
   TableIcon,
   Code2,
   ChevronDown,
@@ -88,7 +83,6 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
   profileId
 }) => {
   const { user } = useAuth();
-  const [showColorPicker, setShowColorPicker] = useState(false);
   
   // Auto-save hook
   const { hasUnsavedChanges } = useAutoSave({
@@ -100,10 +94,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
   
   const editor = useEditor({
     extensions: [
-      StarterKit,
-      Underline,
-      Strike,
-      Code,
+      StarterKit, // This includes Bold, Italic, Code, Strike, etc.
       TextAlign.configure({
         types: ['heading', 'paragraph'],
       }),
@@ -137,6 +128,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         class: 'prose prose-lg max-w-none focus:outline-none min-h-[400px] p-4',
       },
     },
+    autofocus: false, // Prevent auto-focus issues
   });
 
   const uploadFile = async (file: File, type: 'image' | 'video' | 'audio') => {
@@ -296,14 +288,6 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
                 tooltip="Italic (Ctrl+I)"
               >
                 <Italic className="h-4 w-4" />
-              </ToolbarButton>
-
-              <ToolbarButton
-                onClick={() => editor.chain().focus().toggleUnderline().run()}
-                isActive={editor.isActive('underline')}
-                tooltip="Underline (Ctrl+U)"
-              >
-                <UnderlineIcon className="h-4 w-4" />
               </ToolbarButton>
 
               <ToolbarButton

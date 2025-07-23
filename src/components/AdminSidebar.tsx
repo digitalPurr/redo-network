@@ -8,7 +8,8 @@ import {
   Users, 
   FolderOpen,
   Settings,
-  FileText
+  FileText,
+  History
 } from 'lucide-react';
 
 const AdminSidebar = () => {
@@ -26,6 +27,12 @@ const AdminSidebar = () => {
       title: 'Projects',
       href: '/admin/projects',
       icon: FolderOpen,
+      roles: ['network-admin', 'project-lead']
+    },
+    {
+      title: 'Portfolio',
+      href: '/admin/portfolio',
+      icon: History,
       roles: ['network-admin', 'project-lead']
     },
     {
