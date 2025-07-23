@@ -21,7 +21,7 @@ const Ethos = () => {
         <Card className="mb-8 bg-gradient-to-r from-card/90 to-card/70 backdrop-blur-sm border-2 border-primary/30 shadow-glow">
           <div className="p-6 font-mono text-sm">
             <div className="text-primary/80 mb-4">
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex items-center justify-end gap-2 mb-2">
                 <span className="text-accent">⇱</span>
                 <span>DESTINY LIVING NOSTALGIA</span>
               </div>
