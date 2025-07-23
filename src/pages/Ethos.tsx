@@ -158,11 +158,11 @@ const Ethos = () => {
                   <div className="space-y-3 text-center">
                     <div className="text-lg">
                       <span className="text-accent">◆</span>
-                      <span className="ml-2">We are a second-chance space.</span>
+                      <p className="text-muted-foreground text-sm">We are a second-chance space.</span>
                     </div>
                     <div className="text-lg">
                       <span className="text-accent">◇</span>
-                      <span className="ml-2">For projects. For people. For possibilities.</span>
+                      <p className="text-muted-foreground text-sm">For projects. For people. For possibilities.</span>
                     </div>
                   </div>
                 </Card>
@@ -255,12 +255,12 @@ const Ethos = () => {
                 
                 <div className="space-y-2 ml-4">
                   <p className="text-muted-foreground font-mono">◆ We side with the marginalized—always.</p>
-                  <p className="text-muted-foreground font-mono">• Harmful ideologies aren't welcome.</p>
-                  <p className="text-muted-foreground font-mono">• We investigate harm with empathy.</p>
-                  <p className="text-muted-foreground font-mono">• Ignorance is met with teaching.</p>
-                  <p className="text-muted-foreground font-mono">• Malice is met with removal.</p>
-                  <p className="text-muted-foreground font-mono">• Safety is not censorship—it's fertile soil.</p>
-                  <p className="text-muted-foreground font-mono">• We are not apolitical. We are intentionally just.</p>
+                  <p className="text-muted-foreground font-mono">◇ Harmful ideologies aren't welcome.</p>
+                  <p className="text-muted-foreground font-mono">◆ We investigate harm with empathy.</p>
+                  <p className="text-muted-foreground font-mono">◇ Ignorance is met with teaching.</p>
+                  <p className="text-muted-foreground font-mono">◇ Malice is met with removal.</p>
+                  <p className="text-muted-foreground font-mono">◇ Safety is not censorship—it's fertile soil.</p>
+                  <p className="text-muted-foreground font-mono">◆ We are not apolitical. We are intentionally just.</p>
                 </div>
               </div>
 
@@ -304,7 +304,7 @@ const Ethos = () => {
                   <p className="text-muted-foreground font-mono">◇ We are not content streams.</p>
                   <p className="text-muted-foreground font-mono">⇲ Unlearn: extraction, objectification, performance</p>
                   <p className="text-muted-foreground font-mono">⇲ Relearn: consent, equity, emotional permission</p>
-                  <p className="text-muted-foreground font-mono">⇲ Shift: shape spaces that shape behaviour</p>
+                  <p className="text-muted-foreground font-mono">↺ Shift: shape spaces that shape behaviour</p>
                 </div>
               </div>
             </div>
