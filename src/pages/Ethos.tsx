@@ -51,8 +51,8 @@ const Ethos = () => {
         <Card className="mb-8 bg-card/80 backdrop-blur-sm border-l-4 border-l-primary">
           <div className="p-8">
             <div className="space-y-8">
-              {/* Core Values */}
-              <div className="grid md:grid-cols-2 gap-6">
+              {/* Core Values - 3 columns */}
+              <div className="grid md:grid-cols-3 gap-6">
                 <div className="border-l-2 border-primary/30 pl-6">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-xl text-accent">⩤</span>
@@ -143,7 +143,7 @@ const Ethos = () => {
                   </div>
                 </div>
 
-                <div className="md:col-span-2 border-l-2 border-primary/30 pl-6">
+                <div className="border-l-2 border-primary/30 pl-6">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-xl text-accent">⩤</span>
                     <h3 className="text-lg font-semibold text-primary">Second-Chance Space</h3>
@@ -165,29 +165,29 @@ const Ethos = () => {
               {/* Belief Core */}
               <div className="border-t border-primary/20 pt-8">
                 <div className="space-y-3 text-center">
-                  <div className="flex items-center justify-center gap-3">
+                  <div className="text-center">
                     <span className="text-primary">•</span>
-                    <p className="text-foreground">Everyone deserves another shot</p>
+                    <span className="ml-2">Everyone deserves another shot</span>
                   </div>
-                  <div className="flex items-center justify-center gap-3">
+                  <div className="text-center">
                     <span className="text-primary">•</span>
-                    <p className="text-foreground">Process &gt; Perfection</p>
+                    <span className="ml-2">Process &gt; Perfection</span>
                   </div>
-                  <div className="flex items-center justify-center gap-3">
+                  <div className="text-center">
                     <span className="text-primary">•</span>
-                    <p className="text-foreground">Emotional safety comes first</p>
+                    <span className="ml-2">Emotional safety comes first</span>
                   </div>
-                  <div className="flex items-center justify-center gap-3">
+                  <div className="text-center">
                     <span className="text-primary">•</span>
-                    <p className="text-foreground">Conflict happens—we hold space, not debates</p>
+                    <span className="ml-2">Conflict happens—we hold space, not debates</span>
                   </div>
-                  <div className="flex items-center justify-center gap-3">
+                  <div className="text-center">
                     <span className="text-primary">•</span>
-                    <p className="text-foreground">Creativity heals—it isn't hustle</p>
+                    <span className="ml-2">Creativity heals—it isn't hustle</span>
                   </div>
-                  <div className="flex items-center justify-center gap-3">
+                  <div className="text-center">
                     <span className="text-primary">•</span>
-                    <p className="text-foreground">This is connection—not content</p>
+                    <span className="ml-2">This is connection—not content</span>
                   </div>
                 </div>
               </div>
@@ -205,7 +205,7 @@ const Ethos = () => {
               <p className="text-lg">
                 "RE⁝DO" is our code for compassionate iteration.
               </p>
-              <div className="flex items-center justify-center gap-3 text-muted-foreground">
+              <div className="text-center text-muted-foreground">
                 <span className="text-accent">⇉</span>
                 <span>Every collaboration</span>
                 <span className="text-accent">⇉</span>
@@ -314,17 +314,17 @@ const Ethos = () => {
               <div>
                 <h2 className="text-2xl font-bold font-mono text-primary mb-4">【SOCIAL ETIQUETTE // SHARED PRACTICES】</h2>
                 <div className="space-y-4 mb-6 text-center">
-                  <div className="flex items-center justify-center gap-3">
+                  <div className="text-center">
                     <span className="text-accent">◇</span>
-                    <span className="text-foreground">Engage in good faith</span>
+                    <span className="ml-2">Engage in good faith</span>
                   </div>
-                  <div className="flex items-center justify-center gap-3">
+                  <div className="text-center">
                     <span className="text-accent">◇</span>
-                    <span className="text-foreground">Embrace constructive conflict</span>
+                    <span className="ml-2">Embrace constructive conflict</span>
                   </div>
-                  <div className="flex items-center justify-center gap-3">
+                  <div className="text-center">
                     <span className="text-accent">◇</span>
-                    <span className="text-foreground">Share the space generously</span>
+                    <span className="ml-2">Share the space generously</span>
                   </div>
                 </div>
                 <div className="space-y-2 text-center">
