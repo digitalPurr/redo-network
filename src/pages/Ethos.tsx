@@ -299,10 +299,9 @@ const Ethos = () => {
                 </div>
                 
                 <div className="space-y-2 ml-4">
-                  <p className="text-muted-foreground font-mono">⇲ We are people—co-creating human space.</p>
-                  <p className="text-muted-foreground font-mono">⇲ We are not brands.</p>
-                  <p className="text-muted-foreground font-mono">⇲ We are not content streams.</p>
-                  <p className="text-muted-foreground font-mono">⇲ We are people—co-creating human space.</p>
+                  <p className="text-muted-foreground font-mono">◆ We are people—co-creating human space.</p>
+                  <p className="text-muted-foreground font-mono">◇ We are not brands.</p>
+                  <p className="text-muted-foreground font-mono">◇ We are not content streams.</p>
                   <p className="text-muted-foreground font-mono">⇲ Unlearn: extraction, objectification, performance</p>
                   <p className="text-muted-foreground font-mono">⇲ Relearn: consent, equity, emotional permission</p>
                   <p className="text-muted-foreground font-mono">⇲ Shift: shape spaces that shape behaviour</p>
