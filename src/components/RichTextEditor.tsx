@@ -125,10 +125,24 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
     },
     editorProps: {
       attributes: {
-        class: 'prose prose-lg max-w-none focus:outline-none min-h-[400px] p-4',
+        class: 'prose prose-lg max-w-none focus:outline-none min-h-[200px] p-4',
+        'data-testid': 'rich-text-editor',
+      },
+      handleDOMEvents: {
+        focus: (view, event) => {
+          // Prevent dialog from stealing focus
+          event.stopPropagation();
+          return false;
+        },
+        blur: (view, event) => {
+          // Prevent focus loss from bubbling up
+          event.stopPropagation();
+          return false;
+        },
       },
     },
-    autofocus: false, // Prevent auto-focus issues
+    autofocus: false,
+    editable: true,
   });
 
   const uploadFile = async (file: File, type: 'image' | 'video' | 'audio') => {
