@@ -14,6 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
+      contact_submissions: {
+        Row: {
+          admin_notes: string | null
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          priority: string
+          resolved_at: string | null
+          status: string
+          subject: string
+          type: string
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          priority?: string
+          resolved_at?: string | null
+          status?: string
+          subject: string
+          type?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          priority?: string
+          resolved_at?: string | null
+          status?: string
+          subject?: string
+          type?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       discord_config: {
         Row: {
           channel_id: string
@@ -297,6 +345,39 @@ export type Database = {
         }
         Relationships: []
       }
+      security_events: {
+        Row: {
+          created_at: string
+          details: Json
+          event_type: string
+          id: string
+          ip_address: unknown | null
+          severity: string
+          user_agent: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          details?: Json
+          event_type: string
+          id?: string
+          ip_address?: unknown | null
+          severity?: string
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          details?: Json
+          event_type?: string
+          id?: string
+          ip_address?: unknown | null
+          severity?: string
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       site_content: {
         Row: {
           content: Json | null
@@ -415,6 +496,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      check_contact_rate_limit: {
+        Args: { user_email: string; user_id_param?: string }
+        Returns: boolean
+      }
       get_current_user_role: {
         Args: Record<PropertyKey, never>
         Returns: Database["public"]["Enums"]["app_role"]

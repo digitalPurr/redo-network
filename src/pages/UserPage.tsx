@@ -101,7 +101,7 @@ const UserPage: React.FC = () => {
       if (!projectsError && projectsData) {
         const userProjects = projectsData
           .map(pm => pm.projects)
-          .filter(Boolean) as Project[];
+          .filter(Boolean) as any[];
         setProjects(userProjects);
       }
     } catch (error) {

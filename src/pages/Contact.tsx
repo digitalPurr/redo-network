@@ -1,36 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { GenerativeBackground } from '@/components/GenerativeBackground';
 import { Header } from '@/components/Header';
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { toast } from "sonner";
 import { SimpleBottomWave } from '@/components/waves/SimpleBottomWave';
 import { Mail, MessageSquare, Users, Zap } from 'lucide-react';
+import ContactForm from '@/components/ContactForm';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Implement form submission
-    console.log('Form submitted:', formData);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
   const contactTypes = [
     {
       icon: <Users className="h-6 w-6" />,
@@ -87,7 +63,6 @@ const Contact = () => {
                   group p-6 bg-gradient-card border-border/50 hover:shadow-card 
                   transition-all duration-500 hover:scale-105 cursor-pointer
                 `}
-                onClick={() => setFormData(prev => ({ ...prev, subject: type.action }))}
               >
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center text-primary-foreground group-hover:shadow-glow transition-all duration-300">
@@ -106,66 +81,8 @@ const Contact = () => {
             ))}
           </div>
 
-          {/* Contact Form */}
-          <Card className="p-8 bg-gradient-card border-border/50">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your name"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your.email@example.com"
-                    required
-                  />
-                </div>
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="subject">Subject</Label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="What's this about?"
-                  required
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your project, idea, or question..."
-                  rows={6}
-                  required
-                />
-              </div>
-              
-              <Button type="submit" variant="hero" size="lg" className="w-full">
-                Send Message
-                <Mail className="h-5 w-5" />
-              </Button>
-            </form>
-          </Card>
+          {/* Enhanced Contact Form */}
+          <ContactForm />
 
           {/* Additional Contact Info */}
           <div className="text-center mt-12">
