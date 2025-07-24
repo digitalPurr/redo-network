@@ -425,15 +425,13 @@ const PortfolioManagement = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <TooltipField tooltip="Provide a brief description of your project (this will be shown in card previews)">
+                  <TooltipField tooltip="Provide a rich description of your project (this will be shown in card previews)">
                     <div>
                       <Label htmlFor="description">Brief Description</Label>
-                      <Textarea
-                        id="description"
-                        value={newItem.description}
-                        onChange={(e) => setNewItem(prev => ({ ...prev, description: e.target.value }))}
+                      <RichTextEditor
+                        content={newItem.description}
+                        onChange={(content) => setNewItem(prev => ({ ...prev, description: content }))}
                         placeholder="A brief description of your project..."
-                        rows={3}
                       />
                     </div>
                   </TooltipField>

@@ -94,16 +94,28 @@ const PortfolioTimeline: React.FC = () => {
           likes,
           created_at,
           updated_at,
-          user_id
+          user_id,
+          category,
+          project_url,
+          demo_url,
+          image_url
         `)
         .eq('approval_status', 'approved')
+        .eq('published', true)
         .order('created_at', { ascending: false });
 
       if (error) throw error;
 
       // Fetch profiles separately to avoid join issues
       const userIds = [...new Set(data?.map(p => p.user_id).filter(Boolean) || [])];
-      let profilesData: any[] = [];
+      let profilesData: Array<{
+        id: string;
+        display_name: string | null;
+        first_name: string | null;
+        last_name: string | null;
+        avatar_url: string | null;
+        job_title: string | null;
+      }> = [];
       
       if (userIds.length > 0) {
         const { data: profiles, error: profilesError } = await supabase
