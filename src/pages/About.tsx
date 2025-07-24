@@ -8,6 +8,7 @@ import { ProtocolHeader } from '@/components/ethos/ProtocolHeader';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
+// About page - redesigned for unique content and improved UX
 const About = () => {
   const navigate = useNavigate();
   
