@@ -104,6 +104,35 @@ export type Database = {
           },
         ]
       }
+      portfolio_likes: {
+        Row: {
+          created_at: string | null
+          id: string
+          portfolio_project_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          portfolio_project_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          portfolio_project_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "portfolio_likes_portfolio_project_id_fkey"
+            columns: ["portfolio_project_id"]
+            isOneToOne: false
+            referencedRelation: "portfolio_projects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       portfolio_projects: {
         Row: {
           approval_status: string | null
@@ -178,6 +207,7 @@ export type Database = {
           avatar_url: string | null
           bio: string | null
           created_at: string
+          display_name: string | null
           email: string
           first_name: string | null
           github_url: string | null
@@ -205,6 +235,7 @@ export type Database = {
           avatar_url?: string | null
           bio?: string | null
           created_at?: string
+          display_name?: string | null
           email: string
           first_name?: string | null
           github_url?: string | null
@@ -232,6 +263,7 @@ export type Database = {
           avatar_url?: string | null
           bio?: string | null
           created_at?: string
+          display_name?: string | null
           email?: string
           first_name?: string | null
           github_url?: string | null
