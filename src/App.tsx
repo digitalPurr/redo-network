@@ -23,6 +23,7 @@ import AdminProjects from "./pages/AdminProjects";
 import AdminTeam from "./pages/AdminTeam";
 import AdminSiteContent from "./pages/AdminSiteContent";
 import AdminPortfolio from "./pages/AdminPortfolio";
+import AdminNavigation from "./pages/AdminNavigation";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
@@ -78,6 +79,11 @@ const App = () => (
             <Route path="/admin/site-content" element={
               <ProtectedRoute requiredRole="project-lead">
                 <AdminSiteContent />
+              </ProtectedRoute>
+            } />
+            <Route path="/admin/navigation" element={
+              <ProtectedRoute allowedRoles={['network-admin', 'project-lead']}>
+                <AdminNavigation />
               </ProtectedRoute>
             } />
             <Route path="*" element={<NotFound />} />

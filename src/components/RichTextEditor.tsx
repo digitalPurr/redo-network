@@ -130,13 +130,27 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
       },
       handleDOMEvents: {
         focus: (view, event) => {
-          // Prevent dialog from stealing focus
+          // Prevent dialog from stealing focus and ensure editor gets focus
           event.stopPropagation();
+          if (!view.hasFocus()) {
+            setTimeout(() => view.focus(), 0);
+          }
+          return false;
+        },
+        click: (view, event) => {
+          // Ensure editor gets focus when clicked, especially in dialog contexts
+          event.stopPropagation();
+          if (!view.hasFocus()) {
+            setTimeout(() => view.focus(), 0);
+          }
           return false;
         },
         blur: (view, event) => {
-          // Prevent focus loss from bubbling up
-          event.stopPropagation();
+          // Only prevent focus loss from bubbling if it's not intentional
+          if (event.relatedTarget && view.dom.contains(event.relatedTarget as Node)) {
+            event.stopPropagation();
+            return false;
+          }
           return false;
         },
       },

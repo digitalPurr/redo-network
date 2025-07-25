@@ -62,6 +62,42 @@ export type Database = {
         }
         Relationships: []
       }
+      custom_pages: {
+        Row: {
+          author_id: string
+          content: Json
+          created_at: string
+          id: string
+          meta_description: string | null
+          published: boolean
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          author_id: string
+          content?: Json
+          created_at?: string
+          id?: string
+          meta_description?: string | null
+          published?: boolean
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          author_id?: string
+          content?: Json
+          created_at?: string
+          id?: string
+          meta_description?: string | null
+          published?: boolean
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       discord_config: {
         Row: {
           channel_id: string
@@ -103,6 +139,42 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      navigation_items: {
+        Row: {
+          created_at: string
+          icon: string | null
+          id: string
+          is_custom: boolean
+          position: number
+          title: string
+          updated_at: string
+          url: string
+          visible: boolean
+        }
+        Insert: {
+          created_at?: string
+          icon?: string | null
+          id?: string
+          is_custom?: boolean
+          position?: number
+          title: string
+          updated_at?: string
+          url: string
+          visible?: boolean
+        }
+        Update: {
+          created_at?: string
+          icon?: string | null
+          id?: string
+          is_custom?: boolean
+          position?: number
+          title?: string
+          updated_at?: string
+          url?: string
+          visible?: boolean
+        }
+        Relationships: []
       }
       portfolio_likes: {
         Row: {
